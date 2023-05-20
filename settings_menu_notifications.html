@@ -127,125 +127,20 @@
         </div>
         <div class="beanding-tab-content">
             <form>
-                <div class="row">
-                    <div class="col-12 col-md-4 mb-3">
-                        <label for="default-calender-view" class="form-label branding-form-label"> Default Calendar View</label>
-                         <select class="form-select" aria-label="default-calender-view">
-                            <option selected>Week</option>
-                            <option value="1">Day</option>
-                            <option value="2">Month</option>
-                            <option value="3">Work</option>
-                            <option value="5">Agenda</option>
-                            <option value="6">Year</option>
-                     
-                          </select>
-                    </div>
-                    <span class="to-div mx-2 w-auto font-600 d-flex align-items-sm-end vis-hid mb-3">to</span>
-                  
-                    <div class="col-12 col-md-4 mb-3">
-                        <label for="week-start" class="form-label branding-form-label"> Week Starts On</label>
-                        <select class="form-select" aria-label="week-start">
-                           <option selected>Monday</option>
-                           <option value="1">Sunday</option>
-                           <option value="3">Tuesday</option>
-                           <option value="4">Wednesday</option>
-                           <option value="5">Thursday</option>
-                           <option value="6">Friday</option>
-                           <option value="7">Saturday</option>
-                         </select>
-                  
-                    </div>
-                    <div class="d-md-block w-100 d-none"></div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <label for="work-week" class="form-label branding-form-label">Work Week</label>
-                         <select class="form-select" aria-label="work-week">
-                            <option selected>Monday</option>
-                            <option value="1">Sunday</option>
-                            <option value="3">Tuesday</option>
-                            <option value="4">Wednesday</option>
-                            <option value="5">Thursday</option>
-                            <option value="6">Friday</option>
-                            <option value="7">Saturday</option>
-                         
-                          </select>
-                    </div>
-                    <span class="to-div mx-2 w-auto font-600 d-flex align-items-sm-end mb-3">to</span>
-                    <div class="col-12 col-md-4 mb-3">
-                        <label for="week-start" class="form-label branding-form-label vis-hid"> Week Starts On</label>
-                        <select class="form-select" aria-label="week-start">
-                            <option selected>Monday</option>
-                            <option value="1">Sunday</option>
-                            <option value="3">Tuesday</option>
-                            <option value="4">Wednesday</option>
-                            <option value="5">Thursday</option>
-                            <option value="6">Friday</option>
-                            <option value="7">Saturday</option>
-                         
-                         </select>
-                  
-                    </div>
-                    <div class="col-12 col-md-4 mb-3">
-                        <label for="work-hours-start" class="form-label branding-form-label">Work Hours</label>
-                         <select class="form-select" aria-label="work-hours-start">
-                            <option selected>9:00 AM</option>
-                            <option value="1">10:00 AM</option>
-                            <option value="2">11:00 AM</option>
-                            <option value="3">12:00 PM</option>
-                            <option value="4">01:00 PM</option>
-                            <option value="5">02:00 PM</option>
-                            <option value="6">03:00 PM</option>
-                          </select>
-                    </div>
-                    <span class="to-div mx-2 w-auto font-600 d-flex align-items-sm-end mb-3">to</span>
-                    <div class="col-12 col-md-4 mb-3">
-                        <label for="week-hours-end" class="form-label branding-form-label vis-hid"> Week Starts On</label>
-                        <select class="form-select" aria-label="week-hours-end">
-                            <option selected>6:00 PM</option>
-                            <option value="1">10:00 AM</option>
-                            <option value="2">11:00 AM</option>
-                            <option value="3">12:00 PM</option>
-                            <option value="4">01:00 PM</option>
-                            <option value="5">02:00 PM</option>
-                            <option value="6">03:00 PM</option>
-                          
-                         </select>
-                  
-                    </div>
-                    <div class="d-md-block w-100 d-none"></div>
-                   <div class="col-12 col-md-4">
-                    <label for="time-format" class="form-label branding-form-label d-block"> Time Format</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="time-format" id="24format">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          24 Hours
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="time-format" id="12format" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          12 Hours
-                        </label>
-                      </div>
-                   </div>
-                   <span class="to-div mx-2 w-auto font-600 d-flex align-items-sm-end vis-hid mb-3">to</span>
-                 
-                   <div class="col-12 col-md-4">
-                    <label for="text-format" class="form-label branding-form-label d-block"> Text Format</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="text-format" id="boldformat">
-                        <label class="form-check-label" for="boldformat">
-                          Bold
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="text-format" id="lightformat" checked>
-                        <label class="form-check-label" for="lightformat">
-                          Light
-                        </label>
-                      </div>
-                   </div>
+                <div class="email-section" id="emailSection">
+                  <span class="email-address">sneha@gmail.com</span>
+                  <button type="button" onclick="showEmailUpdateSection()">Change email address</button>
                 </div>
-            </form>
+                <div class="email-update-section" style="display: none;" id="emailUpdateSection">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+                    <div class="error-message" id="errorMessage" style="display: none;"></div>
+                  </div>
+                  <button type="button" onclick="updateEmailAddress()">Confirm</button>
+                  <button type="button" onclick="cancelUpdate()">Cancel</button>
+                </div>
+              </form>
            </div>
     </div>
 
@@ -258,6 +153,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </body>
 <script>
+    function showEmailUpdateSection() {
+      var emailSection = document.getElementById('emailSection');
+      var emailUpdateSection = document.getElementById('emailUpdateSection');
+      emailSection.style.display = 'none';
+      emailUpdateSection.style.display = 'block';
+    }
+  
+    function updateEmailAddress() {
+      var emailInput = document.getElementById('emailInput');
+      var errorMessage = document.getElementById('errorMessage');
+      var newEmail = emailInput.value.trim();
+  
+      if (newEmail === '') {
+        errorMessage.textContent = 'Email address is required.';
+        errorMessage.style.display = 'block';
+        errorMessage.style.color = 'red';
+      } else if (!validateEmail(newEmail)) {
+        errorMessage.textContent = 'Invalid email address.';
+        errorMessage.style.display = 'block';
+        errorMessage.style.color = 'red';
+      } else {
+        errorMessage.style.display = 'none';
+        var emailSection = document.getElementById('emailSection');
+        var emailUpdateSection = document.getElementById('emailUpdateSection');
+        var emailSpan = emailSection.querySelector('.email-address');
+        emailSpan.textContent = newEmail;
+        emailSection.style.display = 'block';
+        emailUpdateSection.style.display = 'none';
+      }
+    }
+  
+    function cancelUpdate() {
+      var emailSection = document.getElementById('emailSection');
+      var emailUpdateSection = document.getElementById('emailUpdateSection');
+      var errorMessage = document.getElementById('errorMessage');
+  
+      emailSection.style.display = 'block';
+      emailUpdateSection.style.display = 'none';
+      errorMessage.style.display = 'none';
+    }
+  
+    function validateEmail(email) {
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+  </script>
+  <script>
     let menu = document.querySelector('.nav-link');
     menu.addEventListener('click', () => {
         menu.classList.add('active');

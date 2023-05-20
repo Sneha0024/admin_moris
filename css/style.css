@@ -371,7 +371,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 22px;
+  margin-top: 6px;
 }
 .meetings-section .meeting-list ul li .actions button {
   padding-right: 0;
@@ -516,6 +516,8 @@ body {
   border-radius: 17px;
   padding: 26px 20px;
   padding-top: 100px;
+  padding-bottom: 0px;
+  margin-bottom: 30px;
 }
 .calender-section .calender-form {
   position: relative;
@@ -642,7 +644,6 @@ body {
   color: var(--red-color);
   background: #f3f6fd 0% 0% no-repeat padding-box;
   font-weight: 600;
-  border-radius: 50%;
 }
 .sidebar-custom .nav-item a {
   display: flex;
@@ -1294,6 +1295,9 @@ body {
   top: 50%;
   position: absolute;
 }
+#settings_menu_brandings .upload-assests-section .brand-logo-img {
+  width: 106px;
+}
 #settings_menu_brandings .beanding-tab-content {
   margin-top: 70px;
   margin-bottom: 100px;
@@ -1357,11 +1361,12 @@ body {
 }
 
 .notification-dropdown-card .notification-card {
-  font-size: 18px;
-  min-width: 360px;
+  font-size: 16px;
+  max-width: 290px;
+  min-width: 290px;
   border-radius: 0 0 10px 10px;
   font-weight: 500;
-  padding: 20px 20px 3px 40px;
+  padding: 20px 16px 3px 30px;
 }
 .notification-dropdown-card .notification-card ul {
   list-style: none;
@@ -1383,6 +1388,12 @@ body {
 .notification-dropdown-card .notification-card ul::-webkit-scrollbar-thumb:active {
   background-color: var(--primary-purple-color);
 }
+.notification-dropdown-card .notification-card ul hr {
+  margin: 4px 0;
+}
+.notification-dropdown-card .notification-card ul li {
+  font-size: 14px;
+}
 .notification-dropdown-card .notification-card ul li::before {
   content: "•";
   color: var(--primary-purple-color);
@@ -1394,7 +1405,7 @@ body {
 .notification-dropdown-card .notification-card ul .notification-btn .reject-btn {
   color: var(--red-color);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
 }
 .notification-dropdown-card .notification-card ul .notification-btn .reject-btn i {
   margin-right: 10px;
@@ -1402,14 +1413,17 @@ body {
 .notification-dropdown-card .notification-card ul .notification-btn .accept-btn {
   color: var(--primary-purple-color);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
 }
 .notification-dropdown-card .notification-card ul .notification-btn .accept-btn i {
   margin-right: 10px;
 }
 .notification-dropdown-card .notification-card ul .notification-item .name {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
+}
+.notification-dropdown-card .notification-card ul .notification-item .my-team-text {
+  font-size: 14px;
 }
 
 .verify-domain-steps {

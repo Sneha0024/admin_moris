@@ -15,10 +15,28 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Add this to the head section of your HTML document -->
     <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
-
-</head>
+   </head>
 
 <body>
+    <style>
+        /* Hide "No file chosen" text */
+        input[type="file"]::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+    
+        input[type="file"]::before {
+            content: 'Choose File';
+            display: inline-block;
+            background: #008CBA;
+            color: #fff;
+            padding: 8px 12px;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: normal;
+        }
+    </style>
 
     <div class="sidebar-settings" id="menu-bar">
         <a href="/"
@@ -144,10 +162,16 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-4">
                         <div class="brand-logo">
-                            <img src="images/brand-logo-img.png" class="brand-logon-img" />
+                            <img src="images/brand-logo-img.png" class="brand-logo-img" id="previewImage" />
                             <span class="preview-text">PREVIEW</span>
-
+                            <input type="file" id="imageInput" accept="image/*" onchange="updateImageName(this)">
                         </div>
+                        <div id="imageName" style="display: none;"></div>
+                        
+                        <div id="imageName" style="display: none;"></div>
+                        
+                        <div id="imageName"></div>
+                        
                         <span class="brand-logo-info d-block">Upload Brand Logo <i
                                 class="fas fa-info-circle" title="Upload your brand’s logo to be displayed on the booking
                                 page. Check the preview to ensure it appears as intended"></i></span>
@@ -210,6 +234,28 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </body>
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const previewImage = document.getElementById('previewImage');
+    const imageNameDiv = document.getElementById('imageName');
+
+    function updateImageName(input) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+            imageNameDiv.textContent = file.name; // Display the name of the selected image
+            imageNameDiv.style.display = 'block'; // Show the image name
+        } else {
+            previewImage.src = 'images/brand-logo-img.png'; // Reset to default image
+            imageNameDiv.textContent = ''; // Clear the name
+            imageNameDiv.style.display = 'none'; // Hide the image name
+        }
+    }
+</script>
 <script>
     let menu = document.querySelector('.nav-link');
     menu.addEventListener('click', () => {
