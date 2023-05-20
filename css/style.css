@@ -800,6 +800,7 @@ body {
   text-transform: none;
   font-size: 18px;
   border-bottom: none;
+  padding-right: 23px;
 }
 .meetings-section.one .four-number {
   font-weight: 700;
@@ -1365,8 +1366,6 @@ body {
 .notification-dropdown-card .notification-card ul {
   list-style: none;
   padding: 0;
-  max-height: 330px;
-  overflow: auto;
 }
 .notification-dropdown-card .notification-card ul::-webkit-scrollbar {
   width: 8px;

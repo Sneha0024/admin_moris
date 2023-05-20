@@ -855,6 +855,7 @@ body {
     text-transform: none;
     font-size: 18px;
     border-bottom: none;
+    padding-right: 23px;
   }
   .four-number {
     font-weight: 700;
@@ -1424,8 +1425,8 @@ body {
     ul {
       list-style: none;
       padding: 0;
-      max-height: 330px;
-      overflow: auto;
+      // max-height: 330px;
+      // overflow: auto;
       &::-webkit-scrollbar {
         width: 8px;
       }
