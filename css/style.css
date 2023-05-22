@@ -93,7 +93,7 @@ body {
   background: #ffffff 0% 0% no-repeat padding-box;
   width: fit-content;
   margin: auto;
-  padding: 10px 24px 14px;
+  padding: 0px 16px 0px;
   border-radius: 0px 0px 40px 40px;
   display: flex;
   justify-content: center;
@@ -371,7 +371,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 24px;
 }
 .meetings-section .meeting-list ul li .actions button {
   padding-right: 0;
@@ -385,6 +385,7 @@ body {
 .meetings-section .meeting-list ul li .actions .dropdown-menu li {
   font-weight: 500;
   color: #000000;
+  margin-top: 6px;
 }
 .meetings-section .meeting-list ul li .info {
   display: flex;
