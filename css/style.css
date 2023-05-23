@@ -258,7 +258,7 @@ body {
   align-items: center;
 }
 .welcome-card .first-row h3 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 23px;
 }
 .welcome-card .first-row img {
@@ -281,6 +281,10 @@ body {
   font-weight: 600;
   padding-top: 18px;
   text-align: end;
+}
+.welcome-card .create-team a {
+  text-decoration: none;
+  color: var(--red-color);
 }
 .welcome-card .create-team i {
   font-size: 11px;
@@ -327,9 +331,10 @@ body {
   color: #862198;
   font-weight: 700;
   text-transform: uppercase;
+  padding-right: 16px;
+  margin-right: 18px;
 }
 .meetings-section .meetings-tab .d-block {
-  opacity: 0.7;
   cursor: pointer;
 }
 .meetings-section .meetings-tab .active {
@@ -486,7 +491,7 @@ body {
 }
 .schedule-meeting-card .schedule-meeting-text {
   color: #862198;
-  font-weight: 500;
+  font-weight: 900;
   font-size: 14px;
 }
 .schedule-meeting-card img {
@@ -504,11 +509,15 @@ body {
 .time-zone .time-zone-info {
   color: var(--primary-purple-color);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 900;
 }
 .time-zone .time-zone-info img {
   margin-right: 9px;
   width: 22px;
+}
+.time-zone a {
+  color: grey;
+  text-decoration: none;
 }
 
 .calender-section {
@@ -650,6 +659,7 @@ body {
   display: flex;
   align-items: center;
   font-weight: 500;
+  margin: 2px 0;
 }
 .sidebar-custom .nav-item a img {
   width: 18px;
@@ -671,6 +681,9 @@ body {
   display: flex;
   width: 100%;
   margin-left: 11px;
+}
+.sidebar-custom:hover .nav-item a {
+  margin: 0;
 }
 .sidebar-custom:hover .nav-pills .nav-link.active {
   border-radius: 4px;
@@ -729,7 +742,7 @@ body {
   border-radius: 4px;
 }
 .sidebar-settings .nav-pills .nav-link {
-  padding: 6px;
+  padding: 10px;
 }
 .sidebar-settings .nav-item {
   white-space: nowrap;
@@ -746,6 +759,7 @@ body {
   text-transform: uppercase;
   margin: 10px 0;
   margin-top: -1px;
+  padding: 0 10px;
 }
 .sidebar-settings .nav-item-text {
   display: none;
@@ -775,9 +789,14 @@ body {
   display: inline-block;
 }
 .sidebar-settings .settings-sidebar-head {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 24px;
+  color: #000000;
+}
+.sidebar-settings .settings-sidebar-head i {
+  color: #000000;
+  margin-right: 9px;
 }
 
 .nav-pills .show > .nav-link {
@@ -797,11 +816,11 @@ body {
   padding: 33px 0 20px 34px;
 }
 .meetings-section.one .meetings-tab {
-  font-weight: 700;
+  font-weight: 600;
   text-transform: none;
   font-size: 18px;
   border-bottom: none;
-  padding-right: 23px;
+  padding-right: 6px;
 }
 .meetings-section.one .four-number {
   font-weight: 700;
