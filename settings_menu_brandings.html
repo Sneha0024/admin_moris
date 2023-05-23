@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings Admin</title>
+    <title>Settings - Branding</title>
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Add this to the head section of your HTML document -->
     <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
-   </head>
+</head>
 
 <body>
     <style>
         /* Hide "No file chosen" text */
-        input[type="file"]::-webkit-file-upload-button {
+        /* input[type="file"]::-webkit-file-upload-button {
             visibility: hidden;
         }
     
@@ -35,7 +35,7 @@
             cursor: pointer;
             border-radius: 4px;
             font-weight: normal;
-        }
+        } */
     </style>
 
     <div class="sidebar-settings" id="menu-bar">
@@ -43,16 +43,16 @@
             class="settings-sidebar-head align-items-center mb-md-0 link-body-emphasis text-decoration-none logo-section">
             Settings
         </a>
-        <form class="form-inline search-form-settings">
+        <form class="form-inline search-form-settings" onsubmit="event.preventDefault()">
             <div class="input-group position-relative">
                 <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                    aria-describedby="search-button">
-                <i class="fas fa-search"></i>
+                    aria-describedby="search-button" oninput="filterMenuItems()">
+                <i class="fas fa-search" id="search-button"></i>
             </div>
         </form>
         <hr>
 
-        <ul class="nav nav-pills flex-column mb-auto">
+        <ul class="nav nav-pills flex-column mb-auto" id="menu-items-one">
             <div class="sidebar-setting-submenus">General</div>
 
             <li class="nav-item">
@@ -64,7 +64,7 @@
 
         </ul>
         <hr>
-        <ul class="nav nav-pills flex-column">
+        <ul class="nav nav-pills flex-column" id="menu-items-two">
             <div class="sidebar-setting-submenus">Calender</div>
 
             <li class="nav-item">
@@ -104,7 +104,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_imports.html" class="nav-link link-body-emphasis">
                     <img src="images/imports-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Imports</span>
                 </a>
@@ -116,19 +116,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_syncronize.html" class="nav-link link-body-emphasis">
                     <img src="images/syncronize-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Syncronize</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_subscribe.html" class="nav-link link-body-emphasis">
                     <img src="images/subscribe-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Subscribe</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_team.html" class="nav-link link-body-emphasis">
                     <img src="images/team-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Team</span>
                 </a>
@@ -147,14 +147,14 @@
             <form>
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-4">
-                            <div class="mb-3">
-                                <label for="brandname" class="form-label branding-form-label">Brand Name</label>
-                                <input type="text" class="form-control" id="brandname" placeholder="Moris Media">
-                            </div>
-                            <button type="button" class="btn btn-save">Save</button>
+                        <div class="mb-3">
+                            <label for="brandname" class="form-label branding-form-label mb-0">Brand Name</label>
+                            <input type="text" class="form-control" id="brandname" placeholder="Moris Media">
+                        </div>
+                        <button type="button" class="btn btn-save">Save</button>
 
-                       </div>
-                  
+                    </div>
+
                 </div>
             </form>
             <div class="upload-assests-section">
@@ -162,41 +162,76 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-4">
                         <div class="brand-logo">
-                            <img src="images/brand-logo-img.png" class="brand-logo-img" id="previewImage" />
+                            <div class="brand-img">
+                                <img src="images/brand-logo-img.png" class="brand-logo-img" id="previewImage" />
+
+                            </div>
                             <span class="preview-text">PREVIEW</span>
-                            <input type="file" id="imageInput" accept="image/*" onchange="updateImageName(this)">
+                            <input type="file" id="imageInput" accept="image/*" onchange="updateImageName(this)"
+                                class="edit-input">
+                            <label for="imageInput" class="edit-input-label">
+                                <i class="fas fa-pen"></i>
+
+                            </label>
                         </div>
                         <div id="imageName" style="display: none;"></div>
-                        
+
                         <div id="imageName" style="display: none;"></div>
-                        
+
                         <div id="imageName"></div>
-                        
-                        <span class="brand-logo-info d-block">Upload Brand Logo <i
-                                class="fas fa-info-circle" title="Upload your brand’s logo to be displayed on the booking
+
+                        <span class="brand-logo-info d-block">Upload Brand Logo <i class="fas fa-info-circle" title="Upload your brand’s logo to be displayed on the booking
                                 page. Check the preview to ensure it appears as intended"></i></span>
 
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="brand-logo">
-                            <img src="images/brand-logo-img.png" class="brand-logon-img" />
-                            <span class="preview-text">PREVIEW</span>
+                            <div class="brand-img profile">
+                                <img src="images/brand-logo-img.png" class="brand-logo-img profile"
+                                    id="previewImageProfile" />
 
+                            </div>
+                            <span class="preview-text">PREVIEW</span>
+                            <input type="file" id="imageInputProfile" accept="image/*"
+                                onchange="updateImageNameProfile(this)" class="edit-input">
+                            <label for="imageInputProfile" class="edit-input-label">
+                                <i class="fas fa-pen"></i>
+
+                            </label>
                         </div>
-                        <span class="brand-logo-info d-block">Upload Brand Logo <i
-                                class="fas fa-info-circle" title="Upload your brand’s logo to be displayed on the booking
-                                page. Check the preview to ensure it appears as intended"></i></span>
+                        <div id="imageNameProfile" style="display: none;"></div>
+
+                        <div id="imageNameProfile" style="display: none;"></div>
+
+                        <div id="imageNameProfile"></div>
+
+                        <span class="brand-logo-info d-block">Upload Profile Picture <i class="fas fa-info-circle"
+                                title="Upload a profile picture of yours which can be display on
+                                the booking page."></i></span>
 
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="brand-logo">
-                            <img src="images/brand-logo-img.png" class="brand-logon-img" />
-                            <span class="preview-text">PREVIEW</span>
+                            <div class="brand-img">
+                                <img src="images/brand-logo-img.png" class="brand-logo-img" id="previewImageFav" />
 
+                            </div>
+                            <span class="preview-text">PREVIEW</span>
+                            <input type="file" id="imageInputFav" accept="image/*" onchange="updateImageNameFav(this)"
+                                class="edit-input">
+                            <label for="imageInputFav" class="edit-input-label">
+                                <i class="fas fa-pen"></i>
+
+                            </label>
                         </div>
-                        <span class="brand-logo-info d-block">Upload Brand Logo <i
-                                class="fas fa-info-circle" title="Upload your brand’s logo to be displayed on the booking
-                                page. Check the preview to ensure it appears as intended"></i></span>
+                        <div id="imageNameFav" style="display: none;"></div>
+
+                        <div id="imageNameFav" style="display: none;"></div>
+
+                        <div id="imageNameFav"></div>
+
+                        <span class="brand-logo-info d-block">Upload Favicon<i class="fas fa-info-circle" title="Upload a profile picture of yours which can be display on
+                                the booking page."></i></span>
 
                     </div>
                 </div>
@@ -206,21 +241,21 @@
                 <form>
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-4">
-                                <div class="mb-3">
-                                    <label for="brandcolor" class="form-label branding-form-label">Brand Color</label>
-                                    <input type="text" class="form-control" id="brandcolor" placeholder="#23344">
-                                </div>
-                             </div>
-                             <div class="col-12 col-md-4">
-                                <div class="mb-3">
-                                    <label for="textcolor" class="form-label branding-form-label">Text Color</label>
-                                    <input type="text" class="form-control" id="textcolor" placeholder="#23344">
-                                </div>
-                             </div>
+                            <div class="mb-3">
+                                <label for="brandcolor" class="form-label branding-form-label mb-0">Brand Color</label>
+                                <input type="text" class="form-control" id="brandcolor" placeholder="#23344">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="mb-3">
+                                <label for="textcolor" class="form-label branding-form-label mb-0">Text Color</label>
+                                <input type="text" class="form-control" id="textcolor" placeholder="#23344">
+                            </div>
+                        </div>
 
                     </div>
                     <button type="button" class="btn btn-save">Save</button>
-                             
+
                 </form>
             </div>
         </div>
@@ -233,7 +268,9 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="settings.js"></script>
 </body>
+
 <script>
     const imageInput = document.getElementById('imageInput');
     const previewImage = document.getElementById('previewImage');
@@ -243,14 +280,60 @@
         const file = input.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 previewImage.src = e.target.result;
             };
             reader.readAsDataURL(file);
             imageNameDiv.textContent = file.name; // Display the name of the selected image
-            imageNameDiv.style.display = 'block'; // Show the image name
+            imageNameDiv.style.display = 'none'; // Show the image name
         } else {
             previewImage.src = 'images/brand-logo-img.png'; // Reset to default image
+            imageNameDiv.textContent = ''; // Clear the name
+            imageNameDiv.style.display = 'none'; // Hide the image name
+        }
+    }
+</script>
+<!-- ulpad profile picture -->
+<script>
+    const imageInputProfile = document.getElementById('imageInputProfile');
+    const previewImageProfile = document.getElementById('previewImageProfile');
+    const imageNameDivProfile = document.getElementById('imageNameProfile');
+
+    function updateImageNameProfile(input) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImageProfile.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+            imageNameDiv.textContent = file.name; // Display the name of the selected image
+            imageNameDiv.style.display = 'none'; // Show the image name
+        } else {
+            previewImageProfile.src = 'images/brand-logo-img.png'; // Reset to default image
+            imageNameDiv.textContent = ''; // Clear the name
+            imageNameDiv.style.display = 'none'; // Hide the image name
+        }
+    }
+</script>
+<!-- ulpad favicon picture -->
+<script>
+    const imageInputFav = document.getElementById('imageInputFav');
+    const previewImageFav = document.getElementById('previewImageFav');
+    const imageNameDivFav = document.getElementById('imageNameFav');
+
+    function updateImageNameFav(input) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImageFav.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+            imageNameDiv.textContent = file.name; // Display the name of the selected image
+            imageNameDiv.style.display = 'none'; // Show the image name
+        } else {
+            previewImageFav.src = 'images/brand-logo-img.png'; // Reset to default image
             imageNameDiv.textContent = ''; // Clear the name
             imageNameDiv.style.display = 'none'; // Hide the image name
         }

@@ -86,7 +86,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_imports.html" class="nav-link link-body-emphasis">
                     <img src="images/imports-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Imports</span>
                 </a>
@@ -98,19 +98,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_syncronize.html" class="nav-link link-body-emphasis">
                     <img src="images/syncronize-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Syncronize</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_subscribe.html" class="nav-link link-body-emphasis">
                     <img src="images/subscribe-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Subscribe</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis">
+                <a href="settings_menu_team.html" class="nav-link link-body-emphasis">
                     <img src="images/team-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Team</span>
                 </a>
@@ -126,22 +126,80 @@
             <img src="images/system-tab-heading-icon.svg" />Notifications
         </div>
         <div class="beanding-tab-content">
+            <h5 class="font-400 mb-4">Email Notifications</h5>
+
             <form>
                 <div class="email-section" id="emailSection">
-                  <span class="email-address">sneha@gmail.com</span>
-                  <button type="button" onclick="showEmailUpdateSection()">Change email address</button>
+                    <div class="d-flex">
+                        <span class="d-flex me-5">
+                            <span class="email-img me-2"><img src="images/notifications-image.png" /></span>
+                            <span class="email-section font-400"><span class="email-name font-600">Chaitanya
+                                    Kedia</span><br /><span class="email-address">Chaitanya1234@gmail.com</span>
+
+                            </span>
+                        </span>
+                        <span class="change-email-btn"> <button type="button" onclick="showEmailUpdateSection()"
+                                class="btn"><i class="fas fa-envelope me-2"></i>Change
+                                email address</button>
+                        </span>
+                    </div>
                 </div>
                 <div class="email-update-section" style="display: none;" id="emailUpdateSection">
-                  <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
-                    <div class="error-message" id="errorMessage" style="display: none;"></div>
-                  </div>
-                  <button type="button" onclick="updateEmailAddress()">Confirm</button>
-                  <button type="button" onclick="cancelUpdate()">Cancel</button>
+                    <div class="d-flex">
+                        <div class="mb-3 col-12 col-md-4 d-inline-block me-2">
+                            <input type="email" class="form-control" id="emailInput" placeholder="Enter Email">
+                            <div class="error-message" id="errorMessage" style="display: none;"></div>
+                        </div>
+                        <div class="btn-section">
+                            <button type="button" onclick="updateEmailAddress()"
+                                class="btn confirm-btn me-2">Confirm</button>
+                            <button type="button" onclick="cancelUpdate()" class="btn cancel-btn">Cancel</button>
+
+                        </div>
+                    </div>
+
                 </div>
-              </form>
-           </div>
+
+                <div class="col-12 col-md-8">
+                    <h5 class="font-400 mb-3 mt-5" for="email-format">Email Format</h5>
+
+                    <div class="form-check d-inline-block me-3">
+                        <input class="form-check-input" type="radio" name="email-format" id="htmlformat">
+                        <label class="form-check-label" for="htmlformat">
+                            HTML
+                        </label>
+                    </div>
+                    <div class="form-check d-inline-block">
+                        <input class="form-check-input" type="radio" name="email-format" id="plainformat" checked>
+                        <label class="form-check-label" for="plainformat">
+                            Plain Text
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <h5 class="font-400 mb-3 mt-5" for="agenda-notification">Agenda Notifications</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="agenda-notify" id="agenda-notify">
+                        <label class="form-check-label" for="agenda-notify">
+                            Send Agenda Notifications by email
+                        </label>
+                    </div>
+               
+                </div>
+                <div class="col-12 col-md-8">
+                    <h5 class="font-400 mb-3 mt-5" for="agenda-notification">Reminder Notifications</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="reminder-notify" id="agenda-notify">
+                        <label class="form-check-label" for="reminder-notify">
+                            Send Agenda Notifications by email
+                        </label>
+                    </div>
+               
+                </div>
+            </form>
+
+
+        </div>
     </div>
 
 
@@ -151,55 +209,56 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="settings.js"></script>
 </body>
 <script>
     function showEmailUpdateSection() {
-      var emailSection = document.getElementById('emailSection');
-      var emailUpdateSection = document.getElementById('emailUpdateSection');
-      emailSection.style.display = 'none';
-      emailUpdateSection.style.display = 'block';
-    }
-  
-    function updateEmailAddress() {
-      var emailInput = document.getElementById('emailInput');
-      var errorMessage = document.getElementById('errorMessage');
-      var newEmail = emailInput.value.trim();
-  
-      if (newEmail === '') {
-        errorMessage.textContent = 'Email address is required.';
-        errorMessage.style.display = 'block';
-        errorMessage.style.color = 'red';
-      } else if (!validateEmail(newEmail)) {
-        errorMessage.textContent = 'Invalid email address.';
-        errorMessage.style.display = 'block';
-        errorMessage.style.color = 'red';
-      } else {
-        errorMessage.style.display = 'none';
         var emailSection = document.getElementById('emailSection');
         var emailUpdateSection = document.getElementById('emailUpdateSection');
-        var emailSpan = emailSection.querySelector('.email-address');
-        emailSpan.textContent = newEmail;
+        emailSection.style.display = 'none';
+        emailUpdateSection.style.display = 'block';
+    }
+
+    function updateEmailAddress() {
+        var emailInput = document.getElementById('emailInput');
+        var errorMessage = document.getElementById('errorMessage');
+        var newEmail = emailInput.value.trim();
+
+        if (newEmail === '') {
+            errorMessage.textContent = 'Email address is required.';
+            errorMessage.style.display = 'inline-block';
+            errorMessage.style.color = 'red';
+        } else if (!validateEmail(newEmail)) {
+            errorMessage.textContent = 'Invalid email address.';
+            errorMessage.style.display = 'inline-block';
+            errorMessage.style.color = 'red';
+        } else {
+            errorMessage.style.display = 'none';
+            var emailSection = document.getElementById('emailSection');
+            var emailUpdateSection = document.getElementById('emailUpdateSection');
+            var emailSpan = emailSection.querySelector('.email-address');
+            emailSpan.textContent = newEmail;
+            emailSection.style.display = 'block';
+            emailUpdateSection.style.display = 'none';
+        }
+    }
+
+    function cancelUpdate() {
+        var emailSection = document.getElementById('emailSection');
+        var emailUpdateSection = document.getElementById('emailUpdateSection');
+        var errorMessage = document.getElementById('errorMessage');
+
         emailSection.style.display = 'block';
         emailUpdateSection.style.display = 'none';
-      }
+        errorMessage.style.display = 'none';
     }
-  
-    function cancelUpdate() {
-      var emailSection = document.getElementById('emailSection');
-      var emailUpdateSection = document.getElementById('emailUpdateSection');
-      var errorMessage = document.getElementById('errorMessage');
-  
-      emailSection.style.display = 'block';
-      emailUpdateSection.style.display = 'none';
-      errorMessage.style.display = 'none';
-    }
-  
+
     function validateEmail(email) {
-      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
-  </script>
-  <script>
+</script>
+<script>
     let menu = document.querySelector('.nav-link');
     menu.addEventListener('click', () => {
         menu.classList.add('active');
