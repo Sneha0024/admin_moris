@@ -29,12 +29,23 @@
     }
 
     .row {
+        margin-left: -15px;
+        margin-right: 24px;
+
+    }
+
+    .row-bootom {
         margin: 20px 0;
         padding: 20px 0;
         border-bottom: 0.5px solid #80808069;
         padding-top: 0;
-        margin-left: -15px;
-        margin-right: 24px;
+
+    }
+
+    .input-grey {
+        background-color: var(--bs-secondary-bg);
+        opacity: 1;
+
     }
 </style>
 
@@ -144,7 +155,7 @@
             <img src="images/system-tab-heading-icon.svg" />My Calenders
         </div>
         <div class="beanding-tab-content mt-4 me-2">
-            <div class="row">
+            <div class="row row-bootom">
                 <div class="col-12 col-md-6">
                     <div class="form-area">
                         <div class="mb-3">
@@ -178,7 +189,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-bootom">
                 <div class="col-12 col-md-6">
                     <h5 class="reminder-haed font-600">
                         Reminder Notifications
@@ -197,7 +208,7 @@
                     <h6 class="organization-permission font-600">Organization Permissions</h6>
                     <div class="d-flex">
                         <div class="col-12 col-md-6">
-                            <label for="share-cal">Share this calender to your Organization</label>
+                            <label for="share-cal" class="font-500">Share this calender to your Organization</label>
                         </div>
                         <div class="col-12 col-md-6">
                             <select class="form-select" aria-label="Default select example" id="share-cal">
@@ -209,6 +220,149 @@
                         </div>
 
                     </div>
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-12 col-md-6">
+                    <h6 class="publicl-acces font-600">Public Access</h6>
+                    <div class="d-flex">
+                        <div class="col-12 col-md-6">
+                            <label for="share-cal" class="font-500">Share calender with any people</label>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <select class="form-select" aria-label="Default select example" id="share-cal">
+                                <option selected>Off</option>
+                                <option value="1">View Free/ Busy</option>
+                                <option value="2">View Event Deatils</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+                    <small class="enable-access pt-2 d-inline-block">
+                        Enable Public access to embed link, public address in iCal, HTML fomarts and more.
+                    </small>
+                </div>
+            </div>
+            <div class="row pt-4 row-bootom">
+                <div class="col-12 col-md-6">
+                    <label for="iCal" class="font-600">iCal</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="ical">
+                    <small class="sub-info font-500">Share this code to allow users to subscribe to your
+                        calendar</small>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="html" class="font-600"> HTML</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="html">
+                    <small class="sub-info font-500">Use this code to embed calendar in a web page</small>
+
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="embedcal" class="font-600">Embed Calendar</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="embedcal">
+                    <small class="sub-info font-500">To embed this calendar on your website, copy and paste this HTML
+                        code into
+                        your webpage.</small>
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="scheduleass" class="font-600">Schedule Appointment</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="scheduleass">
+                    <small class="sub-info font-500">Use this code to embed Schedule appointment in a web page</small>
+
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="webapi" class="font-600">Web API for schedule appointment</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="webapi">
+                    <small class="sub-info font-500">To embed this calendar on your website, copy and paste this HTML
+                        code into
+                        your webpage.</small>
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="linkto" class="font-600">Link to</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="linkto">
+                    <small class="sub-info font-500">To link this calendar to your website, copy and paste this HTML
+                        code into your webpage.</small>
+
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="email" class="font-600">Mail to</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-grey" placeholder="Enter Email Address"
+                            aria-label="email" aria-describedby="button-addon2">
+                        <span class="input-group-text input-grey" id="basic-addon2"> <button class="btn p-0"
+                                type="button" id="button-addon2">SEND</button>
+                        </span>
+
+                    </div>
+                    <small class="sub-info font-500">By mailing the calendar to individuals/groups, they can subscribe
+                        to it.</small>
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="caldav" class="font-600">CalDAV URL</label>
+                    <div class="input-group mb-3">
+                        <input class="form-control font-500 input-grey" type="text"
+                            value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e..."
+                            aria-label="Disabled input example" id="caldav">
+
+                        <span class="input-group-text input-grey" id="cal-dav-copy">
+                            <button class="btn p-0" type="button" id="copy-button-dav"><i class="fas fa-copy"></i></button>
+                        </span>
+                    </div>
+                    <small class="sub-info font-500">Use this link to sync with other calendar apps.</small>
+
+                </div>
+            
+                <h5 class="py-4 font-700">Private URL</h5>
+                <div class="col-12 col-md-6">
+                    <label for="iCal" class="font-600">iCal</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="ical">
+                    <small class="sub-info font-500">Share this code to allow users to subscribe to your
+                        calendar</small>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="html" class="font-600"> HTML</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="html">
+                    <small class="sub-info font-500">Use this code to embed calendar in a web page</small>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <h5 class="font-700">Integrate Calnender</h5>
+
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="calid" class="font-600">Calendar ID</label>
+                    <div class="input-group mb-3">
+                        <input class="form-control font-500 input-grey" type="text"
+                            value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e..."
+                            aria-label="Disabled input example" id="calid">
+
+                        <span class="input-group-text input-grey" id="cal-id-copy">
+                            <button class="btn p-0" type="button" id="copy-button"><i class="fas fa-copy"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 pt-4">
+                    <label for="caluid" class="font-600">Calender UID</label>
+                    <input class="form-control font-500" type="text"
+                        value="https://calendar.zoho.com/ical/8067c039de0b5c6f7585dca03bd90b8f65f84a67e…"
+                        aria-label="Disabled input example" disabled readonly id="caluid">
                 </div>
             </div>
         </div>
@@ -223,6 +377,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="settings.js"></script>
 </body>
+<!-- calid -->
+<script>
+    const copyButton = document.getElementById('copy-button');
+    const calIdInput = document.getElementById('calid');
+
+    copyButton.addEventListener('click', () => {
+        calIdInput.select();
+        calIdInput.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand('copy');
+        // Optionally, you can provide some visual feedback to the user
+        copyButton.innerHTML = '<i class="fas fa-check"></i> Copied';
+        setTimeout(() => {
+            copyButton.innerHTML = '<i class="fas fa-copy"></i>';
+        }, 1000);
+    });
+</script>
+<!-- caldav -->
+<script>
+    const copyButtondav = document.getElementById('copy-button-dav');
+    const calIdInputdav = document.getElementById('caldav');
+
+    copyButtondav.addEventListener('click', () => {
+        calIdInputdav.select();
+        calIdInputdav.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand('copy');
+        // Optionally, you can provide some visual feedback to the user
+        copyButtondav.innerHTML = '<i class="fas fa-check"></i> Copied';
+        setTimeout(() => {
+            copyButtondav.innerHTML = '<i class="fas fa-copy"></i>';
+        }, 1000);
+    });
+</script>
+
 <script>
     let menu = document.querySelector('.nav-link');
     menu.addEventListener('click', () => {

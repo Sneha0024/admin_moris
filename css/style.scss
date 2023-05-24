@@ -85,6 +85,9 @@ $border-color_4: var(--primary-purple-color);
 .font-500 {
   font-weight: 500;
 }
+.font-700 {
+  font-weight: 700;
+}
 .font-800 {
   font-weight: 800;
 }
@@ -365,7 +368,7 @@ body {
     text-transform: uppercase;
     padding-right: 16px;
     margin-right: 18px;
-  
+
     .d-block {
       // opacity: 0.7;
       cursor: pointer;
@@ -1137,8 +1140,17 @@ body {
   }
   .modal-header {
     flex-direction: column;
+    background: linear-gradient(
+      to bottom,
+      var(--primary-purple-color),
+      var(--red-color)
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   
     .modal-title {
-      background-color: $background-color_2;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
       border-bottom-right-radius: 50%;
       border-bottom-left-radius: 50%;
       color: $color_2;
@@ -1361,8 +1373,8 @@ body {
         content: "";
         display: block;
         width: 39%;
-        height: 0.6px;
-        background: #707070;
+        height: 0.5px;
+        background: #80808069;
         left: 0;
         top: 50%;
         position: absolute;
@@ -1371,8 +1383,8 @@ body {
         content: "";
         display: block;
         width: 39%;
-        height: 0.6px;
-        background: #707070;
+        height: 0.5px;
+        background:  #80808069;
         right: 0;
         top: 50%;
         position: absolute;
@@ -1446,8 +1458,8 @@ body {
         content: "";
         display: block;
         width: 39%;
-        height: 0.6px;
-        background: #707070;
+        height: 0.5px;
+        background: #80808069;
         left: 0;
         top: 50%;
         position: absolute;
@@ -1456,8 +1468,8 @@ body {
         content: "";
         display: block;
         width: 39%;
-        height: 0.6px;
-        background: #707070;
+        height: 0.5px;
+        background: #80808069;
         right: 0;
         top: 50%;
         position: absolute;
@@ -1483,6 +1495,7 @@ body {
     color: $color_4;
     text-transform: uppercase;
     border-radius: 0;
+    margin-top: 6.5px;
   }
 }
 .notification-dropdown-card {
@@ -1730,7 +1743,7 @@ body {
     background-color: var(--primary-purple-color);
     border: 2px solid var(--primary-purple-color);
     color: #fff;
-    padding: 0px 6px;
+    padding: 2px 10px;
     border-radius: 4px;
     margin-top: 9px;
     margin-right: 9px;
@@ -1739,7 +1752,7 @@ body {
     background-color: transparent;
     border: 2px solid var(--primary-purple-color);
     color: var(--primary-purple-color);
-    padding: 0px 6px;
+    padding: 2px 10px;
     border-radius: 4px;
   }
   .import-btn {
@@ -1747,7 +1760,7 @@ body {
       background-color: var(--primary-purple-color);
       border: 2px solid var(--primary-purple-color);
       color: #fff;
-      padding: 0px 6px;
+      padding: 2px 10px;
       border-radius: 4px;
       margin-top: 9px;
       margin-right: 9px;
@@ -1793,7 +1806,7 @@ body {
       .upload-btn {
         background-color: var(--primary-purple-color);
         color: #fff;
-        padding: 2px 8px;
+        padding: 2px 10px;
       }
     }
   }
