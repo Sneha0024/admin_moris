@@ -321,6 +321,7 @@ body {
     a {
       text-decoration: none;
       color: var(--red-color);
+      font-weight: 600;
     }
     i {
       font-size: 11px;
@@ -351,6 +352,9 @@ body {
 .row {
   .center-sec {
     margin-top: -120px;
+    @media (max-width: 667px) {
+      margin-top: 6px;
+    }
   }
 }
 .meetings-section {
@@ -903,6 +907,9 @@ body {
   overflow: hidden;
   position: relative;
   top: -42px;
+  @media (max-width: 667px) {
+    top: 20px;
+  }
 }
 .light {
   .calendar {
@@ -1426,6 +1433,7 @@ body {
     .brand-logo-info {
       color: var(--primary-purple-color);
       font-weight: 400;
+      padding-top: 10px;
       i {
         color: var(--red-color);
       }
@@ -1436,7 +1444,7 @@ body {
     margin-bottom: 100px;
     .upload-assests-section {
       .upload-assests-heading {
-        margin: 30px auto;
+        margin: 50px auto 40px;
         color: $color_5;
         text-align: center;
         font-size: 18px;
@@ -1486,15 +1494,12 @@ body {
 }
 .beanding-tab-content {
   .primary-time-zone-btn {
-    position: absolute;
-    right: 14px;
-    margin: 5px;
-    padding: 0px 10px;
+    padding: 3px 6px;
     border: none;
-    background-color: $background-color_12;
-    color: $color_4;
+    background-color: var(--primary-purple-color);
+    color: #fff;
     text-transform: uppercase;
-    border-radius: 0;
+    border-radius: 4px;
     margin-top: 6.5px;
   }
 }
@@ -2162,6 +2167,106 @@ body {
   .myteam-modal {
     .modal-dialog {
       min-width: auto;
+    }
+  }
+}
+// account sidebar
+.sidebar-account{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #dfe3fa 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 0px 15px 15px 0px;
+  transition: all ease-out 0.3s;
+  width: auto;
+  align-items: center;
+  overflow: auto;
+  overflow-x: hidden;
+  width: 280px;
+  padding: 1rem 0.5rem;
+  align-items: flex-start;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $background-color_3;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $background-color_2;
+    border-radius: 4px;
+    &:hover {
+      background-color: $background-color_2;
+    }
+    &:active {
+      background-color: $background-color_2;
+    }
+  }
+
+  .nav-pills {
+    .nav-link.active {
+      color: $color_5;
+      background: #f3f6fd 0% 0% no-repeat padding-box;
+      border-radius: 50%;
+      border-radius: 4px;
+    }
+    .nav-link {
+      padding: 10px;
+    }
+  }
+  .nav-item {
+    white-space: nowrap;
+    a {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      img {
+        width: 22px;
+      }
+    }
+  }
+  .sidebar-setting-submenus {
+    text-transform: uppercase;
+    margin: 10px 0;
+    margin-top: -1px;
+    padding: 0 10px;
+  }
+  .nav-item-text {
+    display: none;
+    margin-left: 16px;
+    display: inline-block;
+  }
+  hr {
+    width: 100%;
+    display: block;
+    height: 2px;
+  }
+  .search-form-settings {
+    i {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    width: 230px;
+    margin-top: 22px;
+  }
+  .logo-section {
+    display: flex;
+    width: 100%;
+    margin-left: 11px;
+  }
+  .sidebar-open {
+    display: inline-block;
+  }
+  .settings-sidebar-head {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #000000;
+    i {
+      color: #000000;
+      margin-right: 9px;
     }
   }
 }
