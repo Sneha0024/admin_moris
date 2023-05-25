@@ -1830,7 +1830,7 @@ body {
   margin-bottom: 26px;
 }
 .subscribe-content .tab {
-  padding: 10px 20px 3px;
+  padding: 10px 0px 3px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
   font-weight: 600;
@@ -1895,12 +1895,14 @@ body {
 }
 .subscribe-content .holidays-section ul {
   list-style: none;
+  padding-left: 0;
 }
 .subscribe-content .holidays-section li {
   padding: 9px 4px;
   border-bottom: 0.2px solid rgba(112, 112, 112, 0.368627451);
   display: flex;
   justify-content: space-between;
+  font-weight: 500;
 }
 .subscribe-content .holidays-section .agenda {
   color: var(--primary-purple-color);
@@ -1981,7 +1983,7 @@ body {
 }
 .team-content .team-table tbody .role {
   border-radius: 33px;
-  padding: 1px 4px;
+  padding: 4px 8px;
   font-size: 14px;
   font-weight: 500;
 }
