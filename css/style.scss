@@ -2279,7 +2279,7 @@ body {
   .account-page-heading {
     font-weight: 600;
     font-size: 24px;
-    img{
+    img {
       width: 30px;
     }
   }
@@ -2457,65 +2457,100 @@ body {
     }
   }
   &.authentication {
-    .two-step-heading{
+    .two-step-heading {
       color: var(--primary-purple-color);
       font-weight: 600;
     }
-    .two-step-verification{
+    .two-step-verification {
       padding-top: 24px;
       border-top: 0.5px solid rgba(128, 128, 128, 0.4117647059);
       margin-bottom: 20px;
       margin-top: 25px;
-      h5{
+      h5 {
         font-weight: 600;
       }
-      .sub-heading{
+      .sub-heading {
         color: var(--primary-purple-color);
       }
-      .form-label{
+      .form-label {
         color: var(--primary-purple-color);
         font-weight: 500;
         margin-bottom: 1px;
       }
     }
-    .authenticator-app-section{
+    .authenticator-app-section {
       padding-top: 40px;
-      .authenticator-btn{
+      .authenticator-btn {
         background-color: var(--primary-purple-color);
         font-weight: 500;
         color: #fff;
         padding: 3px 22px;
       }
-      .note{
+      .note {
         font-weight: 500;
         color: var(--primary-purple-color);
         padding-top: 10px;
       }
     }
-    .phone-number-section{
+    .phone-number-section {
       padding-top: 40px;
-      h5{
+      h5 {
         font-weight: 600;
       }
-      .sub-heading{
+      .sub-heading {
         color: var(--primary-purple-color);
         font-weight: 500;
       }
-      .form-label{
+      .form-label {
         margin-bottom: 1px;
         color: var(--primary-purple-color);
         font-weight: 500;
       }
-      .note{
+      .note {
         font-weight: 500;
         color: var(--primary-purple-color);
         margin-bottom: 10px;
       }
-      .send-code-btn{
+      .send-code-btn {
         background-color: var(--primary-purple-color);
         padding: 3px 22px;
         color: #fff;
         font-weight: 500;
+      }
+    }
+  }
+  &.security {
+    .password-section {
+      .password-heading {
+        font-weight: 600;
+        margin-top: 30px;
+      }
+      .last-changed-text {
+        color: var(--primary-purple-color);
+        font-weight: 500;
+      }
+      .change-password-section {
+        .form-label {
+          color: var(--primary-purple-color);
+          font-weight: 500;
+          margin-bottom: 1px;
+        }
+        .forgot-password-text{
+          color: var(--primary-purple-color);
+          font-weight: 500;
+        }
+        .change-pass-fields{
+          margin-top: 24px;
+        }
+        .change-password-btn{
+          button{
+            background-color: var(--primary-purple-color);
+            color: #FFF;
+            font-weight: 600;
+            padding: 3px 8px;
+            margin-top: 24px;
+          }
+        }
       }
     }
   }

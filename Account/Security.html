@@ -15,7 +15,34 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- Add this to the head section of your HTML document -->
     <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
+    <style>
+        /* CSS for the tooltip */
+        .info-icon {
+            position: relative;
+            cursor: pointer;
+        }
 
+        .tooltip {
+            position: absolute;
+            transform: translateX(-50%);
+            padding: 6px 12px;
+            background-color: #fff;
+            color: var(--primary-purple-color);
+            font-size: 12px;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            bottom: calc(100% + -50px);
+            left: 785%;
+            width: 207px;
+        }
+
+        .info-icon:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,62 +57,274 @@
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
                 <a href="profile.html" class="nav-link link-body-emphasis" aria-current="page">
-                    <img src="images/system-sidebar-icon.svg" />
+                    <img src="/images/account-sidebar-profile-icon.svg" />
                     <span class="nav-item-text"> Profile </span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="Security.html" class="nav-link link-body-emphasis active" aria-current="page">
-                    <img src="images/system-sidebar-icon.svg" />
+                    <img src="/images/account-sidebar-security-icon.svg" />
                     <span class="nav-item-text"> Security</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="authentication.html" class="nav-link link-body-emphasis">
-                    <img src="images/branding-sidebar-settings-icon.svg" />
+                    <img src="/images/account-sidebar-authentication-icon.svg" />
                     <span class="nav-item-text">Multi Factor Authentication</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="settings.html" class="nav-link link-body-emphasis">
-                    <img src="images/customize-domain-sidebar-settings-icon.svg" />
+                    <img src="/images/account-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Settings</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="sessions.html" class="nav-link link-body-emphasis">
-                    <img src="images/time-zone-sidebar-settings-icon.svg" />
+                    <img src="/images/account-sidebar-sessions-icon.svg" />
                     <span class="nav-item-text">Sessions</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="groups.html" class="nav-link link-body-emphasis">
-                    <img src="images/calender-view-sidebar-settings-icon.svg" />
+                    <img src="/images/account-sidebar-groups-icon.svg" />
                     <span class="nav-item-text">Groups</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="privacy.html" class="nav-link link-body-emphasis">
-                    <img src="images/event-settings-sidebar-settings-icon.svg" />
+                    <img src="/images/account-sidebar-privacy-icon.svg" />
                     <span class="nav-item-text">Privacy</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="compliance.html" class="nav-link link-body-emphasis">
-                    <img src="images/notifications-sidebar-settings-icon.svg" />
+                    <img src="/images/account-sidebar-compliance-icon.svg" />
                     <span class="nav-item-text">Compliance</span>
                 </a>
             </li>
         </ul>
     </div>
 
+    <div class="account-container container w-auto security">
+        <div class="account-page-heading"><img src="/images/account-heading-security-icon.svg" alt="" class=""> Security
+        </div>
+        <div class="account-content">
+            <div class="password-section">
+                <h5 class="password-heading">Password</h5>
+                <span class="last-changed-text">Last changed 7 years ago
+                    <span class="info-icon">
+                        <img src="/images/account-security-info-icon.svg" class="" />
+                        <span class="tooltip">We recommend you to change the password every 3 months to keep your
+                            account
+                            secure.</span>
+
+                    </span>
+
+                </span>
+                <div class="change-password-section">
+                    <span class="change-pass-fields" style="display: none;">
+                        <span class="row">
+                            <span class="col-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="current-password" class="form-label">Currrent Password</label>
+                                    <input type="password" class="form-control" id="current-password"
+                                        placeholder=" Enter password">
+                                    <span class="forgot-password-text">Forgot Password?</span>
+                                </div>
+                            </span>
+                            <span class="col-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="new-password" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="new-password"
+                                        placeholder=" Enter password">
+                                </div>
+                            </span>
+                            <span class="col-12 col-md-3">
+                                <div class="mb-3">
+                                    <label for="confirm-new-password" class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirm-new-password"
+                                        placeholder=" Enter password">
+                                </div>
+                            </span>
+                            <span class="col-12 col-md-3">
+                                <button class="btn change-password-primary-btn" type="button">Change password</button>
+                                <button class="change-password-cancel-btn" type="button">cancel</button>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="change-password-btn-section">
+                        <button type="button" class="btn change-password-btn btn-primary">Change Password</button>
+                    </span>
+                </div>
+
+            </div>
+            <div class="ip-section">
+                <h5 class="password-heading">Allow ip address</h5>
+                <span class="restrict-text">restrict the text</span>
+                <button class="add-ip-address" type="button">Add ip address</button>
+                <div class="add-ip-form">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ip-address" id="current-ip-address" checked>
+                        <label class="form-check-label" for="current-ip-address">
+                            Add Current IP Adress <span id="static-ip-address-text">111111</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ip-address" id="static-ip-address">
+                        <label class="form-check-label" for="static-ip-address">
+                            Add Static IP adress
+                        </label>
+                    </div>
+                    <div class="mb-3 add-static-ip-address-section">
+                        <label for="add-static-ip-address" class="form-label">Add static ip adress</label>
+                        <input type="text" class="form-control" id="add-static-ip-address"
+                            placeholder="name@example.com">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ip-address" id="range-ip-address">
+                        <label class="form-check-label" for="range-ip-address">
+                            Add IP Range
+                        </label>
+                    </div>
+                    <div class="ipranges">
+                        <div class="mb-3">
+                            <label for="from-ip-range" class="form-label">Add static ip adress</label>
+                            <input type="text" class="form-control" id="from-ip-range" placeholder="name@example.com">
+                        </div>
+                        to
+                        <div class="mb-3">
+                            <label for="to-ip-range" class="form-label">Add static ip adress</label>
+                            <input type="email" class="form-control" id="to-ip-range" placeholder="name@example.com">
+                        </div>
+
+                    </div>
+                    <button class="cancel-btn-ip" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+    <!-- change password -->
+    <script>
+        const changePasswordBtn = document.querySelector('.change-password-btn');
+        const changePassFields = document.querySelector('.change-pass-fields');
+        const currentPasswordInput = document.getElementById('current-password');
+        const newPasswordInput = document.getElementById('new-password');
+        const confirmNewPasswordInput = document.getElementById('confirm-new-password');
+        const changePasswordPrimaryBtn = document.querySelector('.change-password-primary-btn');
+        const changePasswordBtnSection = document.querySelector('.change-password-btn-section');
+        const changePasswordCancelBtn = document.querySelector('.change-password-cancel-btn');
+
+        changePasswordBtn.addEventListener('click', () => {
+            changePassFields.style.display = 'block';
+            changePasswordBtnSection.style.display = 'none';
+        });
+
+        changePasswordCancelBtn.addEventListener('click', () => {
+            changePassFields.style.display = 'none';
+            changePasswordBtnSection.style.display = 'block';
+        });
+
+        changePasswordPrimaryBtn.addEventListener('click', () => {
+            const currentPassword = currentPasswordInput.value;
+            const newPassword = newPasswordInput.value;
+            const confirmNewPassword = confirmNewPasswordInput.value;
+
+            if (!currentPassword || !newPassword || !confirmNewPassword) {
+                alert('Please fill in all the fields to change the password.');
+                return;
+            }
+
+            if (newPassword !== confirmNewPassword) {
+                alert("Password doesn't match the new password.");
+                return;
+            }
+
+            // Perform password change logic here
+
+            // Hide the change-pass-fields section and show the change-password-btn-section
+            changePassFields.style.display = 'none';
+            changePasswordBtnSection.style.display = 'block';
+        });
+    </script>
+
+    <!-- ip -->
+    <script>
+        const addIpAddressBtn = document.querySelector('.add-ip-address');
+        const addIpForm = document.querySelector('.add-ip-form');
+        const cancelBtnIp = document.querySelector('.cancel-btn-ip');
+
+        addIpAddressBtn.addEventListener('click', () => {
+            addIpForm.style.display = 'block';
+            addIpAddressBtn.style.display = 'none';
+        });
+
+        cancelBtnIp.addEventListener('click', () => {
+            addIpForm.style.display = 'none';
+            addIpAddressBtn.style.display = 'block';
+        });
+
+        // Hide the add-ip-form initially
+        addIpForm.style.display = 'none';
+
+        // ----------------------------
+        const ipAddresses = document.getElementsByName('ip-address');
+        const addStaticIpAddressSection = document.querySelector('.add-static-ip-address-section');
+        const ipRangesSection = document.querySelector('.ipranges');
+
+        // Function to handle the visibility of sections based on selected radio input
+        function handleSectionVisibility() {
+            if (document.getElementById('static-ip-address').checked) {
+                addStaticIpAddressSection.style.display = 'block';
+                ipRangesSection.style.display = 'none';
+            } else if (document.getElementById('range-ip-address').checked) {
+                addStaticIpAddressSection.style.display = 'none';
+                ipRangesSection.style.display = 'block';
+            } else {
+                addStaticIpAddressSection.style.display = 'none';
+                ipRangesSection.style.display = 'none';
+            }
+        }
+
+        // Add event listeners to all ip-address radio inputs
+        ipAddresses.forEach(function (ipAddress) {
+            ipAddress.addEventListener('change', handleSectionVisibility);
+        });
+
+        // Hide the add-static-ip-address-section and ipranges section initially
+        addStaticIpAddressSection.style.display = 'none';
+        ipRangesSection.style.display = 'none';
+
+        // Check if any radio input is initially selected
+        handleSectionVisibility();
+
+
+
+
+        //   ippp
+        // Function to get the current IP address
+        function getCurrentIPAddress() {
+            // Implement the logic to retrieve the current IP address
+            // For example:
+            return "192.168.0.1";
+        }
+
+        // Update the static IP address text
+        const staticIPAddressText = document.getElementById("static-ip-address-text");
+        staticIPAddressText.textContent = getCurrentIPAddress();
+    </script>
+
+
+
+
 </body>
 
 </html>

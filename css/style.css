@@ -2376,5 +2376,32 @@ body {
   color: #fff;
   font-weight: 500;
 }
+.account-container.security .password-section .password-heading {
+  font-weight: 600;
+  margin-top: 30px;
+}
+.account-container.security .password-section .last-changed-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.account-container.security .password-section .change-password-section .form-label {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+.account-container.security .password-section .change-password-section .forgot-password-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.account-container.security .password-section .change-password-section .change-pass-fields {
+  margin-top: 24px;
+}
+.account-container.security .password-section .change-password-section .change-password-btn button {
+  background-color: var(--primary-purple-color);
+  color: #FFF;
+  font-weight: 600;
+  padding: 3px 8px;
+  margin-top: 24px;
+}
 
 /*# sourceMappingURL=style.css.map */
