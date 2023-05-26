@@ -15,7 +15,35 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Add this to the head section of your HTML document -->
     <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
+<style>
+    .meeting-time {
+      position: relative;
+      cursor: pointer;
+    }
 
+    .tooltip {
+      position: absolute;
+      bottom: calc(100% + -58px);
+      /* Adjust the positioning as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 6px 12px;
+      background-color: #fff;
+      color: var(--red-color);
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      font-weight: 500;
+    }
+
+    .meeting-time:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+</style>
 </head>
 
 <body>
@@ -73,7 +101,9 @@
             </div>
         </div>
         <span class="welcome-name">Welcome, Harpreet</span>
-        <span class="meeting-time">Meeting in 20 mins with Ab..</span>
+        <span class="meeting-time">Meeting in 20 mins with Ab..
+        <span class="tooltip">Meeting in 20 mins with Abhishek Sharma</span>
+    </span>
         <div class="dropdown notification-dropdown-card">
             <button class="btn dropdown-toggle dropdown-toggle-split profile-card-btn" type="button"
                 data-bs-toggle="dropdown" aria-expanded="false">

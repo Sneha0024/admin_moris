@@ -80,6 +80,63 @@
         </ul>
     </div>
 
+    <div class="account-container container w-auto authentication">
+        <div class="account-page-heading"><img src="/images/account-profile-page-icon.svg" alt="" class="">Multi Factor
+            Atuthenticaton
+        </div>
+        <div class="account-content pt-4">
+            <div class="row">
+                <div class="col-12 col-md-4 two-step-heading">Two Step Verification</div>
+                <div class="col-12 col-md-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
+                    </div>
+                </div>
+            </div>
+            <div class="two-step-verification">
+                <h5 class="font-500">Two Step Verification</h5>
+                <span class="sub-heading font-500 pb-4 d-inline-block">Secure your Account with Two Step Verification</span>
+                <div class="mb-3 col-12 col-md-4">
+                    <label for="verification-method" class="form-label">Choose your verification method</label>
+                    <select class="form-select" aria-label="verification-method" id="verification-method">
+                        <option value="Authenticator App">Authenticator App</option>
+                        <option value="Phone Number">Phone Number</option>
+                    </select>
+                </div>
+            </div>
+            <!-- authenticator app strt -->
+            <div class="authenticator-app-section">
+                <button type="button" class="authenticator-btn btn">Continue</button>
+                <div class="col-12 col-md-5 note">
+Note : Turning this feature on will sign you out anywhere you're currently signed in and remove all your remembered device.
+                </div>
+            </div>
+            <!-- authentication app ends -->
+
+            <!-- phone no start -->
+            <div class="phone-number-section">
+                <h5 class="font-500">Two Step Verification</h5>
+                <span class="sub-heading font-500 pb-1 block">We’ll send a verification code to this number. </span>
+                <br/>
+                <span class="sub-heading font-500 pb-4 block">You’ll need it for the next step.</span>
+                <div class="mb-3 col-12 col-md-4 mt-3">
+                    <input type="text" class="form-control" id="phone-no-field" placeholder="+91 988888">
+                  </div>
+                  <div class="mb-3 col-12 col-md-4 mt-3">
+                    <label for="password" class="form-label">Enter Your Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                </div>
+                <div class="note col-12 col-md-5">
+                    Your phone number helps us keep your account secure by adding an additional layer of
+Verification. It also helps others, who already have your phone number, discover and connect
+With you. You can always decide how you want your phone number used. Learn More
+                </div>
+                <button class="send-code-btn btn" type="button">Send Code</button>
+            </div>
+            <!-- phone no ends -->
+        </div>
+    </div>
 
 
 
