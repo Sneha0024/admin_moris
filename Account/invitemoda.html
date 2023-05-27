@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Your CSS styles */
+  </style>
+</head>
+<body>
+  <!-- Create Group Modal -->
+  <div id="createGroupModal" class="modal">
+    <!-- Modal content -->
+    <!-- Your existing create group modal code -->
+  </div>
+
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal">
+    <!-- Modal content -->
+    <!-- Your existing info modal code -->
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <!-- Modal content -->
+    <!-- Your existing edit modal code -->
+  </div>
+
+  <!-- Invite Modal -->
+  <div id="inviteModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Invite Group Members</h2>
+      <form id="inviteForm">
+        <div>
+          <label for="inviteMembers">Invite Members:</label>
+          <input type="text" id="inviteMembers" placeholder="Enter member names">
+        </div>
+        <button type="submit">Invite</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Your existing HTML code -->
+
+  <script>
+    // Open the invite modal when the invite menu item is clicked
+    const inviteMenuItem = groupCard.querySelector('.invite');
+    inviteMenuItem.addEventListener('click', (e) => {
+      e.preventDefault();
+      openInviteModal(name, members);
+    });
+
+    // Function to open the invite modal
+    function openInviteModal(name, members) {
+      const inviteModal = document.getElementById('inviteModal');
+      const closeBtn = inviteModal.querySelector('.close');
+      const inviteForm = document.getElementById('inviteForm');
+      const inviteMembersInput = document.getElementById('inviteMembers');
+
+      // Populate the modal with existing group members
+      inviteMembersInput.value = members.join(', ');
+
+      inviteModal.style.display = 'block';
+
+      closeBtn.addEventListener('click', () => {
+        inviteModal.style.display = 'none';
+      });
+
+      inviteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Retrieve the updated list of group members
+        const updatedMembers = inviteMembersInput.value.split(',').map(member => member.trim());
+
+        // Update the group members in the group card
+        updateGroupMembers(updatedMembers);
+
+        // Close the invite modal
+        inviteModal.style.display = 'none';
+      });
+    }
+
+    // Function to update the group members in the group card
+    function updateGroupMembers(updatedMembers) {
+      const membersElement = groupCard.querySelector('.members');
+      membersElement.textContent = `${updatedMembers.length} members`;
+    }
+
+    // ... Rest of your existing JavaScript code ...
+  </script>
+
+
+
+
+
+<!-- when more than one group -->
+<script>
+    // Open the create group modal when the button is clicked
+const createGroupBtn = document.getElementById('createGroupBtn');
+const createMoreGroupsBtn = document.getElementById('createMoreGroupsBtn');
+const createGroupModal = document.getElementById('createGroupModal');
+const closeBtn = createGroupModal.querySelector('.close');
+
+createGroupBtn.addEventListener('click', () => {
+    createGroupModal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    createGroupModal.style.display = 'none';
+});
+
+// Handle form submission
+const createGroupForm = document.getElementById('createGroupForm');
+const groupImageInput = document.getElementById('groupImage');
+const groupImagePreview = document.getElementById('groupImagePreview');
+
+createGroupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Retrieve form values
+    const groupImage = groupImageInput.files[0];
+    const groupName = document.getElementById('groupName').value;
+    const groupDescription = document.getElementById('groupDescription').value;
+    const groupMembers = document.getElementById('groupMembers').value.split(',');
+
+    // If no group image is selected, use the default image
+    const defaultImage = '/images/account-profile-img.svg';
+    const groupImageSrc = groupImage ? URL.createObjectURL(groupImage) : defaultImage;
+
+    // Perform validation
+    if (!groupName || !groupDescription || !groupMembers) {
+        displayErrorMessage('Please add all fields to create the group.');
+        return;
+    }
+
+    // Clear form fields
+    createGroupForm.reset();
+    createGroupModal.style.display = 'none';
+
+    // Create the group card dynamically using the retrieved values
+    createGroupCard(groupImageSrc, groupName, groupDescription, groupMembers);
+
+    // Check the number of group cards
+    const groupCards = document.querySelectorAll('.group-card');
+    if (groupCards.length > 0) {
+        createMoreGroupsBtn.style.display = 'inline-block';
+        createGroupBtn.style.display = 'none';
+    }
+});
+
+// Function to create a group card
+function createGroupCard(image, name, description, members) {
+    // ... Your existing code for creating the group card ...
+}
+
+// ... Your existing code ...
+
+// Function to display an error message
+function displayErrorMessage(message) {
+    // ... Your existing code for displaying an error message ...
+}
+
+// Function to check if there are groups and show the appropriate button
+function checkGroupCount() {
+    const groupCards = document.querySelectorAll('.group-card');
+    if (groupCards.length > 0) {
+        createMoreGroupsBtn.style.display = 'inline-block';
+        createGroupBtn.style.display = 'none';
+    } else {
+        createMoreGroupsBtn.style.display = 'none';
+        createGroupBtn.style.display = 'inline-block';
+    }
+}
+
+// Event listener for the "Create More Groups" button
+createMoreGroupsBtn.addEventListener('click', () => {
+    createGroupModal.style.display = 'block';
+});
+
+// Call the function to check the initial group count
+checkGroupCount();
+
+</script>
+</body>
+</html>
