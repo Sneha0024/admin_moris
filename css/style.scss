@@ -2450,6 +2450,7 @@ body {
       span {
         display: inline-block;
         margin-bottom: 11px;
+        margin-top: 16px;
       }
       &:last-child {
         margin-bottom: 0;
@@ -2530,26 +2531,171 @@ body {
         font-weight: 500;
       }
       .change-password-section {
+        border-bottom: 0.5px solid #80808069;
+        padding-bottom: 16px;
+        margin-bottom: 30px;
         .form-label {
           color: var(--primary-purple-color);
           font-weight: 500;
           margin-bottom: 1px;
         }
-        .forgot-password-text{
+        .forgot-password-text {
           color: var(--primary-purple-color);
           font-weight: 500;
         }
-        .change-pass-fields{
+        .change-pass-fields {
           margin-top: 24px;
         }
-        .change-password-btn{
-          button{
+        .change-password-btn {
+          button {
             background-color: var(--primary-purple-color);
-            color: #FFF;
+            color: #fff;
             font-weight: 600;
             padding: 3px 8px;
             margin-top: 24px;
           }
+        }
+        .change-password-btn-section {
+          margin: 16px 0;
+          button {
+            background-color: var(--primary-purple-color);
+            color: #fff;
+            font-weight: 500;
+            padding: 3px 8px;
+            border: none;
+            margin: 24px 0 8px;
+          }
+        }
+        .change-password-cancel-btn {
+          color: var(--primary-purple-color);
+          background-color: transparent;
+          font-weight: 500;
+          padding: 3px 8px;
+          border: 2px solid var(--primary-purple-color);
+          border-radius: 4px;
+        }
+        .change-password-primary-btn {
+          background-color: var(--primary-purple-color);
+          color: #fff;
+          font-weight: 500;
+          padding: 3px 8px;
+          border: 2px solid var(--primary-purple-color);
+          border-radius: 4px;
+          margin-right: 6px;
+        }
+      }
+    }
+    .ip-section {
+      border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    
+      .allow-ip-heading {
+        font-weight: 600;
+      }
+      .restrict-text {
+        color: var(--primary-purple-color);
+        font-weight: 500;
+      }
+      .add-ip-address {
+        background-color: var(--primary-purple-color);
+        color: #fff;
+        font-weight: 500;
+        border-radius: 4px;
+        padding: 3px 8px;
+        margin: 10px 0;
+      }
+      .add-ip-form {
+        margin: 20px 0;
+        .form-check-label {
+          color: var(--primary-purple-color);
+          font-weight: 500;
+          #static-ip-address-text {
+            color: blue;
+          }
+        }
+        .next-btn {
+          background-color: var(--primary-purple-color);
+          color: #fff;
+          font-weight: 500;
+          border-radius: 4px;
+          padding: 3px 8px;
+          border: 2px solid var(--primary-purple-color);
+          margin: 16px 0;
+          display: inline-block;
+          margin-right: 12px;
+        }
+        .cancel-btn-ip {
+          color: var(--primary-purple-color);
+          background: transparent;
+          font-weight: 500;
+          border-radius: 4px;
+          padding: 3px 8px;
+          border: 2px solid var(--primary-purple-color);
+          margin: 16px 0;
+          display: inline-block;
+        }
+      }
+      .ip-add-form {
+        .ensure-text {
+          color: #707070;
+          font-weight: 500;
+          margin: 16px 0;
+        }
+        .your-ip-add-static-text {
+          color: red;
+          font-weight: 500;
+          font-size: 18px;
+        }
+        .ip-add-from-value {
+          font-weight: 500;
+          font-size: 18px;
+        }
+        .add-ip-name {
+          background-color: var(--primary-purple-color);
+          color: #fff;
+          font-weight: 500;
+          padding: 3px 8px;
+          border-radius: 4px;
+        }
+      }
+      .your-ip-address-section{
+        margin: 16px 0;
+      .static-text-of-ip-val {
+        color: red;
+        font-size: 20px;
+        font-weight: 500;
+        display: block;
+      }
+      .statisc-ip-add-name {
+        color: #000000;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 9px;
+      }
+      .ip-name-val{
+        color: #000000;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 9px;
+      }
+    }
+ 
+    }
+    .device-sign-in-section{
+      margin-bottom: 30px;
+      .device-sign-in-heading{
+        font-weight: 600;
+      }
+      .view-device-text{
+        color: var(--primary-purple-color);
+        font-weight: 500;
+      }
+      .device-sections-img-area{
+        display: flex;
+        align-items: center;
+        .device-sign-desc{
+          font-weight: 500;
         }
       }
     }

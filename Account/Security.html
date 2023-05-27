@@ -113,7 +113,7 @@
         <div class="account-content">
             <div class="password-section">
                 <h5 class="password-heading">Password</h5>
-                <span class="last-changed-text">Last changed 7 years ago
+                <span class="last-changed-text"><span id="password-change-history">Last changed 7 years ago</span>
                     <span class="info-icon">
                         <img src="/images/account-security-info-icon.svg" class="" />
                         <span class="tooltip">We recommend you to change the password every 3 months to keep your
@@ -148,7 +148,7 @@
                                         placeholder=" Enter password">
                                 </div>
                             </span>
-                            <span class="col-12 col-md-3">
+                            <span class="col-12 col-md-3 mt-4">
                                 <button class="btn change-password-primary-btn" type="button">Change password</button>
                                 <button class="change-password-cancel-btn" type="button">cancel</button>
                             </span>
@@ -161,47 +161,84 @@
 
             </div>
             <div class="ip-section">
-                <h5 class="password-heading">Allow ip address</h5>
-                <span class="restrict-text">restrict the text</span>
-                <button class="add-ip-address" type="button">Add ip address</button>
+                <h5 class="allow-ip-heading">Allowed IP address</h5>
+                <span class="restrict-text d-block">Restrict access to your account by adding a range of trusted IP
+                    addresses.</span>
+                <button class="add-ip-address" type="button">Add IP Address</button>
                 <div class="add-ip-form">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="ip-address" id="current-ip-address" checked>
                         <label class="form-check-label" for="current-ip-address">
-                            Add Current IP Adress <span id="static-ip-address-text">111111</span>
+                            Add Current IP Adress (<span id="static-ip-address-text">111.11.1</span>)
                         </label>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check d-inline-block my-4">
                         <input class="form-check-input" type="radio" name="ip-address" id="static-ip-address">
                         <label class="form-check-label" for="static-ip-address">
-                            Add Static IP adress
+                            Add Static IP Adress
                         </label>
                     </div>
                     <div class="mb-3 add-static-ip-address-section">
-                        <label for="add-static-ip-address" class="form-label">Add static ip adress</label>
-                        <input type="text" class="form-control" id="add-static-ip-address"
-                            placeholder="name@example.com">
+                        <!-- <label for="add-static-ip-address" class="form-label">Add static ip adress</label> -->
+                        <input type="text" class="form-control col-6 col-md-3" id="add-static-ip-address"
+                            placeholder="">
                     </div>
-                    <div class="form-check">
+                    <br />
+                    <div class="form-check d-inline-block">
                         <input class="form-check-input" type="radio" name="ip-address" id="range-ip-address">
                         <label class="form-check-label" for="range-ip-address">
                             Add IP Range
                         </label>
                     </div>
                     <div class="ipranges">
-                        <div class="mb-3">
-                            <label for="from-ip-range" class="form-label">Add static ip adress</label>
-                            <input type="text" class="form-control" id="from-ip-range" placeholder="name@example.com">
+                        <div class="d-flex">
+                            <div class="mb-3 d-inline-block">
+                                <!-- <label for="from-ip-range" class="form-label">Add static ip adress</label> -->
+                                <input type="text" class="form-control me-2" id="from-ip-range" placeholder="">
+                            </div>
+                            to
+                            <div class="mb-3 inline-block">
+                                <!-- <label for="to-ip-range" class="form-label">Add static ip adress</label> -->
+                                <input type="text" class="form-control ms-2" id="to-ip-range" placeholder="">
+                            </div>
                         </div>
-                        to
-                        <div class="mb-3">
-                            <label for="to-ip-range" class="form-label">Add static ip adress</label>
-                            <input type="email" class="form-control" id="to-ip-range" placeholder="name@example.com">
-                        </div>
-
                     </div>
+                    <br />
+                    <button class="btn next-btn" type="button">Next</button>
                     <button class="cancel-btn-ip" type="button">Cancel</button>
                 </div>
+                <div class="ip-add-form" style="display: none;">
+                    <div class="ensure-text col-9 col-md-5">
+                        Ensure that the IP address you provide is a static IP address. Since the dynamic
+                        IP addresses change and you might get locked out of your account. All further
+                        sign-ins will only be permitted from this IP range.
+
+                    </div>
+                    <span class="your-ip-add-static-text">YOUR IP ADDRESS : </span>
+                    <span class="ip-add-from-value"></span>
+                    <div class="mb-3 mt-2 col-6 col-md-4">
+                        <!-- <label for="ip-name-input" class="form-label">ip name</label> -->
+                        <input type="text" class="form-control" id="ip-name-input" placeholder="Enter IP Name">
+                    </div>
+                    <button class="btn add-ip-name">Add </button>
+                </div>
+                <div class="your-ip-address-section" style="display: none;">
+                    <span class="statisc-ip-add-name">IP ADDRESS NAME : <span id="final-ip-address"></span></span>
+                    <span class="ip-name-val">Your IP Address<span id="final-ip-value"></span> </span>
+
+                   <span class="static-text-of-ip-val">Your IP Address : <span id="ip-add-val-from-add-ip"></span></span> 
+                    <div class="final-ip-address d-none"></div>
+                    <div class="final-ip-value d-none"></div>
+                </div>
+
+            </div>
+            <div class="device-sign-in-section">
+                <h5 class="device-sign-in-heading">Device Sign-ins</h5>
+             <span class="view-device-text">View and manage the list of locations where you’ve signed in on your devices.</span>
+             <div class="device-sections-img-area">
+                <div class="device-img-area"><img src="/images/security-no-device-img.svg" alt=""></div>
+                <div class="device-sign-desc">NO DEVICE FOUND</div>
+             </div>
             </div>
         </div>
     </div>
@@ -222,6 +259,7 @@
         const changePasswordPrimaryBtn = document.querySelector('.change-password-primary-btn');
         const changePasswordBtnSection = document.querySelector('.change-password-btn-section');
         const changePasswordCancelBtn = document.querySelector('.change-password-cancel-btn');
+        let passwordChangeShown = false;
 
         changePasswordBtn.addEventListener('click', () => {
             changePassFields.style.display = 'block';
@@ -232,6 +270,41 @@
             changePassFields.style.display = 'none';
             changePasswordBtnSection.style.display = 'block';
         });
+
+        function formatTimeAgo(timestamp) {
+            const currentTime = new Date();
+            const diffInSeconds = Math.floor((currentTime - timestamp) / 1000);
+
+            if (diffInSeconds < 60) {
+                return `${diffInSeconds} second${diffInSeconds !== 1 ? "s" : ""} ago`;
+            } else if (diffInSeconds < 3600) {
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                return `${diffInMinutes} minute${diffInMinutes !== 1 ? "s" : ""} ago`;
+            } else if (diffInSeconds < 86400) {
+                const diffInHours = Math.floor(diffInSeconds / 3600);
+                return `${diffInHours} hour${diffInHours !== 1 ? "s" : ""} ago`;
+            } else if (diffInSeconds < 2592000) {
+                const diffInDays = Math.floor(diffInSeconds / 86400);
+                return `${diffInDays} day${diffInDays !== 1 ? "s" : ""} ago`;
+            } else {
+                const diffInMonths = Math.floor(diffInSeconds / 2592000);
+                return `${diffInMonths} month${diffInMonths !== 1 ? "s" : ""} ago`;
+            }
+        }
+
+        function showPasswordChangeHistory() {
+            if (!passwordChangeShown) {
+                const passwordChangeHistoryDiv = document.getElementById("password-change-history");
+                const timestamp = new Date();
+                const formattedTimeAgo = formatTimeAgo(timestamp);
+
+                const passwordChangeItem = document.createElement("div");
+                passwordChangeHistoryDiv.textContent = `Last changed ${formattedTimeAgo}`;
+                //   passwordChangeHistoryDiv.appendChild(passwordChangeItem);
+
+                passwordChangeShown = true;
+            }
+        }
 
         changePasswordPrimaryBtn.addEventListener('click', () => {
             const currentPassword = currentPasswordInput.value;
@@ -247,7 +320,10 @@
                 alert("Password doesn't match the new password.");
                 return;
             }
+            else {
+                showPasswordChangeHistory();
 
+            }
             // Perform password change logic here
 
             // Hide the change-pass-fields section and show the change-password-btn-section
@@ -283,11 +359,11 @@
         // Function to handle the visibility of sections based on selected radio input
         function handleSectionVisibility() {
             if (document.getElementById('static-ip-address').checked) {
-                addStaticIpAddressSection.style.display = 'block';
+                addStaticIpAddressSection.style.display = 'inline-block';
                 ipRangesSection.style.display = 'none';
             } else if (document.getElementById('range-ip-address').checked) {
                 addStaticIpAddressSection.style.display = 'none';
-                ipRangesSection.style.display = 'block';
+                ipRangesSection.style.display = 'inline-block';
             } else {
                 addStaticIpAddressSection.style.display = 'none';
                 ipRangesSection.style.display = 'none';
@@ -320,9 +396,171 @@
         // Update the static IP address text
         const staticIPAddressText = document.getElementById("static-ip-address-text");
         staticIPAddressText.textContent = getCurrentIPAddress();
+
+        // ---------------nxt btn
+        const nextBtn = document.querySelector('.next-btn');
+        const addStaticIpInput = document.getElementById('add-static-ip-address');
+        const fromIpRangeInput = document.getElementById('from-ip-range');
+        const toIpRangeInput = document.getElementById('to-ip-range');
+        const ipAddFormSection = document.querySelector('.ip-add-form');
+        const currentIpAddressInput = document.getElementById('current-ip-address');
+        const staticIpAddressText = document.getElementById('static-ip-address-text');
+        nextBtn.addEventListener('click', () => {
+            const staticIpValue = addStaticIpInput.value;
+            const fromIpRangeValue = fromIpRangeInput.value;
+            const toIpRangeValue = toIpRangeInput.value;
+            if (currentIpAddressInput.checked) {
+                ipAddFormSection.style.display = 'block';
+                addIpForm.style.display = "none"
+                const ipAddFromValue = document.querySelector('.ip-add-from-value');
+                ipAddFromValue.textContent = staticIpAddressText.textContent;
+                const ipaddvalfromaddip = document.querySelector('#ip-add-val-from-add-ip');
+                ipaddvalfromaddip.textContent = staticIpAddressText.textContent;
+
+                const finalipvalue = document.getElementById('final-ip-value');
+                finalipvalue.textContent = staticIpAddressText.textContent;
+            }
+            else if (staticIpValue && fromIpRangeValue && toIpRangeValue) {
+                alert('Please provide only one value either in Static IP or IP Range.');
+            } else if (!staticIpValue && !fromIpRangeValue && !toIpRangeValue) {
+                alert('Please add a value to the IP Address field.');
+            } else if (staticIpValue || (fromIpRangeValue && toIpRangeValue)) {
+                ipAddFormSection.style.display = 'block';
+                addIpForm.style.display = "none"
+                const ipAddFromValue = document.querySelector('.ip-add-from-value');
+                if (staticIpValue) {
+                    ipAddFromValue.textContent = staticIpValue;
+                    const ipaddvalfromaddip = document.querySelector('#ip-add-val-from-add-ip');
+                    ipaddvalfromaddip.textContent = staticIpAddressText.textContent;
+
+                } else if (fromIpRangeValue && toIpRangeValue) {
+                    ipAddFromValue.textContent = `${fromIpRangeValue} to ${toIpRangeValue}`;
+                    const ipaddvalfromaddip = document.querySelector('#ip-add-val-from-add-ip');
+                    ipaddvalfromaddip.textContent = staticIpAddressText.textContent;
+
+                }
+            }
+        });
+
+
+        // add btn old
+
+
+        // const addIpButton = document.querySelector('.add-ip-name');
+        // const ipNameInput = document.getElementById('ip-name-input');
+        // const ipNameValue = document.querySelector('.ip-name-val');
+        // const yourIpAddressSection = document.querySelector('.your-ip-address-section');
+
+        // addIpButton.addEventListener('click', () => {
+        //     const ipName = ipNameInput.value.trim();
+
+        //     if (ipName !== '') {
+        //         ipNameValue.textContent = ipName;
+        //         yourIpAddressSection.style.display = 'block';
+        //     } else {
+        //         alert('Please enter an IP name.');
+        //     }
+        // });
+
+        // add btn old 1
+
+        // const addIpButton = document.querySelector('.add-ip-name');
+        // const ipNameInput = document.getElementById('ip-name-input');
+        // const ipNameValue = document.querySelector('.ip-name-val');
+        // const yourIpAddressSection = document.querySelector('.your-ip-address-section');
+        // const ipAddFromValue = document.querySelector('.ip-add-from-value');
+        // // const ipAddFormSection = document.querySelector('.ip-add-form');
+
+        // addIpButton.addEventListener('click', () => {
+        //     const ipName = ipNameInput.value.trim();
+
+        //     if (ipName !== '') {
+        //         ipAddFromValue.textContent = ipName;
+        //         yourIpAddressSection.style.display = 'block';
+        //         ipAddFormSection.style.display = 'none';
+        //     } else {
+        //         alert('Please enter an IP name.');
+        //     }
+        // });
+        // =====================add btn
+        const addIpButton = document.querySelector('.add-ip-name');
+        const ipNameInput = document.getElementById('ip-name-input');
+        const ipNameValue = document.querySelector('.ip-name-val');
+        const yourIpAddressSection = document.querySelector('.your-ip-address-section');
+        const ipAddFromValue = document.querySelector('.ip-add-from-value');
+        // const ipAddFormSection = document.querySelector('.ip-add-form');
+        const finalIpAddress = document.querySelector('.final-ip-address');
+        const finalIpValue = document.querySelector('.final-ip-value');
+
+        addIpButton.addEventListener('click', () => {
+            const ipName = ipNameInput.value.trim();
+
+            if (ipName !== '') {
+                ipAddFromValue.textContent = ipName;
+                ipNameValue.textContent = ipName;
+                finalIpAddress.textContent = ipAddFromValue.textContent;
+                finalIpValue.textContent = ipName;
+                yourIpAddressSection.style.display = 'block';
+                ipAddFormSection.style.display = 'none';
+            } else {
+                alert('Please enter an IP name.');
+            }
+        });
+
+        // ----------------
+        // const nextBtn = document.querySelector('.next-btn');
+        // const currentIpAddressInput = document.getElementById('current-ip-address');
+        // const staticIpAddressText = document.getElementById('static-ip-address-text');
+        // const ipAddFormSection = document.querySelector('.ip-add-form');
+
+        // nextBtn.addEventListener('click', () => {
+        //     if (currentIpAddressInput.checked) {
+        //         ipAddFormSection.style.display = 'block';
+        //         const ipAddFromValue = document.querySelector('.ip-add-from-value');
+        //         ipAddFromValue.textContent = staticIpAddressText.textContent;
+        //     } else {
+        //         alert('Please select the "Current IP Address" option.');
+        //     }
+        // });
+
     </script>
 
+    <!-- passwrd change -->
+    <script>
+        // function formatTimeAgo(timestamp) {
+        //     const currentTime = new Date();
+        //     const diffInSeconds = Math.floor((currentTime - timestamp) / 1000);
 
+        //     if (diffInSeconds < 60) {
+        //         return `${diffInSeconds} second${diffInSeconds !== 1 ? "s" : ""} ago`;
+        //     } else if (diffInSeconds < 3600) {
+        //         const diffInMinutes = Math.floor(diffInSeconds / 60);
+        //         return `${diffInMinutes} minute${diffInMinutes !== 1 ? "s" : ""} ago`;
+        //     } else if (diffInSeconds < 86400) {
+        //         const diffInHours = Math.floor(diffInSeconds / 3600);
+        //         return `${diffInHours} hour${diffInHours !== 1 ? "s" : ""} ago`;
+        //     } else if (diffInSeconds < 2592000) {
+        //         const diffInDays = Math.floor(diffInSeconds / 86400);
+        //         return `${diffInDays} day${diffInDays !== 1 ? "s" : ""} ago`;
+        //     } else {
+        //         const diffInMonths = Math.floor(diffInSeconds / 2592000);
+        //         return `${diffInMonths} month${diffInMonths !== 1 ? "s" : ""} ago`;
+        //     }
+        // }
+
+        // function showPasswordChangeHistory() {
+        //     const passwordChangeHistoryDiv = document.getElementById("password-change-history");
+        //     const timestamp = new Date();
+        //     const formattedTimeAgo = formatTimeAgo(timestamp);
+
+        //     const passwordChangeItem = document.createElement("div");
+        //     passwordChangeItem.textContent = `Password changed ${formattedTimeAgo}`;
+        //     passwordChangeHistoryDiv.appendChild(passwordChangeItem);
+        // }
+
+        // const changePasswordPrimaryBtn = document.querySelector(".change-password-primary-btn");
+        // changePasswordPrimaryBtn.addEventListener("click", showPasswordChangeHistory);
+    </script>
 
 
 </body>

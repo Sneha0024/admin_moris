@@ -2311,6 +2311,7 @@ body {
 .account-container .phone-numbers-section #phone-list span {
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 16px;
 }
 .account-container .phone-numbers-section #phone-list:last-child {
   margin-bottom: 0;
@@ -2384,6 +2385,11 @@ body {
   color: var(--primary-purple-color);
   font-weight: 500;
 }
+.account-container.security .password-section .change-password-section {
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+}
 .account-container.security .password-section .change-password-section .form-label {
   color: var(--primary-purple-color);
   font-weight: 500;
@@ -2398,10 +2404,148 @@ body {
 }
 .account-container.security .password-section .change-password-section .change-password-btn button {
   background-color: var(--primary-purple-color);
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
   padding: 3px 8px;
   margin-top: 24px;
+}
+.account-container.security .password-section .change-password-section .change-password-btn-section {
+  margin: 16px 0;
+}
+.account-container.security .password-section .change-password-section .change-password-btn-section button {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 3px 8px;
+  border: none;
+  margin: 24px 0 8px;
+}
+.account-container.security .password-section .change-password-section .change-password-cancel-btn {
+  color: var(--primary-purple-color);
+  background-color: transparent;
+  font-weight: 500;
+  padding: 3px 8px;
+  border: 2px solid var(--primary-purple-color);
+  border-radius: 4px;
+}
+.account-container.security .password-section .change-password-section .change-password-primary-btn {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 3px 8px;
+  border: 2px solid var(--primary-purple-color);
+  border-radius: 4px;
+  margin-right: 6px;
+}
+.account-container.security .ip-section {
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.account-container.security .ip-section .allow-ip-heading {
+  font-weight: 600;
+}
+.account-container.security .ip-section .restrict-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.account-container.security .ip-section .add-ip-address {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin: 10px 0;
+}
+.account-container.security .ip-section .add-ip-form {
+  margin: 20px 0;
+}
+.account-container.security .ip-section .add-ip-form .form-check-label {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.account-container.security .ip-section .add-ip-form .form-check-label #static-ip-address-text {
+  color: blue;
+}
+.account-container.security .ip-section .add-ip-form .next-btn {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 3px 8px;
+  border: 2px solid var(--primary-purple-color);
+  margin: 16px 0;
+  display: inline-block;
+  margin-right: 12px;
+}
+.account-container.security .ip-section .add-ip-form .cancel-btn-ip {
+  color: var(--primary-purple-color);
+  background: transparent;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 3px 8px;
+  border: 2px solid var(--primary-purple-color);
+  margin: 16px 0;
+  display: inline-block;
+}
+.account-container.security .ip-section .ip-add-form .ensure-text {
+  color: #707070;
+  font-weight: 500;
+  margin: 16px 0;
+}
+.account-container.security .ip-section .ip-add-form .your-ip-add-static-text {
+  color: red;
+  font-weight: 500;
+  font-size: 18px;
+}
+.account-container.security .ip-section .ip-add-form .ip-add-from-value {
+  font-weight: 500;
+  font-size: 18px;
+}
+.account-container.security .ip-section .ip-add-form .add-ip-name {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.account-container.security .ip-section .your-ip-address-section {
+  margin: 16px 0;
+}
+.account-container.security .ip-section .your-ip-address-section .static-text-of-ip-val {
+  color: red;
+  font-size: 20px;
+  font-weight: 500;
+  display: block;
+}
+.account-container.security .ip-section .your-ip-address-section .statisc-ip-add-name {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 9px;
+}
+.account-container.security .ip-section .your-ip-address-section .ip-name-val {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 9px;
+}
+.account-container.security .device-sign-in-section {
+  margin-bottom: 30px;
+}
+.account-container.security .device-sign-in-section .device-sign-in-heading {
+  font-weight: 600;
+}
+.account-container.security .device-sign-in-section .view-device-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.account-container.security .device-sign-in-section .device-sections-img-area {
+  display: flex;
+  align-items: center;
+}
+.account-container.security .device-sign-in-section .device-sections-img-area .device-sign-desc {
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
