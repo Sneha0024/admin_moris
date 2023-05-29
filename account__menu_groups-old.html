@@ -21,6 +21,52 @@
             display: none;
             margin-top: 10px;
         }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .image-container .profile-img {
+            width: 102px;
+            height: 102px;
+            border-radius: 50%;
+            border: 2px solid var(--red-color);
+        }
+
+        .image-container:hover .upload-icon {
+            display: block;
+            background-color: var(--primary-purple-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            cursor: pointer;
+            width: 102px;
+            height: 102px;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .upload-icon img {
+            width: 30px;
+            height: 30px;
+            opacity: 1;
+        }
+
+        #groupImagePreview {
+            width: 103px;
+            height: 103px;
+            border-radius: 50%;
+            border: 2px solid var(--red-color);
+        }
     </style>
 </head>
 
@@ -85,15 +131,38 @@
             </li>
         </ul>
     </div>
-
-    <div class="account-container container w-auto">
-        <div id="groupContainer"></div>
-        <div class="error-message"></div>
-        <div class="error-message"></div>
-        <button id="createGroupBtn">Create Group</button>
-        <button id="createMoreGroupsBtn" style="display: none;">Create More Groups</button>
-        <!-- Create Group Modal -->
-        <div id="createGroupModal" class="modal">
+    <div class="account-container container w-auto groups">
+        <div class="account-page-heading"><img src="images/account-groups-page-icon.svg" alt="" class="">
+            Groups
+        </div>
+        <div class="account-content">
+            <span class="groups-sub-heading">Create a group to communicate with other members in your
+                organization.</span>
+            <button id="createGroupBtn" class="create-group-btn btn" type="button" data-bs-toggle="modal"
+                data-bs-target="#createGroupModal">Create Group</button>
+        </div>
+            <!-- <div id="create-new-group" style="display: none;">
+                <div class="group-card">
+                    <img src="images/create-new-group-icon.svg" alt="">
+                    <button id="createMoreGroupsBtn" >Create New Groups</button>
+          
+                </div>
+            </div> -->
+            <div class="" id="create-new-group">
+                <div class="more-group-cards">
+                    <img src="images/create-new-group-icon.svg" alt="">
+                    <button id="createMoreGroupsBtn" >Create New Groups</button>
+          
+                </div>
+            </div>  
+            
+            <div id="groupContainer"></div>
+            <div class="error-message"></div>
+            <div class="error-message"></div>
+            <!-- <button id="createMoreGroupsBtn" >Create New Groups</button> -->
+            <!-- <button id="createGroupBtn">Create Group</button> -->
+            <!-- Create Group Modal -->
+            <!-- <div id="createGroupModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Create Group</h2>
@@ -118,96 +187,140 @@
                     <button type="submit">Create</button>
                 </form>
             </div>
-        </div>
-        <!-- Info Modal -->
-        <!-- <div id="infoModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="groupInfoContent">
+        </div> -->
+            <!--my modal html starts-->
+            <div class="modal fade myteam-modal" id="createGroupModal" tabindex="-1" aria-labelledby="MyTeamModal"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                    <div class="modal-content position-relative">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Create Group</h1>
+                        </div>
+                        <div class="circles-section">
+                            <span class="circle-one"><img src="images/modal-header-circles-1.svg" alt=""></span>
+                            <span class="circle-two"><img src="images/modal-header-circles-2.svg" alt=""></span>
+                        </div>
+
+                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <form id="createGroupForm">
+                            <div class="modal-body">
+
+                                <div class="img-section">
+                                    <div class="image-container" onclick="openFilePicker()">
+                                        <img id="groupImagePreview" src="images/account-profile-img.svg"
+                                            alt="Group Image">
+                                        <div id="upload-icon" class="upload-icon">
+                                            <img src="images/account-prifile-camera-icon.svg" alt="Upload Image">
+                                        </div>
+                                    </div>
+                                    <input type="file" id="groupImage" accept="image/*" style="display: none;">
+                                    <script>
+                                        function openFilePicker() {
+                                            document.getElementById('groupImage').click();
+                                        }
+                                    </script>
+                                </div>
+
+                                <div class="form-section">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="groupName" class="myteam-form-label">Group Name</label>
+                                                <input type="text" class="form-control" id="groupName"
+                                                    placeholder="Enter Group Name">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="groupDescription" class="myteam-form-label">Group
+                                                    Description</label>
+                                                <textarea type="text" class="form-control" id="groupDescription"
+                                                    placeholder="Enter Group Description"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="groupMembers" class="myteam-form-label">Group
+                                                    Members</label>
+                                                <textarea type="text" class="form-control" id="groupMembers"
+                                                    placeholder="Enter Group Members"></textarea>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="create-group-btn btn">Create Group</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div> -->
+            <!-- my team modal ends-->
 
-        <!-- Edit Modal -->
-        <!-- <div id="editModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Edit Group</h2>
-                <form id="editForm">
-                    <label for="editGroupImage">Group Image:</label>
-                    <input type="file" id="editGroupImage" accept="image/*">
-                    <img id="editGroupImagePreview" src="images/account-profile-img.svg" alt="Group Image">
+            <!-- Invite Modal -->
+            <div id="inviteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Invite Members</h2>
+                    <form id="inviteForm">
+                        <label for="groupName">Group Name:</label>
+                        <input type="text" id="groupName" readonly>
 
-                    <label for="editGroupName">Group Name:</label>
-                    <input type="text" id="editGroupName">
+                        <label for="inviteEmail">Email Address:</label>
+                        <input type="email" id="inviteEmail">
 
-                    <label for="editGroupDescription">Group Description:</label>
-                    <textarea id="editGroupDescription"></textarea>
-
-                    <label for="editGroupMembers">Group Members:</label>
-                    <input type="text" id="editGroupMembers">
-
-                    <button type="submit">Save Changes</button>
-                </form>
-            </div>
-        </div> -->
-
-        <!-- Invite Modal -->
-        <div id="inviteModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Invite Members</h2>
-                <form id="inviteForm">
-                    <label for="groupName">Group Name:</label>
-                    <input type="text" id="groupName" readonly>
-
-                    <label for="inviteEmail">Email Address:</label>
-                    <input type="email" id="inviteEmail">
-
-                    <button type="submit">Send Invitation</button>
-                </form>
-            </div>
-        </div>
-        <!-- Modals -->
-        <div id="infoModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="groupInfoContent">
-                    <!-- Content will be dynamically added here -->
+                        <button type="submit">Send Invitation</button>
+                    </form>
                 </div>
             </div>
-        </div>
-
-        <div id="editModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form id="editForm">
-                    <h2>Edit Group</h2>
-                    <div id="errorContainer"></div>
-                    <div>
-                        <label for="editGroupImage">Group Image:</label>
-                        <input type="file" id="editGroupImage" accept="image/*">
-                        <img id="editGroupImagePreview" src="#" alt="Group Image">
+            <!-- Modals -->
+            <div id="infoModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="groupInfoContent">
+                        <!-- Content will be dynamically added here -->
                     </div>
-                    <div>
-                        <label for="editGroupName">Group Name:</label>
-                        <input type="text" id="editGroupName" required>
-                    </div>
-                    <div>
-                        <label for="editGroupDescription">Group Description:</label>
-                        <textarea id="editGroupDescription" required></textarea>
-                    </div>
-                    <div>
-                        <label for="editGroupMembers">Group Members (comma-separated):</label>
-                        <input type="text" id="editGroupMembers" required>
-                    </div>
-                    <button type="submit">Save Changes</button>
-                </form>
+                </div>
             </div>
+
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form id="editForm">
+                        <h2>Edit Group</h2>
+                        <div id="errorContainer"></div>
+                        <div>
+                            <label for="editGroupImage">Group Image:</label>
+                            <input type="file" id="editGroupImage" accept="image/*">
+                            <img id="editGroupImagePreview" src="#" alt="Group Image">
+                        </div>
+                        <div>
+                            <label for="editGroupName">Group Name:</label>
+                            <input type="text" id="editGroupName" required>
+                        </div>
+                        <div>
+                            <label for="editGroupDescription">Group Description:</label>
+                            <textarea id="editGroupDescription" required></textarea>
+                        </div>
+                        <div>
+                            <label for="editGroupMembers">Group Members (comma-separated):</label>
+                            <input type="text" id="editGroupMembers" required>
+                        </div>
+                        <button type="submit">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
-
-    </div>
-
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
         </script>
@@ -516,14 +629,15 @@ editGroupImageInput.addEventListener('change', () => {
         const createGroupModal = document.getElementById('createGroupModal');
         const closeBtn = createGroupModal.querySelector('.close');
         const createMoreGroupsBtn = document.getElementById('createMoreGroupsBtn');
+        const createmoregroupscard = document.getElementById('create-new-group')
 
         createGroupBtn.addEventListener('click', () => {
             createGroupModal.style.display = 'block';
         });
 
-        closeBtn.addEventListener('click', () => {
-            createGroupModal.style.display = 'none';
-        });
+        // closeBtn.addEventListener('click', () => {
+        //     createGroupModal.style.display = 'none';
+        // });
 
         // Handle form submission
         const createGroupForm = document.getElementById('createGroupForm');
@@ -532,7 +646,6 @@ editGroupImageInput.addEventListener('change', () => {
 
         createGroupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
             // Retrieve form values
             const groupImage = groupImageInput.files[0];
             const groupName = document.getElementById('groupName').value;
@@ -542,7 +655,6 @@ editGroupImageInput.addEventListener('change', () => {
             // If no group image is selected, use the default image
             const defaultImage = 'images/account-profile-img.svg';
             const groupImageSrc = groupImage ? URL.createObjectURL(groupImage) : defaultImage;
-
             // Perform validation
             if (!groupName || !groupDescription || !groupMembers) {
                 displayErrorMessage('Please add all fields to create the group.');
@@ -552,13 +664,17 @@ editGroupImageInput.addEventListener('change', () => {
 
             // Clear form fields
             createGroupForm.reset();
-            createGroupModal.style.display = 'none';
+            // createGroupModal.style.display = 'none';
 
             // Create the group card dynamically using the retrieved values
             createGroupCard(groupImageSrc, groupName, groupDescription, groupMembers);
 
-               // Check the group count and show/hide the create more button
-               checkGroupCount();
+            // Check the group count and show/hide the create more button
+            checkGroupCount();
+            // Hide the modal
+            let createGroupModal = document.getElementById('createGroupModal');
+            let bootstrapModal = bootstrap.Modal.getInstance(createGroupModal);
+            bootstrapModal.hide();
         });
 
         // Function to create a group card
@@ -572,15 +688,20 @@ editGroupImageInput.addEventListener('change', () => {
             groupCard.innerHTML = `
             <img src="${image}" alt="${name}">
             <h3>${name}</h3>
-            <p>${description}</p>
-            <p>${members.length} members</p>
+            <p class="group-desc">${description}</p>
+            <p class="group-members">${members.length} members</p>
             <div class="menu">
-              <button class="menu-btn">Menu</button>
-              <ul class="menu-items">
-                <li><a href="#" class="info">Info</a></li>
-                <li><a href="#" class="edit">Edit</a></li>
-                <li><a href="#" class="invite">Invite</a></li>
-                <li><a href="#" class="delete">Delete</a></li>
+            <button type="button" class="btn dropdown-toggle-split menu-btn" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+
+                                    </button>
+              <ul class="menu-items dropdown-menu p-3 px-1">
+                <li><a href="#" class="info dropdown-item">Info</a></li>
+                <li><a href="#" class="edit dropdown-item">Edit</a></li>
+                <li><a href="#" class="invite dropdown-item">Invite</a></li>
+                <li><a href="#" class="delete dropdown-item">Delete</a></li>
               </ul>
             </div>
           `;
@@ -622,10 +743,12 @@ editGroupImageInput.addEventListener('change', () => {
         function checkGroupCount() {
             const groupCards = document.querySelectorAll('.group-card');
             if (groupCards.length > 0) {
+                createmoregroupscard.style.display='inline-block';
                 createMoreGroupsBtn.style.display = 'inline-block';
                 createGroupBtn.style.display = 'none';
             } else {
                 createMoreGroupsBtn.style.display = 'none';
+                createmoregroupscard.style.display = 'none';
                 createGroupBtn.style.display = 'inline-block';
             }
         }
@@ -634,7 +757,7 @@ editGroupImageInput.addEventListener('change', () => {
             createGroupModal.style.display = 'block';
         });
 
-       
+
 
 
 
@@ -777,10 +900,10 @@ editGroupImageInput.addEventListener('change', () => {
 
         // Default group image preview
         updateGroupImagePreview();
-// editpreview
-updateeditimagepreview();
-         // Call the function to check the initial group count
-         checkGroupCount();
+        // editpreview
+        // updateeditimagepreview();
+        // Call the function to check the initial group count
+        checkGroupCount();
 
     </script>
 
