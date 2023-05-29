@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Authentication</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Add this to the head section of your HTML document -->
+    <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="sidebar-account">
+        <span href="/"
+            class="settings-sidebar-head align-items-center mb-md-0 link-body-emphasis text-decoration-none logo-section">
+            <a href="/index.html"><i class="fas fa-arrow-left"></i></a> My Account
+        </span>
+        <hr>
+
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a href="account__menu_profile.html" class="nav-link link-body-emphasis" aria-current="page">
+                    <img src="/images/account-sidebar-profile-icon.svg" />
+                    <span class="nav-item-text"> Profile </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_Security.html" class="nav-link link-body-emphasis" aria-current="page">
+                    <img src="/images/account-sidebar-security-icon.svg" />
+                    <span class="nav-item-text"> Security</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="account__menu_authentication.html" class="nav-link link-body-emphasis active">
+                    <img src="/images/account-sidebar-authentication-icon.svg" />
+                    <span class="nav-item-text">Multi Factor Authentication</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_settings.html" class="nav-link link-body-emphasis">
+                    <img src="/images/account-sidebar-settings-icon.svg" />
+                    <span class="nav-item-text">Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_sessions.html" class="nav-link link-body-emphasis">
+                    <img src="/images/account-sidebar-sessions-icon.svg" />
+                    <span class="nav-item-text">Sessions</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_groups.html" class="nav-link link-body-emphasis">
+                    <img src="/images/account-sidebar-groups-icon.svg" />
+                    <span class="nav-item-text">Groups</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_privacy.html" class="nav-link link-body-emphasis">
+                    <img src="/images/account-sidebar-privacy-icon.svg" />
+                    <span class="nav-item-text">Privacy</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_compliance.html" class="nav-link link-body-emphasis">
+                    <img src="/images/account-sidebar-compliance-icon.svg" />
+                    <span class="nav-item-text">Compliance</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="account-container container w-auto authentication">
+        <div class="account-page-heading"><img src="/images/account-profile-page-icon.svg" alt="" class="me-2 mb-1">Multi Factor
+            Atuthenticaton
+        </div>
+        <div class="account-content pt-4">
+            <div class="row">
+                <div class="col-12 col-md-4 two-step-heading mx-1" for="twostepverificationtoggle">Two Step Verification
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="twostepverificationtoggle"
+                            onchange="toggleTwoStepVerification()">
+                        <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
+                    </div>
+                </div>
+            </div>
+            <div class="two-step-verification" id="twostepverification" style="display: none;">
+                <h5 class="font-500">Two Step Verification</h5>
+                <span class="sub-heading font-500 pb-4 d-inline-block">Secure your Account with Two Step
+                    Verification</span>
+                <div class="mb-3 col-12 col-md-4">
+                    <label for="verification-method" class="form-label">Choose your verification method</label>
+                    <select class="form-select" aria-label="verification-method" id="verification-method"
+                        onchange="toggleVerificationSections()">
+                        <option selected>Choose Method</option>
+                        <option value="Authenticator App">Authenticator App</option>
+                        <option value="Phone Number">Phone Number</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- authenticator app section -->
+            <div class="authenticator-app-section" id="authenticatorappsection" style="display: none;">
+                <button type="button" class="authenticator-btn btn">Continue</button>
+                <div class="col-12 col-md-5 note">
+                    Note: Turning this feature on will sign you out anywhere you're currently signed in and remove all
+                    your remembered devices.
+                </div>
+            </div>
+
+            <!-- phone number section -->
+            <div class="phone-number-section" id="phonenumbersection" style="display: none;">
+                <h5 class="font-500">Two Step Verification</h5>
+                <span class="sub-heading font-500 pb-1 block">We'll send a verification code to this number.</span>
+                <br />
+                <span class="sub-heading font-500 pb-4 block">You'll need it for the next step.</span>
+                <div class="mb-3 col-12 col-md-4 mt-3">
+                    <input type="text" class="form-control" id="phone-no-field" placeholder="+91 988888">
+                </div>
+                <div class="mb-3 col-12 col-md-4 mt-3">
+                    <label for="password" class="form-label">Enter Your Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                </div>
+                <div class="note col-12 col-md-5">
+                    Your phone number helps us keep your account secure by adding an additional layer of verification.
+                    It also helps others who already have your phone number discover and connect with you. You can
+                    always decide how you want your phone number used. <a href="#">Learn More</a>
+                </div>
+                <button class="send-code-btn btn" type="button">Send Code</button>
+            </div>
+
+            <!-- phone no ends -->
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <!-- enabel two step verification -->
+    <!-- <script>
+        function toggleTwoStepVerification() {
+            var toggleCheckbox = document.getElementById("twostepverificationtoggle");
+            var verificationSection = document.getElementById("twostepverification");
+            if (toggleCheckbox.checked) {
+                verificationSection.style.display = "block";
+            } else {
+                verificationSection.style.display = "none";
+            }
+        }
+    </script> -->
+
+    <!-- on selction basis -->
+    <!-- <script>
+        function toggleVerificationSections() {
+            var verificationMethod = document.getElementById("verification-method").value;
+            var authenticatorSection = document.getElementById("authenticatorappsection");
+            var phoneNumberSection = document.getElementById("phonenumbersection");
+
+            if (verificationMethod === "Authenticator App") {
+                authenticatorSection.style.display = "block";
+                phoneNumberSection.style.display = "none";
+            } else if (verificationMethod === "Phone Number") {
+                authenticatorSection.style.display = "none";
+                phoneNumberSection.style.display = "block";
+            } else {
+                authenticatorSection.style.display = "none";
+                phoneNumberSection.style.display = "none";
+            }
+        }
+    </script> -->
+    <script>
+        function toggleVerificationSections() {
+            var toggleCheckbox = document.getElementById("twostepverificationtoggle");
+            var verificationMethod = document.getElementById("verification-method").value;
+            var authenticatorSection = document.getElementById("authenticatorappsection");
+            var phoneNumberSection = document.getElementById("phonenumbersection");
+            var twostepVerification = document.getElementById("twostepverification");
+
+            if (toggleCheckbox.checked) {
+                twostepVerification.style.display = "block";
+
+                if (verificationMethod === "Authenticator App" && toggleCheckbox.checked) {
+                    authenticatorSection.style.display = "block";
+                    phoneNumberSection.style.display = "none";
+                } else if (verificationMethod === "Phone Number") {
+                    authenticatorSection.style.display = "none";
+                    phoneNumberSection.style.display = "block";
+                } else {
+                    authenticatorSection.style.display = "none";
+                    phoneNumberSection.style.display = "none";
+                }
+            } else {
+                twostepVerification.style.display = "none";
+                authenticatorSection.style.display = "none";
+                phoneNumberSection.style.display = "none";
+            }
+        }
+
+        // function toggleTwoStepVerification() {
+        //     var toggleCheckbox = document.getElementById("twostepverificationtoggle");
+        //     var authenticatorSection = document.getElementById("authenticatorappsection");
+        //     var phoneNumberSection = document.getElementById("phonenumbersection");
+
+        //     if (!toggleCheckbox.checked) {
+        //         twostepVerification.style.display = "none";
+        //         authenticatorSection.style.display = "none";
+        //         phoneNumberSection.style.display = "none";
+        //     }
+        // }
+        function toggleTwoStepVerification() {
+            var toggleCheckbox = document.getElementById("twostepverificationtoggle");
+            var verificationSection = document.getElementById("twostepverification");
+            var authenticatorSection = document.getElementById("authenticatorappsection");
+            var phoneNumberSection = document.getElementById("phonenumbersection");
+            var verificationMethod = document.getElementById("verification-method").value;
+           
+            if (toggleCheckbox.checked) {
+                verificationSection.style.display = "block";
+            }
+            // if(!toggleCheckbox.checked){
+            //     twostepVerification.style.display = "none";
+            //     authenticatorSection.style.display = "none";
+            //     phoneNumberSection.style.display = "none";
+            // }
+            else {
+                verificationSection.style.display = "none";
+            }
+            if (toggleCheckbox.checked && verificationMethod === "Authenticator App") {
+                authenticatorSection.style.display = "block";
+            }
+            // if(!toggleCheckbox.checked){
+            //     twostepVerification.style.display = "none";
+            //     authenticatorSection.style.display = "none";
+            //     phoneNumberSection.style.display = "none";
+            // }
+            else {
+                authenticatorSection.style.display = "none";
+            }
+            if (toggleCheckbox.checked && verificationMethod === "Phone Number") {
+                phoneNumberSection.style.display = "block";
+            }
+            // if(!toggleCheckbox.checked){
+            //     twostepVerification.style.display = "none";
+            //     authenticatorSection.style.display = "none";
+            //     phoneNumberSection.style.display = "none";
+            // }
+            else {
+                phoneNumberSection.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

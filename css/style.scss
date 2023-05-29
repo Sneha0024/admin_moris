@@ -75,6 +75,7 @@ $border-color_4: var(--primary-purple-color);
   font-family: $font-family_1;
   --primary-purple-color: #6e0d88;
   --red-color: #e1003e;
+  --green-color:#4FB123;
 }
 .max-w-100 {
   max-width: 100%;
@@ -2366,6 +2367,8 @@ body {
     .email-address-value {
       font-weight: 500;
       margin-right: 40px;
+      margin-bottom: 13px;
+      display: inline-block;
     }
     #add-email-btn-link {
       border: none;
@@ -2480,7 +2483,7 @@ body {
       }
     }
     .authenticator-app-section {
-      padding-top: 40px;
+      padding-top: 16px;
       .authenticator-btn {
         background-color: var(--primary-purple-color);
         font-weight: 500;
@@ -2494,7 +2497,8 @@ body {
       }
     }
     .phone-number-section {
-      padding-top: 40px;
+      padding-top: 16px;
+      padding-bottom: 30px;
       h5 {
         font-weight: 600;
       }
@@ -2519,6 +2523,10 @@ body {
         font-weight: 500;
       }
     }
+    .form-check-input:checked {
+      background-color: var(--green-color);
+      border-color: var(--green-color);
+  }
   }
   &.security {
     .password-section {
@@ -2589,7 +2597,7 @@ body {
       border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
       padding-bottom: 30px;
       margin-bottom: 30px;
-    
+
       .allow-ip-heading {
         font-weight: 600;
       }
@@ -2659,45 +2667,132 @@ body {
           border-radius: 4px;
         }
       }
-      .your-ip-address-section{
+      .your-ip-address-section {
         margin: 16px 0;
-      .static-text-of-ip-val {
-        color: red;
-        font-size: 20px;
-        font-weight: 500;
-        display: block;
-      }
-      .statisc-ip-add-name {
-        color: #000000;
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 9px;
-      }
-      .ip-name-val{
-        color: #000000;
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 9px;
+        .static-text-of-ip-val {
+          color: red;
+          font-size: 20px;
+          font-weight: 500;
+          display: block;
+        }
+        .statisc-ip-add-name {
+          color: #000000;
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 9px;
+        }
+        .ip-name-val {
+          color: #000000;
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 9px;
+        }
       }
     }
- 
-    }
-    .device-sign-in-section{
+    .device-sign-in-section {
       margin-bottom: 30px;
-      .device-sign-in-heading{
+      .device-sign-in-heading {
         font-weight: 600;
       }
-      .view-device-text{
+      .view-device-text {
         color: var(--primary-purple-color);
         font-weight: 500;
       }
-      .device-sections-img-area{
+      .device-sections-img-area {
         display: flex;
         align-items: center;
-        .device-sign-desc{
+        .device-sign-desc {
           font-weight: 500;
         }
       }
     }
+  }
+  &.compliance {
+    margin-right: 50px;
+    .sub-text {
+      color: var(--primary-purple-color);
+      font-weight: 500;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .certificate-box {
+      width: auto;
+      margin-bottom: 24px;
+    }
+  }
+  &.settings {
+    .preference {
+      padding-top: 30px;
+      border-bottom: 0.5px solid #80808069;
+      .preference-heading {
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+      .preference-sub-text {
+        display: block;
+        font-weight: 500;
+        color: var(--primary-purple-color);
+      }
+    }
+    .date-section {
+      padding-top: 20px;
+      padding-bottom: 30px;
+      label {
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+    .email-notifications {
+      padding-top: 30px;
+      padding-bottom: 10px;
+      border-bottom: 0.5px solid #80808069;
+      .email-notifications-head {
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .toogle-feature {
+        margin-bottom: 16px;
+        justify-content: space-between;
+        margin-left: -12px;
+        .email-sub-heading {
+          font-weight: 600;
+          font-size: 17px;
+          display: block;
+        }
+        .email-sub-text {
+          font-weight: 500;
+          color: var(--primary-purple-color);
+          display: block;
+        }
+      }
+    }
+    .close-account {
+      padding-top: 25px;
+      padding-bottom: 30px;
+      .close-account-heading {
+        font-weight: 600;
+      }
+      .close-account-sub-text {
+        color: var(--primary-purple-color);
+        font-weight: 500;
+        display: block;
+      }
+      .close-btn {
+        color: #fff;
+        background-color: #e1003e;
+        font-weight: 500;
+        margin: 20px 0;
+      }
+      .closing-account-info{
+        display: block;
+        color: var(--primary-purple-color);
+        font-weight: 500;
+      }
+    }
+    .form-check-input:checked {
+      background-color: var(--green-color);
+      border-color: var(--green-color);
+  }
   }
 }

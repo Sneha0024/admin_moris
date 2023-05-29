@@ -43,6 +43,7 @@
   font-family: "Avenir", sans-serif;
   --primary-purple-color: #6e0d88;
   --red-color: #e1003e;
+  --green-color:#4FB123;
 }
 
 .max-w-100 {
@@ -2226,6 +2227,8 @@ body {
 .account-container .email-addresses-section .email-address-value {
   font-weight: 500;
   margin-right: 40px;
+  margin-bottom: 13px;
+  display: inline-block;
 }
 .account-container .email-addresses-section #add-email-btn-link {
   border: none;
@@ -2338,7 +2341,7 @@ body {
   margin-bottom: 1px;
 }
 .account-container.authentication .authenticator-app-section {
-  padding-top: 40px;
+  padding-top: 16px;
 }
 .account-container.authentication .authenticator-app-section .authenticator-btn {
   background-color: var(--primary-purple-color);
@@ -2352,7 +2355,8 @@ body {
   padding-top: 10px;
 }
 .account-container.authentication .phone-number-section {
-  padding-top: 40px;
+  padding-top: 16px;
+  padding-bottom: 30px;
 }
 .account-container.authentication .phone-number-section h5 {
   font-weight: 600;
@@ -2376,6 +2380,10 @@ body {
   padding: 3px 22px;
   color: #fff;
   font-weight: 500;
+}
+.account-container.authentication .form-check-input:checked {
+  background-color: var(--green-color);
+  border-color: var(--green-color);
 }
 .account-container.security .password-section .password-heading {
   font-weight: 600;
@@ -2546,6 +2554,92 @@ body {
 }
 .account-container.security .device-sign-in-section .device-sections-img-area .device-sign-desc {
   font-weight: 500;
+}
+.account-container.compliance {
+  margin-right: 50px;
+}
+.account-container.compliance .sub-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.account-container.compliance .certificate-box {
+  width: auto;
+  margin-bottom: 24px;
+}
+.account-container.settings .preference {
+  padding-top: 30px;
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+}
+.account-container.settings .preference .preference-heading {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.account-container.settings .preference .preference-sub-text {
+  display: block;
+  font-weight: 500;
+  color: var(--primary-purple-color);
+}
+.account-container.settings .date-section {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.account-container.settings .date-section label {
+  font-weight: 600;
+  font-size: 18px;
+}
+.account-container.settings .email-notifications {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+}
+.account-container.settings .email-notifications .email-notifications-head {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.account-container.settings .email-notifications .toogle-feature {
+  margin-bottom: 16px;
+  justify-content: space-between;
+  margin-left: -12px;
+}
+.account-container.settings .email-notifications .toogle-feature .email-sub-heading {
+  font-weight: 600;
+  font-size: 17px;
+  display: block;
+}
+.account-container.settings .email-notifications .toogle-feature .email-sub-text {
+  font-weight: 500;
+  color: var(--primary-purple-color);
+  display: block;
+}
+.account-container.settings .close-account {
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+.account-container.settings .close-account .close-account-heading {
+  font-weight: 600;
+}
+.account-container.settings .close-account .close-account-sub-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  display: block;
+}
+.account-container.settings .close-account .close-btn {
+  color: #fff;
+  background-color: #e1003e;
+  font-weight: 500;
+  margin: 20px 0;
+}
+.account-container.settings .close-account .closing-account-info {
+  display: block;
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.account-container.settings .form-check-input:checked {
+  background-color: var(--green-color);
+  border-color: var(--green-color);
 }
 
 /*# sourceMappingURL=style.css.map */
