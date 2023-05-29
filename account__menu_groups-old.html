@@ -12,7 +12,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Add this to the head section of your HTML document -->
     <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
     <style>
@@ -36,50 +36,50 @@
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
                 <a href="account__menu_profile.html" class="nav-link link-body-emphasis" aria-current="page">
-                    <img src="/images/account-sidebar-profile-icon.svg" />
+                    <img src="images/account-sidebar-profile-icon.svg" />
                     <span class="nav-item-text"> Profile </span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="account__menu_Security.html" class="nav-link link-body-emphasis" aria-current="page">
-                    <img src="/images/account-sidebar-security-icon.svg" />
+                    <img src="images/account-sidebar-security-icon.svg" />
                     <span class="nav-item-text"> Security</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a href="account__menu_authentication.html" class="nav-link link-body-emphasis">
-                    <img src="/images/account-sidebar-authentication-icon.svg" />
+                    <img src="images/account-sidebar-authentication-icon.svg" />
                     <span class="nav-item-text">Multi Factor Authentication</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="account__menu_settings.html" class="nav-link link-body-emphasis">
-                    <img src="/images/account-sidebar-settings-icon.svg" />
+                    <img src="images/account-sidebar-settings-icon.svg" />
                     <span class="nav-item-text">Settings</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="account__menu_sessions.html" class="nav-link link-body-emphasis">
-                    <img src="/images/account-sidebar-sessions-icon.svg" />
+                    <img src="images/account-sidebar-sessions-icon.svg" />
                     <span class="nav-item-text">Sessions</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="account__menu_groups.html" class="nav-link link-body-emphasis active">
-                    <img src="/images/account-sidebar-groups-icon.svg" />
+                    <img src="images/account-sidebar-groups-icon.svg" />
                     <span class="nav-item-text">Groups</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="account__menu_privacy.html" class="nav-link link-body-emphasis">
-                    <img src="/images/account-sidebar-privacy-icon.svg" />
+                    <img src="images/account-sidebar-privacy-icon.svg" />
                     <span class="nav-item-text">Privacy</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="account__menu_compliance.html" class="nav-link link-body-emphasis">
-                    <img src="/images/account-sidebar-compliance-icon.svg" />
+                    <img src="images/account-sidebar-compliance-icon.svg" />
                     <span class="nav-item-text">Compliance</span>
                 </a>
             </li>
@@ -101,7 +101,7 @@
                     <div>
                         <label for="groupImage">Group Image:</label>
                         <input type="file" id="groupImage" accept="image/*">
-                        <img id="groupImagePreview" src="/images/account-profile-img.svg" alt="Group Image">
+                        <img id="groupImagePreview" src="images/account-profile-img.svg" alt="Group Image">
                     </div>
                     <div>
                         <label for="groupName">Group Name:</label>
@@ -136,7 +136,7 @@
                 <form id="editForm">
                     <label for="editGroupImage">Group Image:</label>
                     <input type="file" id="editGroupImage" accept="image/*">
-                    <img id="editGroupImagePreview" src="/images/account-profile-img.svg" alt="Group Image">
+                    <img id="editGroupImagePreview" src="images/account-profile-img.svg" alt="Group Image">
 
                     <label for="editGroupName">Group Name:</label>
                     <input type="text" id="editGroupName">
@@ -241,7 +241,7 @@
             const groupMembers = document.getElementById('groupMembers').value.split(',');
 
             // If no group image is selected, use the default image
-            const defaultImage = '/images/account-profile-img.svg';
+            const defaultImage = 'images/account-profile-img.svg';
             const groupImageSrc = groupImage ? URL.createObjectURL(groupImage) : defaultImage;
 
             // Perform validation
@@ -362,7 +362,7 @@ editGroupImageInput.addEventListener('change', () => {
       };
       reader.readAsDataURL(file);
     } else {
-      editGroupImagePreview.src = '/images/account-profile-img.svg';
+      editGroupImagePreview.src = 'images/account-profile-img.svg';
     }
   });
 
@@ -496,7 +496,7 @@ editGroupImageInput.addEventListener('change', () => {
                 };
                 reader.readAsDataURL(file);
             } else {
-                groupImagePreview.src = '/images/account-profile-img.svg';
+                groupImagePreview.src = 'images/account-profile-img.svg';
             }
         }
 
@@ -540,7 +540,7 @@ editGroupImageInput.addEventListener('change', () => {
             const groupMembers = document.getElementById('groupMembers').value.split(',');
 
             // If no group image is selected, use the default image
-            const defaultImage = '/images/account-profile-img.svg';
+            const defaultImage = 'images/account-profile-img.svg';
             const groupImageSrc = groupImage ? URL.createObjectURL(groupImage) : defaultImage;
 
             // Perform validation
@@ -771,7 +771,7 @@ editGroupImageInput.addEventListener('change', () => {
                 };
                 reader.readAsDataURL(file);
             } else {
-                groupImagePreview.src = '/images/account-profile-img.svg';
+                groupImagePreview.src = 'images/account-profile-img.svg';
             }
         }
 
@@ -814,7 +814,7 @@ updateeditimagepreview();
             const groupMembers = document.getElementById('groupMembers').value.split(',');
     
             // If no group image is selected, use the default image
-            const defaultImage = '/images/account-profile-img.svg';
+            const defaultImage = 'images/account-profile-img.svg';
             const groupImageSrc = groupImage ? URL.createObjectURL(groupImage) : defaultImage;
     
             // Perform validation
