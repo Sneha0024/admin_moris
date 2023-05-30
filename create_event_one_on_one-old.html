@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Event</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Add this to the head section of your HTML document -->
+    <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
+    <style>
+        .meeting-time {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: calc(100% + -58px);
+            /* Adjust the positioning as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 12px;
+            background-color: #fff;
+            color: var(--red-color);
+            font-size: 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            font-weight: 500;
+        }
+
+        .meeting-time:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d-flex flex-column sidebar-custom">
+        <a href="/" class="align-items-center mb-md-0 link-body-emphasis text-decoration-none logo-section">
+            <img src="images/sidebar-small-logo.png" class="sidebar-small" />
+            <img src="images/sidebar-logo.png" class="sidebar-open" />
+
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="create_an_event.html" class="nav-link link-body-emphasis active" aria-current="page">
+                    <img src="images/sidebar-icon-1.svg" />
+                    <span class="nav-item-text"> Create an Event </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" aria-current="page">
+                    <img src="images/sidebar-icon-2.svg" />
+                    <span class="nav-item-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-3.svg" />
+                    <span class="nav-item-text">My Calender </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-5.svg" />
+                    <span class="nav-item-text">Schedule Meetings</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-4.svg" />
+                    <span class="nav-item-text"> Scheduled Meetings </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-6.svg" />
+                    <span class="nav-item-text"> Past Meetings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-7.png" />
+                    <span class="nav-item-text">Cancelled Meetings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_profile.html" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-8.png" />
+                    <span class="nav-item-text">My Account </span>
+                </a>
+            </li>
+        </ul>
+        <hr class="visually-hidden">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a href="settings_menu.html" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-9.svg" />
+                    <span class="nav-item-text">Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-10.svg" />
+                    <span class="nav-item-text">Team </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-11.svg" />
+                    <span class="nav-item-text">Subscription</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-12.svg" />
+                    <span class="nav-item-text">Help &amp; Support </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-13.png" />
+                    <span class="nav-item-text">INDIA </span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="container create-event-one-on-one-section">
+        <div class="row">
+            <div class="col-12 col-md-3 first-col">
+                <div class="step-section-numbers">
+                    <div class="event-part">
+                        <img src="images/create_event-one-o-one.svg" alt="">
+                        <div class="event-heading">One on one</div>
+                        <div class="event-desc">(Coffee Chats)</div>
+                        <div class="host-section">
+                            <span class="host-info">One host with One Invitee</span>
+                            <span class="host-desc">Good for : 1 in 1, coffee
+                                chats, etc.</span>
+                        </div>
+                    </div>
+
+                    <div class="stepper">
+                        <div class="step step-no active" id="step-no-1">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Basic Information</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="step step-no" id="step-no-2">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Invitee’s Questions</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="step step-no">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Time Settings</span>
+                        </div>
+                        <div class="step step-no">
+                            <span class="step-number">4</span>
+                            <span class="step-title">Email & Notification</span>
+                        </div>
+                        <div class="step step-no">
+                            <span class="step-number">5</span>
+                            <span class="step-title">Confirmation Page</span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-12 col-md-9 second-col">
+                <div class="step-section-content">
+                    <div class="step-content">
+                        <div class="step-pane active" id="step-1">
+                            <h2 class="step-number-heading">Step 1</h2>
+                            <div class="step-form-sub-heading">Basic Information</div>
+                            <form>
+                                <!-- Form fields for Step 1 -->
+                                <div class="mb-3">
+                                    <label for="eventname" class="form-label branding-form-label mb-0">Event Name <span
+                                            class="errormark">*</span></label>
+                                    <input type="text" class="form-control" id="eventname"
+                                        placeholder="Enter Event Name">
+                                    <div id="eventname-error" class="error-message"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="DescriptionInstructions" class="form-label">Description/Instructions
+                                        <span class="optional">(optional)</span></label>
+                                    <textarea class="form-control" id="DescriptionInstructions" rows="3"
+                                        placeholder="Enter Description/Instructions"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="destination" class="form-label">Destination</label>
+                                    <select class="form-select" aria-label="destination" id="destination">
+                                        <option selected>Select Destination</option>
+                                        <option value="1">In Person Meeting</option>
+                                        <option value="2">Phone Call</option>
+                                        <option value="3">Google meet </option>
+                                        <option value="4">Zoom </option>
+                                        <option value="5">Microsoft Teams</option>
+                                        <option value="6">Ask Invite</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="LinkUrl" class="form-label branding-form-label mb-0">Create Link/ URL
+                                        <span class="errormark">*</span></label>
+                                    <input type="text" class="form-control" id="LinkUrl" placeholder="Enter Link/URL">
+                                    <div id="LinkUrl-error" class="error-message"></div>
+                                </div>
+                                <div class="btns">
+                                    <button class="previous-button btn cancel-btn">Cancel</button>
+                                    <button class="next-button btn save-btn" onclick="validateStep1(event)">Save &amp;
+                                        Next</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="step-pane" id="step-2">
+                            <h2 class="step-number-heading">Step 2</h2>
+                            <div class="step-form-sub-heading">Invitee’s Questions</div>
+
+                            <!-- Form fields for Step 2 -->
+                            <button class="add-question-btn" data-bs-toggle="modal" data-bs-target="#addQuestionModal">+
+                                Add Question</button>
+                            <button class="previous-button">Previous</button>
+                            <button class="next-button">Next</button>
+                            <!-- Dynamically added questions container -->
+                            <!-- <div id="questionsContainer"></div> -->
+                            <!-- Container for dynamically added questions -->
+                            <div id="questionContainer"></div>
+                            <!-- add quetion modal starts -->
+                            <div class="modal fade myteam-modal" id="addQuestionModal" tabindex="-1"
+                                aria-labelledby="addQuestionModal" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                    <div class="modal-content position-relative">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Question</h1>
+                                        </div>
+                                        <div class="circles-section">
+                                            <span class="circle-one"><img src="images/modal-header-circles-1.svg"
+                                                    alt=""></span>
+                                            <span class="circle-two"><img src="images/modal-header-circles-2.svg"
+                                                    alt=""></span>
+                                        </div>
+
+                                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        <div class="modal-body">
+                                            <div class="form-section">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="questionfield" class="form-label">Enter
+                                                                Question</label>
+                                                            <textarea class="form-control" id="questionfield"
+                                                                rows="3"></textarea>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="questionchecked">
+                                                                <label class="form-check-label" for="questionchecked">
+                                                                    Required
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="answertype" class="form-label">Answer
+                                                                Type</label>
+                                                            <select class="form-select" aria-label="answertype"
+                                                                id="answertype">
+                                                                <option selected value="One line">One Line</option>
+                                                                <option value="1">Multiple Lines</option>
+                                                                <option value="2">Radio Buttons</option>
+                                                                <option value="3">Checkboxes</option>
+                                                                <option value="4">Dropdown</option>
+                                                                <option value="5">Phone Number</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn apply-question-btn">Apply</button>
+                                            <button type="button" class="btn cancel-question-btn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- add question moda; ends -->
+                            <!-- add quetion modal starts -->
+                            <div class="modal fade myteam-modal" id="editQuestionModal" tabindex="-1"
+                                aria-labelledby="editQuestionModal" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                    <div class="modal-content position-relative">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Question</h1>
+                                        </div>
+                                        <div class="circles-section">
+                                            <span class="circle-one"><img src="images/modal-header-circles-1.svg"
+                                                    alt=""></span>
+                                            <span class="circle-two"><img src="images/modal-header-circles-2.svg"
+                                                    alt=""></span>
+                                        </div>
+
+                                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        <div class="modal-body">
+                                            <div class="form-section">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="questionfield" class="form-label">Enter
+                                                                Question</label>
+                                                            <textarea class="form-control" id="questionfield"
+                                                                rows="3"></textarea>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="questionchecked">
+                                                                <label class="form-check-label" for="questionchecked">
+                                                                    Required
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="answertype" class="form-label">Answer
+                                                                Type</label>
+                                                            <select class="form-select" aria-label="answertype"
+                                                                id="answertype">
+                                                                <option selected value="One line">One Line</option>
+                                                                <option value="1">Multiple Lines</option>
+                                                                <option value="2">Radio Buttons</option>
+                                                                <option value="3">Checkboxes</option>
+                                                                <option value="4">Dropdown</option>
+                                                                <option value="5">Phone Number</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn apply-question-btn">Apply</button>
+                                            <button type="button" class="btn cancel-question-btn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- add question moda; ends -->
+
+                        </div>
+                        <div class="step-pane">
+                            <h2>Step 3</h2>
+                            <form>
+                                <!-- Form fields for Step 3 -->
+                                <input type="password" placeholder="Password" />
+                                <button class="previous-button">Previous</button>
+                                <button class="next-button">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+</body>
+<script>
+    function validateStep1(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Reset error messages
+        document.getElementById("eventname-error").textContent = "";
+        document.getElementById("LinkUrl-error").textContent = "";
+
+        // Get input values
+        var eventname = document.getElementById("eventname").value;
+        var LinkUrl = document.getElementById("LinkUrl").value;
+
+        // Perform validation
+        var isValid = true;
+        if (eventname.trim() === "") {
+            document.getElementById("eventname-error").textContent = "Event Name is required";
+            isValid = false;
+        }
+        if (LinkUrl.trim() === "") {
+            document.getElementById("LinkUrl-error").textContent = "Link/URL is required";
+            isValid = false;
+        }
+
+        // Proceed to next step or display error messages
+        if (isValid) {
+            // Proceed to the next step
+            document.getElementById("step-1").classList.remove("active");
+            document.getElementById("step-2").classList.add("active");
+            document.getElementById("step-no-1").classList.remove("active");
+            document.getElementById("step-no-2").classList.add("active");
+            document.getElementById("error-message").textContent = ""; // Reset general error message
+            // Update the active step in the stepper UI
+            document.querySelectorAll(".step-no").forEach((step, index) => {
+                // if (index === 0) {
+                //     step.classList.remove("active");
+                // } else if (index === 1) {
+                //     step.classList.add("active");
+                // }
+                // else if (index === 2) {
+                //     step.classList.add("active");
+                // }
+            });
+        } else {
+            // Display error message
+            document.getElementById("error-message").textContent = "Please fill in the required fields.";
+        }
+    }
+
+</script>
+<!-- question -->
+
+
+<!-- edit question updationnot workin -->
+
+
+<!-- <script>
+    // Counter to generate unique question IDs
+var questionCounter = 1;
+
+// Function to handle applying a question
+function applyQuestion() {
+  var question = document.getElementById("questionfield").value;
+  var answerType = document.getElementById("answertype").value;
+  var questionId = "question_" + questionCounter;
+
+  // Create the question element
+  var questionElement = document.createElement("div");
+  questionElement.classList.add("question");
+  questionElement.id = questionId;
+
+  // Add the question text
+  var questionText = document.createElement("div");
+  questionText.classList.add("question-text");
+  questionText.textContent = question;
+  questionElement.appendChild(questionText);
+
+  // Add the answer input based on the answer type
+  var answerInput;
+  if (answerType === "One line" || answerType === "1") {
+    answerInput = document.createElement("input");
+    answerInput.type = "text";
+  } else if (answerType === "2") {
+    answerInput = document.createElement("input");
+    answerInput.type = "radio";
+  } else if (answerType === "3") {
+    answerInput = document.createElement("input");
+    answerInput.type = "checkbox";
+  } else if (answerType === "4") {
+    answerInput = document.createElement("select");
+    // Add options to the select element
+    // ...
+  } else if (answerType === "5") {
+    answerInput = document.createElement("input");
+    answerInput.type = "tel";
+  }
+
+  // Add the answer input to the question element
+  if (answerInput) {
+    answerInput.classList.add("answer-input");
+    questionElement.appendChild(answerInput);
+  }
+
+  // Add the edit button to the question element
+  var editButton = document.createElement("button");
+  editButton.classList.add("edit-button");
+  editButton.textContent = "Edit";
+  editButton.addEventListener("click", function () {
+    openEditQuestionModal(questionId);
+  });
+  questionElement.appendChild(editButton);
+
+  // Append the question element to the question container
+  var questionContainer = document.getElementById("questionContainer");
+  questionContainer.appendChild(questionElement);
+
+  // Increment the question counter
+  questionCounter++;
+
+  // Reset the form fields
+  document.getElementById("questionfield").value = "";
+  document.getElementById("answertype").selectedIndex = 0;
+
+  // Close the Add Question Modal
+  var addQuestionModal = document.getElementById("addQuestionModal");
+  var bootstrapModal = bootstrap.Modal.getInstance(addQuestionModal);
+  bootstrapModal.hide();
+}
+
+// Function to open the Edit Question Modal with the selected question's values
+function openEditQuestionModal(questionId) {
+  var questionElement = document.getElementById(questionId);
+  var questionText = questionElement.querySelector(".question-text").textContent;
+
+  // Set the question text in the Edit Question Modal
+  var editQuestionModal = document.getElementById("editQuestionModal");
+  var editQuestionField = editQuestionModal.querySelector("#questionfield");
+  editQuestionField.value = questionText;
+
+  // Store the questionId in a data attribute of the modal
+  editQuestionModal.dataset.questionId = questionId;
+
+  // Open the Edit Question Modal
+  var bootstrapModal = new bootstrap.Modal(editQuestionModal); // Create a new Bootstrap Modal instance
+  bootstrapModal.show();
+}
+
+// Event listener for the Apply button in the Add Question Modal
+document.querySelector("#addQuestionModal .apply-question-btn").addEventListener("click", function () {
+  applyQuestion();
+});
+
+// Event listener for the Apply button in the Edit Question Modal
+document.querySelector("#editQuestionModal .apply-question-btn").addEventListener("click", function () {
+  // Retrieve the questionId from the modal's data attribute
+  var editQuestionModal = document.getElementById("editQuestionModal");
+  var questionId = editQuestionModal.dataset.questionId;
+
+  // Apply the edited question using the questionId
+  // ...
+
+  // Close the Edit Question Modal
+  var bootstrapModal = bootstrap.Modal.getInstance(editQuestionModal);
+  bootstrapModal.hide();
+});
+
+</script> -->
+
+
+
+
+
+
+<script>
+    // Counter to generate unique question IDs
+var questionCounter = 1;
+
+// Function to handle applying a question
+function applyQuestion() {
+  var question = document.getElementById("questionfield").value;
+  var answerType = document.getElementById("answertype").value;
+  var questionId = "question_" + questionCounter;
+
+  // Create the question element
+  var questionElement = document.createElement("div");
+  questionElement.classList.add("question");
+  questionElement.id = questionId;
+
+  // Add the question text
+  var questionText = document.createElement("div");
+  questionText.classList.add("question-text");
+  questionText.textContent = question;
+  questionElement.appendChild(questionText);
+
+  // Add the answer input based on the answer type
+  var answerInput;
+  if (answerType === "One line" || answerType === "1") {
+    answerInput = document.createElement("input");
+    answerInput.type = "text";
+  } else if (answerType === "2") {
+    answerInput = document.createElement("input");
+    answerInput.type = "radio";
+  } else if (answerType === "3") {
+    answerInput = document.createElement("input");
+    answerInput.type = "checkbox";
+  } else if (answerType === "4") {
+    answerInput = document.createElement("select");
+    // Add options to the select element
+    // ...
+  } else if (answerType === "5") {
+    answerInput = document.createElement("input");
+    answerInput.type = "tel";
+  }
+
+  // Add the answer input to the question element
+  if (answerInput) {
+    answerInput.classList.add("answer-input");
+    questionElement.appendChild(answerInput);
+  }
+
+  // Add the edit button to the question element
+  var editButton = document.createElement("button");
+  editButton.classList.add("edit-button");
+  editButton.textContent = "Edit";
+  editButton.addEventListener("click", function () {
+    openEditQuestionModal(questionId);
+  });
+  questionElement.appendChild(editButton);
+
+  // Append the question element to the question container
+  var questionContainer = document.getElementById("questionContainer");
+  questionContainer.appendChild(questionElement);
+
+  // Increment the question counter
+  questionCounter++;
+
+  // Reset the form fields
+  document.getElementById("questionfield").value = "";
+  document.getElementById("answertype").selectedIndex = 0;
+
+  // Close the Add Question Modal
+  var addQuestionModal = document.getElementById("addQuestionModal");
+  var bootstrapModal = bootstrap.Modal.getInstance(addQuestionModal);
+  bootstrapModal.hide();
+}
+
+// Function to open the Edit Question Modal with the selected question's values
+function openEditQuestionModal(questionId) {
+  var questionElement = document.getElementById(questionId);
+  var questionText = questionElement.querySelector(".question-text").textContent;
+
+  // Set the question text in the Edit Question Modal
+  var editQuestionModal = document.getElementById("editQuestionModal");
+  var editQuestionField = editQuestionModal.querySelector("#questionfield");
+  editQuestionField.value = questionText;
+
+  // Store the questionId in a data attribute of the modal
+  editQuestionModal.dataset.questionId = questionId;
+
+  // Open the Edit Question Modal
+  var bootstrapModal = new bootstrap.Modal(editQuestionModal); // Create a new Bootstrap Modal instance
+  bootstrapModal.show();
+}
+
+// Event listener for the Apply button in the Add Question Modal
+document.querySelector("#addQuestionModal .apply-question-btn").addEventListener("click", function () {
+  applyQuestion();
+});
+
+// Event listener for the Apply button in the Edit Question Modal
+document.querySelector("#editQuestionModal .apply-question-btn").addEventListener("click", function () {
+  var editQuestionModal = document.getElementById("editQuestionModal");
+  var questionId = editQuestionModal.dataset.questionId;
+  var questionElement = document.getElementById(questionId);
+  var questionText = editQuestionModal.querySelector("#questionfield").value;
+  
+  // Update the question text
+  questionElement.querySelector(".question-text").textContent = questionText;
+
+  // Close the Edit Question Modal
+  var bootstrapModal = bootstrap.Modal.getInstance(editQuestionModal);
+  bootstrapModal.hide();
+});
+
+</script>
+</html>
