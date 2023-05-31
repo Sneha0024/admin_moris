@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Event</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Add this to the head section of your HTML document -->
+    <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
+    <style>
+        .meeting-time {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: calc(100% + -58px);
+            /* Adjust the positioning as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 12px;
+            background-color: #fff;
+            color: var(--red-color);
+            font-size: 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            font-weight: 500;
+        }
+
+        .meeting-time:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d-flex flex-column sidebar-custom">
+        <a href="/" class="align-items-center mb-md-0 link-body-emphasis text-decoration-none logo-section">
+            <img src="images/sidebar-small-logo.png" class="sidebar-small" />
+            <img src="images/sidebar-logo.png" class="sidebar-open" />
+
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="create_an_event.html" class="nav-link link-body-emphasis active" aria-current="page">
+                    <img src="images/sidebar-icon-1.svg" />
+                    <span class="nav-item-text"> Create an Event </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" aria-current="page">
+                    <img src="images/sidebar-icon-2.svg" />
+                    <span class="nav-item-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-3.svg" />
+                    <span class="nav-item-text">My Calender </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-5.svg" />
+                    <span class="nav-item-text">Schedule Meetings</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-4.svg" />
+                    <span class="nav-item-text"> Scheduled Meetings </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-6.svg" />
+                    <span class="nav-item-text"> Past Meetings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-7.png" />
+                    <span class="nav-item-text">Cancelled Meetings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="account__menu_profile.html" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-8.png" />
+                    <span class="nav-item-text">My Account </span>
+                </a>
+            </li>
+        </ul>
+        <hr class="visually-hidden">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a href="settings_menu.html" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-9.svg" />
+                    <span class="nav-item-text">Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-10.svg" />
+                    <span class="nav-item-text">Team </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-11.svg" />
+                    <span class="nav-item-text">Subscription</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-12.svg" />
+                    <span class="nav-item-text">Help &amp; Support </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis">
+                    <img src="images/sidebar-icon-13.png" />
+                    <span class="nav-item-text">INDIA </span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="container create-event-one-on-one-section">
+        <div class="row">
+            <div class="col-12 col-md-3 first-col">
+                <div class="step-section-numbers">
+                    <div class="event-part">
+                        <img src="images/create_event-one-o-one.svg" alt="">
+                        <div class="event-heading">One on one</div>
+                        <div class="event-desc">(Coffee Chats)</div>
+                        <div class="host-section">
+                            <span class="host-info">One host with One Invitee</span>
+                            <span class="host-desc">Good for : 1 in 1, coffee
+                                chats, etc.</span>
+                        </div>
+                    </div>
+
+                    <div class="stepper">
+                        <div class="step step-no active" id="step-no-1">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Basic Information</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="step step-no" id="step-no-2">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Invitee’s Questions</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="step step-no" id="step-no-3">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Time Settings</span>
+                        </div>
+                        <div class="step step-no" id="step-no-4">
+                            <span class="step-number">4</span>
+                            <span class="step-title">Email & Notification</span>
+                        </div>
+                        <div class="step step-no">
+                            <span class="step-number">5</span>
+                            <span class="step-title">Confirmation Page</span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-12 col-md-9 second-col">
+                <div class="step-section-content">
+                    <div class="step-content">
+                        <div class="step-pane active" id="step-1">
+                            <h2 class="step-number-heading">Step 1</h2>
+                            <div class="step-form-sub-heading">Basic Information</div>
+                            <form>
+                                <!-- Form fields for Step 1 -->
+                                <div class="mb-3">
+                                    <label for="eventname" class="form-label branding-form-label mb-0">Event Name <span
+                                            class="errormark">*</span></label>
+                                    <input type="text" class="form-control" id="eventname"
+                                        placeholder="Enter Event Name">
+                                    <div id="eventname-error" class="error-message"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="DescriptionInstructions" class="form-label">Description/Instructions
+                                        <span class="optional">(optional)</span></label>
+                                    <textarea class="form-control" id="DescriptionInstructions" rows="3"
+                                        placeholder="Enter Description/Instructions"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="destination" class="form-label">Destination</label>
+                                    <select class="form-select" aria-label="destination" id="destination">
+                                        <option selected>Select Destination</option>
+                                        <option value="1">In Person Meeting</option>
+                                        <option value="2">Phone Call</option>
+                                        <option value="3">Google meet </option>
+                                        <option value="4">Zoom </option>
+                                        <option value="5">Microsoft Teams</option>
+                                        <option value="6">Ask Invite</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="LinkUrl" class="form-label branding-form-label mb-0">Create Link/ URL
+                                        <span class="errormark">*</span></label>
+                                    <input type="text" class="form-control" id="LinkUrl" placeholder="Enter Link/URL">
+                                    <div id="LinkUrl-error" class="error-message"></div>
+                                </div>
+                                <div class="btns">
+                                    <button class="previous-button btn cancel-btn">Cancel</button>
+                                    <button class="next-button btn save-btn" onclick="validateStep1(event)">Save &amp;
+                                        Next</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="step-pane" id="step-2">
+                            <h2 class="step-number-heading">Step 2</h2>
+                            <div class="step-form-sub-heading">Invitee’s Questions</div>
+
+                            <!-- Form fields for Step 2 -->
+                            <button class="add-question-btn btn" data-bs-toggle="modal"
+                                data-bs-target="#addQuestionModal">+
+                                Add Question</button>
+                            <div id="questionContainer"></div>
+
+                            <div class="btns">
+                                <button class="previous-button cancel-btn btn"> Cancel</button>
+                                <button class="next-button save-btn btn" onclick="validateStep2(event)">Save &
+                                    Next</button>
+
+                            </div>
+                            <!-- Dynamically added questions container -->
+                            <!-- <div id="questionsContainer"></div> -->
+                            <!-- Container for dynamically added questions -->
+                            <!-- add quetion modal starts -->
+                            <div class="modal fade myteam-modal" id="addQuestionModal" tabindex="-1"
+                                aria-labelledby="addQuestionModal" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                    <div class="modal-content position-relative">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Question</h1>
+                                        </div>
+                                        <div class="circles-section">
+                                            <span class="circle-one"><img src="images/modal-header-circles-1.svg"
+                                                    alt=""></span>
+                                            <span class="circle-two"><img src="images/modal-header-circles-2.svg"
+                                                    alt=""></span>
+                                        </div>
+
+                                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        <div class="modal-body">
+                                            <div class="form-section">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="questionfield" class="form-label">Enter
+                                                                Question</label>
+
+                                                            <textarea class="form-control" id="questionfield"
+                                                                rows="3"></textarea>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="questionchecked">
+                                                                <label class="form-check-label" for="questionchecked">
+                                                                    Required
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="answertype" class="form-label">Answer
+                                                                Type</label>
+                                                            <select class="form-select" aria-label="answertype"
+                                                                id="answertype">
+                                                                <option selected value="One line">One Line</option>
+                                                                <option value="1">Multiple Lines</option>
+                                                                <option value="2">Radio Buttons</option>
+                                                                <option value="3">Checkboxes</option>
+                                                                <option value="4">Dropdown</option>
+                                                                <option value="5">Phone Number</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn apply-question-btn">Apply</button>
+                                            <button type="button" class="btn cancel-question-btn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- add question moda; ends -->
+                            <!-- add quetion modal starts -->
+                            <div class="modal fade myteam-modal" id="editQuestionModal" tabindex="-1"
+                                aria-labelledby="editQuestionModal" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                    <div class="modal-content position-relative">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Question</h1>
+                                        </div>
+                                        <div class="circles-section">
+                                            <span class="circle-one"><img src="images/modal-header-circles-1.svg"
+                                                    alt=""></span>
+                                            <span class="circle-two"><img src="images/modal-header-circles-2.svg"
+                                                    alt=""></span>
+                                        </div>
+
+                                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        <div class="modal-body">
+                                            <div class="form-section">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="questionfield" class="form-label">Enter
+                                                                questionfield</label>
+
+                                                            <textarea class="form-control" id="questionfield"
+                                                                rows="3"></textarea>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="questionchecked">
+                                                                <label class="form-check-label" for="questionchecked">
+                                                                    Required
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="mb-3">
+                                                            <label for="answertype" class="form-label">Answer
+                                                                Type</label>
+                                                            <select class="form-select" aria-label="answertype"
+                                                                id="answertype">
+                                                                <option selected value="One line">One Line</option>
+                                                                <option value="1">Multiple Lines</option>
+                                                                <option value="2">Radio Buttons</option>
+                                                                <option value="3">Checkboxes</option>
+                                                                <option value="4">Dropdown</option>
+                                                                <option value="5">Phone Number</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn apply-question-btn">Apply</button>
+                                            <button type="button" class="btn cancel-question-btn">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- add question moda; ends -->
+
+                        </div>
+                        <div class="step-pane" id="step-3">
+                            <h2 class="step-number-heading">Step 3</h2>
+                            <div class="step-form-sub-heading">Time Settings</div>
+
+                            <form>
+                                <div class="mb-3">
+                                    <label for="timezone-offset" class="calender-form-label">Select Time Zone<span
+                                            class="errormark">*</span></label>
+                                    <select name="timezone-offset" id="timezone-offset" class="form-select">
+                                        <option selected>Select Time Zone</option>
+                                        <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+                                        <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+                                        <option value="-10:00">(GMT -10:00) Hawaii</option>
+                                        <option value="-09:50">(GMT -9:30) Taiohae</option>
+                                        <option value="-09:00">(GMT -9:00) Alaska</option>
+                                        <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                                        <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                                        <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City
+                                        </option>
+                                        <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima
+                                        </option>
+                                        <option value="-04:50">(GMT -4:30) Caracas</option>
+                                        <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
+                                        </option>
+                                        <option value="-03:50">(GMT -3:30) Newfoundland</option>
+                                        <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                                        <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+                                        <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+                                        <option value="+00:00">(GMT) Western Europe Time, London,
+                                            Lisbon, Casablanca</option>
+                                        <option value="+01:00">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+                                        <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+                                        <option value="+03:00">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
+                                        </option>
+                                        <option value="+03:50">(GMT +3:30) Tehran</option>
+                                        <option value="+04:00">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                                        <option value="+04:50">(GMT +4:30) Kabul</option>
+                                        <option value="+05:00">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent
+                                        </option>
+                                        <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                                        <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+                                        <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                                        <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+                                        <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                                        <option value="+08:00">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                                        <option value="+08:75">(GMT +8:45) Eucla</option>
+                                        <option value="+09:00">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
+                                        </option>
+                                        <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+                                        <option value="+10:00">(GMT +10:00) Eastern Australia, Guam, Vladivostok
+                                        </option>
+                                        <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+                                        <option value="+11:00">(GMT +11:00) Magadan, Solomon Islands, New Caledonia
+                                        </option>
+                                        <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+                                        <option value="+12:00">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
+                                        </option>
+                                        <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+                                        <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+                                        <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+                                    </select>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="select-date" class="form-label mb-0">Event Name <span
+                                            class="errormark">*</span></label>
+                                    <input type="date" class="form-control" id="select-date"
+                                        placeholder="Enter Event Name">
+                                    <div id="eventname-error-step3" class="error-message"></div>
+                                </div>
+                                <div class="btns">
+                                    <button class="previous-button btn cancel-btn">Cancel</button>
+                                    <button class="next-button save-btn btn" onclick="return validateForm3()">Save &
+                                        Next</button>
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="step-pane" id="step-4">
+                            <h2 class="step-number-heading">Step 4</h2>
+                            <div class="step-form-sub-heading mb-3">Email & Notification</div>
+
+                            <div class="tab-container">
+                                <div class="tab-header">
+                                    <button class="tab-button" onclick="openTab(event, 'tab1')">Calender
+                                        Invitations</button>
+                                    <button class="tab-button" onclick="openTab(event, 'tab2')">Email Reminders</button>
+                                    <button class="tab-button" onclick="openTab(event, 'tab3')">Email Follow up</button>
+                                    <button class="tab-button" onclick="openTab(event, 'tab4')">Text Reminders</button>
+                                </div>
+                                <div class="tab-content" id="tab1">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="calenderinvitations">
+                                    </div>
+                                    <div class="calender-invitaions-form-section pt-4" style="visibility: hidden;">
+                                        <div class="mb-3">
+                                            <label for="email_subject_calender_invitations" class="form-label">Email
+                                                Subject <span class="errormark"></span></label>
+                                            <input type="text" class="form-control"
+                                                id="email_subject_calender_invitations"
+                                                placeholder="Enter Email Subject">
+                                        </div>
+
+                                        <label for="email_box_calender_invitations" class="from-label">Email
+                                            Body</label>
+                                        <div class="email-box" id="email_box_calender_invitations">
+                                            <div class="email-toolbar">
+                                                <button onclick="formatBold()"><b>B</b></button>
+                                                <button onclick="formatItalic()"><i>I</i></button>
+                                                <button onclick="formatUnderline()"><u>U</u></button>
+                                                <button onclick="insertBulletPoint()"><i
+                                                        class="fa-solid fa-list fas"></i></button>
+
+                                                <select onchange="changeAlignment(this.value)">
+                                                    <option value="">Align</option>
+                                                    <option value="left">Left</option>
+                                                    <option value="center">Center</option>
+                                                    <option value="right">Right</option>
+                                                </select>
+                                                <input type="file" id="attachment" style="display:none" />
+                                                <label for="attachment" class="attachment-label"><i
+                                                        class="fas fas-solid fa-paperclip"></i></label>
+                                            </div>
+                                            <div contenteditable="true" class="email-body" id="email-body"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="tab2">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="emailreminders">
+                                    </div>
+                                    <div class="email-reminders-form-section pt-4" style="visibility: hidden;">
+                                        <div class="mb-3">
+                                            <label for="email_subject_calender_invitations" class="form-label">Email
+                                                Subject <span class="errormark"></span></label>
+                                            <input type="text" class="form-control"
+                                                id="email_subject_calender_invitations"
+                                                placeholder="Enter Email Subject">
+                                        </div>
+
+                                        <label for="email_box_calender_invitations" class="from-label">Email
+                                            Body</label>
+                                        <div class="email-box" id="email_box_calender_invitations">
+                                            <div class="email-toolbar">
+                                                <button onclick="formatBold()"><b>B</b></button>
+                                                <button onclick="formatItalic()"><i>I</i></button>
+                                                <button onclick="formatUnderline()"><u>U</u></button>
+                                                <button onclick="insertBulletPoint()"><i
+                                                        class="fa-solid fa-list fas"></i></button>
+
+                                                <select onchange="changeAlignment(this.value)">
+                                                    <option value="">Align</option>
+                                                    <option value="left">Left</option>
+                                                    <option value="center">Center</option>
+                                                    <option value="right">Right</option>
+                                                </select>
+                                                <input type="file" id="attachment" style="display:none" />
+                                                <label for="attachment" class="attachment-label"><i
+                                                        class="fas fas-solid fa-paperclip"></i></label>
+                                            </div>
+                                            <div contenteditable="true" class="email-body" id="email-body"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="tab3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="emailfollowup">
+                                    </div>
+                                    <div class="email-followup-form-section pt-4" style="visibility: hidden;">
+                                        <div class="mb-3">
+                                            <label for="email_subject_calender_invitations" class="form-label">Email
+                                                Subject <span class="errormark"></span></label>
+                                            <input type="text" class="form-control"
+                                                id="email_subject_calender_invitations"
+                                                placeholder="Enter Email Subject">
+                                        </div>
+
+                                        <label for="email_box_calender_invitations" class="from-label">Email
+                                            Body</label>
+                                        <div class="email-box" id="email_box_calender_invitations">
+                                            <div class="email-toolbar">
+                                                <button onclick="formatBold()"><b>B</b></button>
+                                                <button onclick="formatItalic()"><i>I</i></button>
+                                                <button onclick="formatUnderline()"><u>U</u></button>
+                                                <button onclick="insertBulletPoint()"><i
+                                                        class="fa-solid fa-list fas"></i></button>
+
+                                                <select onchange="changeAlignment(this.value)">
+                                                    <option value="">Align</option>
+                                                    <option value="left">Left</option>
+                                                    <option value="center">Center</option>
+                                                    <option value="right">Right</option>
+                                                </select>
+                                                <input type="file" id="attachment" style="display:none" />
+                                                <label for="attachment" class="attachment-label"><i
+                                                        class="fas fas-solid fa-paperclip"></i></label>
+                                            </div>
+                                            <div contenteditable="true" class="email-body" id="email-body"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="tab4">
+                                    <div class="mb-3">
+                                        <label for="textmessage" class="form-label">Text Message</label>
+                                        <textarea class="form-control" id="textmessage" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <button class="previous-button cancel-btn btn"> Cancel</button>
+                                <button class="next-button save-btn btn" onclick="validateStep4(event)">Save &
+                                    Next</button>
+
+                            </div>
+
+                        </div>
+                        <div class="step-pane" id="step-5">
+                            <h2 class="step-number-heading">Step 5</h2>
+                            <div class="step-form-sub-heading">Confirmation Page</div>
+                            <div class="mb-3">
+                                <label for="confirmation" class="form-label">On Confirmation</label>
+                                <select class="form-select" aria-label="destination" id="confirmation">
+                                    <option selected>Select Confirmation</option>
+                                    <option value="Display Moris Confirmation Page">Display Moris Confirmation Page
+                                    </option>
+                                    <option value="Redirect to an external site">Redirect to an external site</option>
+                                </select>
+                            </div>
+                            <div class="moris-confirmation-page" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="addanotherevent" class="form-label">Display button to schedule another
+                                        event ?
+                                    </label>
+                                    <input type="text" class="form-control" id="addanotherevent"
+                                        placeholder="Enter Link/URL">
+                                    <div class="form-check form-switch mt-2">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="addanothereventswitch">
+                                    </div>
+                                </div>
+                                <div class="display-custom-link-text">
+                                    Use this section to display custom links after this event is confirmed. For example,
+                                    you might link to a custom thank you page on your website. Custom links will appear
+                                    as buttons to invitees.
+                                </div>
+                                <button class="add-custom-link-btn btn">Add Custom Link</button>
+                            </div>
+                            <div class="external-site" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="redirect-url" class="form-label">Redirect URL
+                                    </label>
+                                    <input type="text" class="form-control" id="redirect-url" placeholder="Enter URL">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="pass-event-details">
+                                        <label class="form-check-label text-muted mt-1" for="pass-event-details">
+                                            Pass event details to your redirected page <a href="">Lean more</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <button class="previous-button cancel-btn btn"> Cancel</button>
+                                <button class="next-button save-btn btn">Save &
+                                    Next</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+</body>
+<script>
+    function validateStep1(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Reset error messages
+        document.getElementById("eventname-error").textContent = "";
+        document.getElementById("LinkUrl-error").textContent = "";
+
+        // Get input values
+        var eventname = document.getElementById("eventname").value;
+        var LinkUrl = document.getElementById("LinkUrl").value;
+
+        // Perform validation
+        var isValid = true;
+        if (eventname.trim() === "") {
+            document.getElementById("eventname-error").textContent = "Event Name is required";
+            isValid = false;
+        }
+        if (LinkUrl.trim() === "") {
+            document.getElementById("LinkUrl-error").textContent = "Link/URL is required";
+            isValid = false;
+        }
+
+        // Proceed to next step or display error messages
+        if (isValid) {
+            // Proceed to the next step
+            document.getElementById("step-1").classList.remove("active");
+            document.getElementById("step-2").classList.add("active");
+            document.getElementById("step-no-1").classList.remove("active");
+            document.getElementById("step-no-2").classList.add("active");
+            document.getElementById("error-message").textContent = ""; // Reset general error message
+            // Update the active step in the stepper UI
+            document.querySelectorAll(".step-no").forEach((step, index) => {
+                // if (index === 0) {
+                //     step.classList.remove("active");
+                // } else if (index === 1) {
+                //     step.classList.add("active");
+                // }
+                // else if (index === 2) {
+                //     step.classList.add("active");
+                // }
+            });
+        } else {
+            // Display error message
+            document.getElementById("error-message").textContent = "Please fill in the required fields.";
+        }
+    }
+
+</script>
+
+<!-- question checked not work -->
+<script>
+    // Counter to generate unique question IDs
+    var questionCounter = 1;
+
+    // Function to handle applying a question
+    // function applyQuestion() {
+    //     var question = document.getElementById("questionfield").value;
+    //     var answerType = document.getElementById("answertype").value;
+    //     var questionId = "question_" + questionCounter;
+    //     var required = document.getElementById("questionchecked").checked;
+
+    //     // Create the question element
+    //     var questionElement = document.createElement("div");
+    //     questionElement.classList.add("question");
+    //     questionElement.id = questionId;
+    //     questionElement.setAttribute("data-required", required);
+    //     // Add the question text
+    //     var questionText = document.createElement("div");
+    //     questionText.classList.add("question-text");
+    //     questionText.textContent = question;
+    //     questionElement.appendChild(questionText);
+
+    //     // Add the answer input based on the answer type
+    //     var answerInput;
+    //     if (answerType === "One line" || answerType === "1") {
+    //         answerInput = document.createElement("input");
+    //         answerInput.type = "text";
+    //     } else if (answerType === "2") {
+    //         answerInput = document.createElement("input");
+    //         answerInput.type = "radio";
+    //     } else if (answerType === "3") {
+    //         answerInput = document.createElement("input");
+    //         answerInput.type = "checkbox";
+    //     } else if (answerType === "4") {
+    //         answerInput = document.createElement("select");
+    //         // Add options to the select element
+    //         // ...
+    //     } else if (answerType === "5") {
+    //         answerInput = document.createElement("input");
+    //         answerInput.type = "tel";
+    //     }
+
+    //     // Add the answer input to the question element
+    //     if (answerInput) {
+    //         answerInput.classList.add("answer-input");
+    //         questionElement.appendChild(answerInput);
+    //     }
+
+    //     // Add the edit button to the question element
+    //     var editButton = document.createElement("button");
+    //     editButton.classList.add("edit-button");
+    //     editButton.textContent = "Edit";
+    //     editButton.addEventListener("click", function () {
+    //         openEditQuestionModal(questionId);
+    //     });
+    //     questionElement.appendChild(editButton);
+
+    //     // Append the question element to the question container
+    //     var questionContainer = document.getElementById("questionContainer");
+    //     questionContainer.appendChild(questionElement);
+
+    //     // Increment the question counter
+    //     questionCounter++;
+
+    //     // Reset the form fields
+    //     document.getElementById("questionfield").value = "";
+    //     document.getElementById("answertype").selectedIndex = 0;
+
+    //     // Close the Add Question Modal
+    //     var addQuestionModal = document.getElementById("addQuestionModal");
+    //     var bootstrapModal = bootstrap.Modal.getInstance(addQuestionModal);
+    //     bootstrapModal.hide();
+    // }
+
+
+
+
+
+
+
+
+    function applyQuestion() {
+        var question = document.getElementById("questionfield").value;
+        var answerType = document.getElementById("answertype").value;
+        var questionId = "question_" + questionCounter;
+        var required = document.getElementById("questionchecked").checked;
+
+        // Create the question element
+        var questionElement = document.createElement("div");
+        questionElement.classList.add("question");
+        questionElement.id = questionId;
+        questionElement.setAttribute("data-required", required);
+
+        // Add the question text
+        var questionText = document.createElement("div");
+        questionText.classList.add("question-text");
+        questionText.textContent = question;
+
+        // Add the "*" sign if the checkbox is checked
+        if (required) {
+            var requiredSign = document.createElement("span");
+            requiredSign.classList.add("required-sign");
+            requiredSign.textContent = "*";
+            questionText.appendChild(requiredSign);
+        }
+
+        questionElement.appendChild(questionText);
+
+        // Add the answer input based on the answer type
+        var answerInput;
+        if (answerType === "One line" || answerType === "1") {
+            answerInput = document.createElement("input");
+            answerInput.type = "text";
+        } else if (answerType === "2") {
+            answerInput = document.createElement("input");
+            answerInput.type = "radio";
+        } else if (answerType === "3") {
+            answerInput = document.createElement("input");
+            answerInput.type = "checkbox";
+        } else if (answerType === "4") {
+            answerInput = document.createElement("select");
+            // Add options to the select element
+            // ...
+        } else if (answerType === "5") {
+            answerInput = document.createElement("input");
+            answerInput.type = "tel";
+        }
+
+        // Add the answer input to the question element
+        if (answerInput) {
+            answerInput.classList.add("answer-input");
+            questionElement.appendChild(answerInput);
+        }
+
+        // Add the edit button to the question element
+        var editButton = document.createElement("button");
+        editButton.classList.add("edit-button");
+        editButton.textContent = "Edit";
+        editButton.addEventListener("click", function () {
+            openEditQuestionModal(questionId);
+        });
+        questionElement.appendChild(editButton);
+
+        // Append the question element to the question container
+        var questionContainer = document.getElementById("questionContainer");
+        questionContainer.appendChild(questionElement);
+
+        // Increment the question counter
+        questionCounter++;
+
+        // Reset the form fields
+        document.getElementById("questionfield").value = "";
+        document.getElementById("answertype").selectedIndex = 0;
+
+        // Close the Add Question Modal
+        var addQuestionModal = document.getElementById("addQuestionModal");
+        var bootstrapModal = bootstrap.Modal.getInstance(addQuestionModal);
+        bootstrapModal.hide();
+    }
+
+
+    // Function to open the Edit Question Modal with the selected question's values
+    // function openEditQuestionModal(questionId) {
+    //     var questionElement = document.getElementById(questionId);
+    //     var questionText = questionElement.querySelector(".question-text").textContent;
+
+    //     // Set the question text in the Edit Question Modal
+    //     var editQuestionModal = document.getElementById("editQuestionModal");
+    //     var editQuestionField = editQuestionModal.querySelector("#questionfield");
+    //     editQuestionField.value = questionText;
+
+    //     // Store the questionId in a data attribute of the modal
+    //     editQuestionModal.dataset.questionId = questionId;
+
+    //     // Open the Edit Question Modal
+    //     var bootstrapModal = new bootstrap.Modal(editQuestionModal); // Create a new Bootstrap Modal instance
+    //     bootstrapModal.show();
+    // }
+
+    function openEditQuestionModal(questionId) {
+        var questionElement = document.getElementById(questionId);
+        var questionText = questionElement.querySelector(".question-text").textContent;
+        var isRequired = questionElement.getAttribute("data-required") === "true";
+
+        // Set the question text in the Edit Question Modal
+        var editQuestionModal = document.getElementById("editQuestionModal");
+        var editQuestionField = editQuestionModal.querySelector("#questionfield");
+        editQuestionField.value = questionText;
+
+        // Check the checkbox if the question is required
+        var editQuestionChecked = editQuestionModal.querySelector("#questionchecked");
+        editQuestionChecked.checked = isRequired;
+
+        // Add the "*" sign if the checkbox is checked
+        var editQuestionLabelText = editQuestionModal.querySelector(".form-check-label");
+        if (isRequired) {
+            var requiredSign = document.createElement("span");
+            requiredSign.classList.add("required-sign");
+            requiredSign.textContent = "*";
+            editQuestionLabelText.appendChild(requiredSign);
+        }
+
+        // Store the questionId in a data attribute of the modal
+        editQuestionModal.dataset.questionId = questionId;
+
+        // Open the Edit Question Modal
+        var bootstrapModal = new bootstrap.Modal(editQuestionModal); // Create a new Bootstrap Modal instance
+        bootstrapModal.show();
+    }
+
+
+    // Event listener for the Apply button in the Add Question Modal
+    document.querySelector("#addQuestionModal .apply-question-btn").addEventListener("click", function () {
+        applyQuestion();
+    });
+
+    // Event listener for the Apply button in the Edit Question Modal
+    document.querySelector("#editQuestionModal .apply-question-btn").addEventListener("click", function () {
+        var editQuestionModal = document.getElementById("editQuestionModal");
+        var questionId = editQuestionModal.dataset.questionId;
+        var questionElement = document.getElementById(questionId);
+        var questionText = editQuestionModal.querySelector("#questionfield").value;
+
+        // Update the question text
+        questionElement.querySelector(".question-text").textContent = questionText;
+
+        // Close the Edit Question Modal
+        var bootstrapModal = bootstrap.Modal.getInstance(editQuestionModal);
+        bootstrapModal.hide();
+    });
+
+</script>
+
+<script>
+    function validateStep2(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("step-2").classList.remove("active");
+        document.getElementById("step-3").classList.add("active");
+        document.getElementById("step-no-2").classList.remove("active");
+        document.getElementById("step-no-3").classList.add("active");
+
+    }
+
+</script>
+
+
+<!-- validate step3 -->
+<script>
+    // Function to validate the form before proceeding
+    function validateForm3() {
+        event.preventDefault();
+        // Get the selected timezone offset
+        var timezoneOffset = document.getElementById("timezone-offset").value;
+
+        // Get the selected date
+        var selectedDate = document.getElementById("select-date").value;
+
+        // Check if both fields are filled
+        if (timezoneOffset !== "Select Time Zone" && selectedDate !== "") {
+            // Allow the user to proceed to the next step
+            document.getElementById("step-3").classList.remove("active");
+            document.getElementById("step-4").classList.add("active");
+            document.getElementById("step-no-3").classList.remove("active");
+            document.getElementById("step-no-4").classList.add("active");
+
+            return true;
+        } else {
+            // Display an error message
+            document.getElementById("eventname-error-step3").innerHTML = "Please select a time zone and enter a date.";
+            return false;
+        }
+    }
+</script>
+
+
+<!-- tabs step 4 -->
+<script>
+    function openTab(evt, tabName) {
+        var i, tabContent, tabButtons;
+
+        // Hide all tab content
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+
+        // Remove "active" class from all tab buttons
+        tabButtons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+        }
+
+        // Show the selected tab content and set the button as active
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Open the default tab on page load
+    document.getElementById("tab1").style.display = "block";
+    document.getElementsByClassName("tab-button")[0].className += " active";
+
+</script>
+
+
+
+<!-- email editor -->
+<script>
+    function formatBold() {
+        document.execCommand('bold', false, null);
+    }
+
+    function formatItalic() {
+        document.execCommand('italic', false, null);
+    }
+
+    function formatUnderline() {
+        document.execCommand('underline', false, null);
+    }
+
+    function changeAlignment(value) {
+        document.execCommand('justify' + value, false, null);
+    }
+
+    function insertBulletPoint() {
+        document.execCommand('insertUnorderedList', false, null);
+    }
+
+    document.getElementById('attachment').addEventListener('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            var fileName = files[0].name;
+            var attachmentLink = '<a href="#">' + fileName + '</a>';
+            document.execCommand('insertHTML', false, attachmentLink);
+        }
+    });
+
+</script>
+
+
+<!-- toggle feature of step 4 1st tab -->
+<script>
+    const toggleSwitch = document.getElementById('calenderinvitations');
+    const formSection = document.querySelector('.calender-invitaions-form-section');
+
+    toggleSwitch.addEventListener('change', function () {
+        if (toggleSwitch.checked) {
+            formSection.style.visibility = 'visible';
+        } else {
+            formSection.style.visibility = 'hidden';
+        }
+    });
+    const toggleSwitchone = document.getElementById('emailreminders');
+    const formSectionone = document.querySelector('.email-reminders-form-section');
+
+    toggleSwitchone.addEventListener('change', function () {
+        if (toggleSwitchone.checked) {
+            formSectionone.style.visibility = 'visible';
+        } else {
+            formSectionone.style.visibility = 'hidden';
+        }
+    });
+    const toggleSwitchtwo = document.getElementById('emailfollowup');
+    const formSectiontwo = document.querySelector('.email-followup-form-section');
+
+    toggleSwitchtwo.addEventListener('change', function () {
+        if (toggleSwitchtwo.checked) {
+            formSectiontwo.style.visibility = 'visible';
+        } else {
+            formSectiontwo.style.visibility = 'hidden';
+        }
+    });
+</script>
+<!-- step4 -->
+<script>
+    function validateStep4(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("step-4").classList.remove("active");
+        document.getElementById("step-5").classList.add("active");
+        document.getElementById("step-no-4").classList.remove("active");
+        document.getElementById("step-no-5").classList.add("active");
+
+    }
+
+</script>
+<!-- step 5 selection -->
+<script>
+    const confirmationDropdown = document.getElementById('confirmation');
+    const morisConfirmationSection = document.querySelector('.moris-confirmation-page');
+    const externalSiteSection = document.querySelector('.external-site');
+
+    confirmationDropdown.addEventListener('change', function () {
+        if (confirmationDropdown.value === 'Display Moris Confirmation Page') {
+            morisConfirmationSection.style.display = 'block';
+            externalSiteSection.style.display = 'none';
+        } else if (confirmationDropdown.value === 'Redirect to an external site') {
+            morisConfirmationSection.style.display = 'none';
+            externalSiteSection.style.display = 'block';
+        } else {
+            morisConfirmationSection.style.display = 'none';
+            externalSiteSection.style.display = 'none';
+        }
+    });
+</script>
+
+</html>

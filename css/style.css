@@ -2751,6 +2751,10 @@ body {
   font-size: 20px;
   font-weight: 700;
 }
+.create-an-event-section .main-event-box .event-box .event-heading a {
+  color: black;
+  text-decoration: none;
+}
 .create-an-event-section .main-event-box .event-box .sub-info {
   color: var(--red-color);
   font-weight: 500;
@@ -2761,7 +2765,9 @@ body {
   display: block;
   margin: 10px 0;
   font-weight: 500;
-  margin: 10px 0 36px;
+  padding-bottom: 18px;
+  margin: 10px 0 16px;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.3803921569);
 }
 .create-an-event-section .main-event-box .event-box .event-desc a {
   text-decoration: none;
@@ -2769,7 +2775,6 @@ body {
 }
 .create-an-event-section .main-event-box .event-box .event-sub-desc {
   color: #707070;
-  border-top: 1px solid rgba(112, 112, 112, 0.3803921569);
   padding-top: 16px;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
@@ -2793,9 +2798,6 @@ body {
   background-color: #e9ecfd;
   padding: 30px 20px 30px;
   text-align: center;
-}
-.create-event-one-on-one-section .row .second-col {
-  margin: auto;
 }
 .create-event-one-on-one-section .stepper {
   display: flex;
@@ -2915,6 +2917,7 @@ body {
   font-weight: 500;
   border: 2px solid var(--primary-purple-color);
   padding: 3px 6px;
+  width: 113px;
 }
 .create-event-one-on-one-section .step-section-content .step-content .cancel-btn {
   background-color: transparent;
@@ -2922,6 +2925,8 @@ body {
   font-weight: 500;
   border: 2px solid var(--primary-purple-color);
   padding: 3px 6px;
+  margin-right: 16px;
+  width: 113px;
 }
 .create-event-one-on-one-section .step-section-content .step-content .add-question-btn {
   background-color: var(--primary-purple-color);
@@ -2929,6 +2934,107 @@ body {
   font-weight: 500;
   border: 2px solid var(--primary-purple-color);
   padding: 3px 9px;
+}
+.create-event-one-on-one-section .step-section-content .step-content #questionContainer {
+  margin-top: 30px;
+}
+.create-event-one-on-one-section .step-section-content .step-content #questionContainer .question {
+  margin-bottom: 20px;
+  position: relative;
+}
+.create-event-one-on-one-section .step-section-content .step-content #questionContainer .question .question-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.create-event-one-on-one-section .step-section-content .step-content #questionContainer .question input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.create-event-one-on-one-section .step-section-content .step-content #questionContainer .question .edit-button {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .tab-header {
+  display: flex;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .tab-button {
+  flex: 1;
+  padding: 10px 0 0;
+  color: var(--primary-purple-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 500;
+  margin-right: 35px;
+  white-space: nowrap;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .tab-button.active {
+  border-bottom: 3px solid var(--primary-purple-color);
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .tab-content {
+  display: none;
+  margin-top: 24px;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .email-box {
+  border: 1px solid #ccc;
+  background: white;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .email-toolbar {
+  padding: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 1px;
+  padding-top: 2px;
+  border-bottom: 1.5px solid #ccc;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .email-toolbar button,
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .email-toolbar select {
+  margin-right: 5px;
+  border: none;
+  background-color: transparent;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .email-body {
+  min-height: 200px;
+  padding: 5px 8px;
+}
+.create-event-one-on-one-section .step-section-content .step-content #step-4 .attachment-label {
+  display: inline-block;
+  padding: 5px 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.create-event-one-on-one-section .step-section-content .step-content .form-check-input:checked {
+  background-color: var(--green-color);
+  border-color: var(--green-color);
+}
+.create-event-one-on-one-section .step-section-content .step-content .display-custom-link-text {
+  color: #707070;
+  font-weight: 500;
+}
+.create-event-one-on-one-section .step-section-content .step-content .add-custom-link-btn {
+  color: var(--primary-purple-color);
+  border: 2px solid var(--primary-purple-color);
+  padding: 3px 8px;
+  font-weight: 500;
+  margin-top: 16px;
 }
 
 /*# sourceMappingURL=style.css.map */
