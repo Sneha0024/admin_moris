@@ -43,6 +43,67 @@
             opacity: 1;
             visibility: visible;
         }
+
+        .dropdown {
+            position: relative;
+            display: block;
+        }
+
+        .dropdown-toggle {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+    text-align: inherit;
+        }
+        .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    position: absolute;
+    right: 17px;
+    top: 20px;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            display: none;
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 8px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown-menu a img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-menu a:hover .subtext {
+            color: #777;
+        }
     </style>
 </head>
 
@@ -212,7 +273,11 @@
                                     <label for="destination" class="form-label">Destination</label>
                                     <select class="form-select" aria-label="destination" id="destination">
                                         <option selected>Select Destination</option>
-                                        <option value="1">In Person Meeting</option>
+                                        <option value="1">
+                                            <img src="images/account-compliance-img-1.png" alt="">
+                                            <span style="display: block;">In Person Meeting</span>
+                                            <span style="display: block; font-size: 12px;">ttttt</span>
+                                        </option>
                                         <option value="2">Phone Call</option>
                                         <option value="3">Google meet </option>
                                         <option value="4">Zoom </option>
@@ -220,6 +285,40 @@
                                         <option value="6">Ask Invite</option>
                                     </select>
                                 </div>
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" id="destinationDropdown"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Select Destination
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="destinationDropdown">
+                                        <a class="dropdown-item" href="#">
+                                            <div> <img src="images/account-compliance-img-1.png"
+                                                    alt="In Person Meeting">
+                                            </div>
+                                            <div>
+                                                <span class="destination-name">In Person Meeting</span><br />
+                                                <span class="destination-sub-info">ttttt</span>
+
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Phone Call
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Google Meet
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Zoom
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Microsoft Teams
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Ask Invite
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <div class="mb-3">
                                     <label for="LinkUrl" class="form-label branding-form-label mb-0">Create Link/ URL
                                         <span class="errormark">*</span></label>
@@ -1134,5 +1233,39 @@
         }
     });
 </script>
+<!-- step 1 dropdown -->
+<script>
+    document.addEventListener('click', function (event) {
+        var dropdownToggle = document.querySelector('.dropdown-toggle');
+        var dropdownMenu = document.querySelector('.dropdown-menu');
 
+        if (event.target === dropdownToggle) {
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        } else if (!dropdownMenu.contains(event.target)) {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdownToggle = document.querySelector('.dropdown-toggle');
+      var dropdownOptions = document.querySelectorAll('.dropdown-menu .dropdown-item');
+      var selectDestination = document.querySelector('#destination');
+  
+      dropdownOptions.forEach(function(option) {
+        option.addEventListener('click', function(event) {
+          event.preventDefault();
+          var value = this.getAttribute('data-value');
+          var text = this.textContent.trim();
+          
+          selectDestination.value = value;
+          dropdownToggle.textContent = text;
+        });
+      });
+    });
+  </script>
+  
+  
+  
 </html>

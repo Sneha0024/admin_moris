@@ -2806,7 +2806,7 @@ body {
 .create-event-one-on-one-section .step {
   display: flex;
   align-items: center;
-  margin-bottom: 52px;
+  margin-bottom: 34px;
   position: relative;
 }
 .create-event-one-on-one-section .step.active .step-title {
