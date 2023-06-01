@@ -2103,9 +2103,22 @@ body {
           margin-right: 9px;
         }
         .delete-btn {
-          background-color: #fddee7;
+          // background-color: #fddee7;
+          // border-radius: 50%;
+          // padding-top: 4px;
+        }
+        .info-items {
+          background-color: #e9ecfd;
           border-radius: 50%;
           padding-top: 4px;
+          color: var(--primary-purple-color);
+          font-weight: 400;
+          i {
+            font-size: 16px;
+            margin-top: 7px;
+            margin-right: 4px;
+            margin-left: 4px;
+          }
         }
       }
       .name-info {
@@ -3114,6 +3127,23 @@ body {
         margin-right: 16px;
         width: 113px;
       }
+      .apply-question-btn {
+        background-color: var(--primary-purple-color);
+        color: #fff;
+        font-weight: 500;
+        border: 2px solid var(--primary-purple-color);
+        padding: 3px 6px;
+        width: 113px;
+      }
+      .cancel-question-btn {
+        background-color: transparent;
+        color: var(--primary-purple-color);
+        font-weight: 500;
+        border: 2px solid var(--primary-purple-color);
+        padding: 3px 6px;
+        margin-right: 16px;
+        width: 113px;
+      }
       .add-question-btn {
         background-color: var(--primary-purple-color);
         color: #fff;
@@ -3231,6 +3261,63 @@ body {
         padding: 3px 8px;
         font-weight: 500;
         margin-top: 16px;
+      }
+    }
+  }
+}
+.update-permissions-modal {
+  // background-color: #E9ECFD;
+  .modal-content {
+    background-color: #e9ecfd;
+  }
+  .modal-body{
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  .modal-footer{
+    justify-content: center;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 36px;
+  .confirm-btn{
+    background-color: var(--primary-purple-color);
+    font-weight: 500;
+    color: #fff;
+    padding: 3px 12px;
+  }
+}
+  .btn-close-custom {
+    position: relative;
+    right: 7px;
+    top: 18px;
+    border: none;
+    left: 43%;
+    background-color: transparent;
+    i {
+      font-size: 1.5rem;
+    }
+  }
+  .update-permission-sub-head{
+    color: #707070;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #70707059;
+    text-align: left;
+  }
+  .update-permission-head{
+    color: var(--primary-purple-color);
+    font-weight: 600;
+    font-size: 20px;
+    text-align: left;
+    padding-top: 20px;
+  }
+  .toggle-area-section{
+    .toggle-area{
+      padding-top: 30px;
+    
+      display: flex;
+      justify-content: space-between;
+      .toffle-label-text{
+        font-weight: 500;
       }
     }
   }

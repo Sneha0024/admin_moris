@@ -224,7 +224,7 @@
       <!-- <span class="invite-mem-head">Invite Members</span> -->
       <div class="">
         <span class="invite-mem-head">Invite Members</span>
-     
+
         <div class="mb-3 d-flex">
           <div class="w-75 position-relative me-3">
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
@@ -271,7 +271,87 @@
                   </button>
                   <button class="btn edit" data-bs-toggle="modal" data-bs-target="#myteamModal"><img
                       src="images/edit-icon.svg" /></button>
-                  <button class="btn delete-btn"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn info-items dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <ul class="dropdown-menu p-3 px-1">
+                    <li><a class="dropdown-item" href="#">Make Owner</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#update-permissions">Update
+                        Permission</a></li>
+                    <li><a class="dropdown-item" href="#">Acccess to Managers</a>
+                    </li>
+                    <li><a class="dropdown-item delete-btn btn"  href="#">Remove Managers</a>
+                    </li>
+                  </ul>
+                  <!-- Modal -->
+                  <div class="modal fade update-permissions-modal" id="update-permissions" tabindex="-1"
+                    aria-labelledby="update-permissions" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                      <div class="modal-content position-relative">
+
+                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                          <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="modal-body">
+                          <div class="update-permission-head">Update Permission</div>
+                          <div class="update-permission-sub-head">Choose What Harpreet Kaur is allowed to do</div>
+                          <div class="toggle-area-section">
+                            <div class="toggle-area">
+                              <div class="toffle-label-text" for="see-other-members">See other members</div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="see-other-members">
+                              </div>
+                            </div>
+                            <div class="toggle-area">
+                              <div class="toffle-label-text" for="add-remove-members">Add/ Remove members</div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="add-remove-members">
+                              </div>
+                            </div>
+                            <div class="toggle-area">
+                              <div class="toffle-label-text" for="update-members">Update member permissions</div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="update-members">
+                              </div>
+                            </div>
+                            <div class="toggle-area">
+                              <div class="toffle-label-text" for="manage-duplicants">Manage team duplicates</div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="manage-duplicants">
+                              </div>
+                            </div>
+                            <div class="toggle-area">
+                              <div class="toffle-label-text" for="team-duplicates">Import with team duplicates</div>
+                              <div class="category-select-area"><select class="form-select"
+                                  aria-label="Default select example">
+                                  <option selected>All</option>
+                                  <option value="1">One</option>
+                                </select></div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="team-duplicates">
+                              </div>
+                            </div>
+                            <div class="toggle-area">
+                              <div class="toffle-label-text" for="access-members">Access to members’ app <span class="vis-hid">uuu</span>     </div>
+                              <div class="category-select-area"><select class="form-select"
+                                  aria-label="Default select example">
+                                  <option selected>All</option>
+                                  <option value="1">One</option>
+                                </select></div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="access-members">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn confirm-btn">Confirm</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn delete-btn d-none"><img src="images/delete-icon.svg" /></button>
                   <!-- The popup -->
                   <div id="deletePopup" class="popup">
                     <p>Are you sure ?</p>
@@ -312,7 +392,18 @@
                   </button>
                   <button class="btn edit" data-bs-toggle="modal" data-bs-target="#myteamModal"><img
                       src="images/edit-icon.svg" /></button>
-                  <button class="btn delete-btn"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn delete-btn d-none"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn info-items dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <ul class="dropdown-menu p-3 px-1">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#update-permissions">Update
+                        Permission</a></li>
+                    <li><a class="dropdown-item" href="#">Acccess to Managers</a>
+                    </li>
+                    <li><a class="dropdown-item delete-btn btn"  href="#">Remove Managers</a>
+                    </li>
+                  </ul>
                   <!-- The popup -->
                   <div id="deletePopup" class="popup">
                     <p>Are you sure ?</p>
@@ -352,7 +443,18 @@
                   </button>
                   <button class="btn edit" data-bs-toggle="modal" data-bs-target="#myteamModal"><img
                       src="images/edit-icon.svg" /></button>
-                  <button class="btn delete-btn"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn delete-btn d-none"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn info-items dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <ul class="dropdown-menu p-3 px-1">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#update-permissions">Update
+                        Permission</a></li>
+                    <li><a class="dropdown-item" href="#">Acccess to Managers</a>
+                    </li>
+                    <li><a class="dropdown-item delete-btn btn"  href="#">Remove Managers</a>
+                    </li>
+                  </ul>
                   <!-- The popup -->
                   <div id="deletePopup" class="popup">
                     <p>Are you sure ?</p>
@@ -365,7 +467,8 @@
 
                 </span>
               </td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>
                 <div class="name-info">
                   <div class="d-flex">
@@ -391,7 +494,18 @@
                   </button>
                   <button class="btn edit" data-bs-toggle="modal" data-bs-target="#myteamModal"><img
                       src="images/edit-icon.svg" /></button>
-                  <button class="btn delete-btn"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn delete-btn d-none"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn info-items dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <ul class="dropdown-menu p-3 px-1">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#update-permissions">Update
+                        Permission</a></li>
+                    <li><a class="dropdown-item" href="#">Acccess to Managers</a>
+                    </li>
+                    <li><a class="dropdown-item delete-btn btn"  href="#">Remove Managers</a>
+                    </li>
+                  </ul>
                   <!-- The popup -->
                   <div id="deletePopup" class="popup">
                     <p>Are you sure ?</p>
@@ -404,7 +518,8 @@
 
                 </span>
               </td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>
                 <div class="name-info">
                   <div class="d-flex">
@@ -430,7 +545,18 @@
                   </button>
                   <button class="btn edit" data-bs-toggle="modal" data-bs-target="#myteamModal"><img
                       src="images/edit-icon.svg" /></button>
-                  <button class="btn delete-btn"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn delete-btn d-none"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn info-items dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <ul class="dropdown-menu p-3 px-1">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#update-permissions">Update
+                        Permission</a></li>
+                    <li><a class="dropdown-item" href="#">Acccess to Managers</a>
+                    </li>
+                    <li><a class="dropdown-item delete-btn btn"  href="#">Remove Managers</a>
+                    </li>
+                  </ul>
                   <!-- The popup -->
                   <div id="deletePopup" class="popup">
                     <p>Are you sure ?</p>
@@ -443,7 +569,8 @@
 
                 </span>
               </td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>
                 <div class="name-info">
                   <div class="d-flex">
@@ -469,7 +596,18 @@
                   </button>
                   <button class="btn edit" data-bs-toggle="modal" data-bs-target="#myteamModal"><img
                       src="images/edit-icon.svg" /></button>
-                  <button class="btn delete-btn"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn delete-btn d-none"><img src="images/delete-icon.svg" /></button>
+                  <button class="btn info-items dropdown-toggle-split" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <ul class="dropdown-menu p-3 px-1">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#update-permissions">Update
+                        Permission</a></li>
+                    <li><a class="dropdown-item" href="#">Acccess to Managers</a>
+                    </li>
+                    <li><a class="dropdown-item delete-btn btn"  href="#">Remove Managers</a>
+                    </li>
+                  </ul>
                   <!-- The popup -->
                   <div id="deletePopup" class="popup">
                     <p>Are you sure ?</p>
@@ -629,7 +767,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <script src="settings.js"></script>
 </body>
 <!-- delete -->
