@@ -46,7 +46,7 @@
 
         .dropdown {
             position: relative;
-            display: block;
+            display: none;
         }
 
         .dropdown-toggle {
@@ -56,21 +56,23 @@
             border-radius: 4px;
             cursor: pointer;
             width: 100%;
-    text-align: inherit;
+            text-align: inherit;
         }
+
         .dropdown-toggle::after {
-    display: inline-block;
-    margin-left: 0.255em;
-    position: absolute;
-    right: 17px;
-    top: 20px;
-    vertical-align: 0.255em;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
-}
+            display: inline-block;
+            margin-left: 0.255em;
+            position: absolute;
+            right: 17px;
+            top: 20px;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+        }
+
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -91,12 +93,22 @@
             text-decoration: none;
             color: #333;
         }
-
+        .dropdown-menu a .destination-name {
+            font-weight: 500;
+            display: block;
+            line-height: 11px;
+        }
+        .dropdown-menu a .destination-sub-info {
+            font-weight: 400;
+            color: #000000;
+            font-size: 14px;
+        }
         .dropdown-menu a img {
             width: 24px;
             height: 24px;
         }
 
+        
         .dropdown-menu a:hover {
             background-color: #f5f5f5;
         }
@@ -276,7 +288,6 @@
                                         <option value="1">
                                             <img src="images/account-compliance-img-1.png" alt="">
                                             <span style="display: block;">In Person Meeting</span>
-                                            <span style="display: block; font-size: 12px;">ttttt</span>
                                         </option>
                                         <option value="2">Phone Call</option>
                                         <option value="3">Google meet </option>
@@ -296,7 +307,7 @@
                                                     alt="In Person Meeting">
                                             </div>
                                             <div>
-                                                <span class="destination-name">In Person Meeting</span><br />
+                                                <span class="destination-name">In Person Meeting</span>
                                                 <span class="destination-sub-info">ttttt</span>
 
                                             </div>
@@ -1248,24 +1259,24 @@
 
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var dropdownToggle = document.querySelector('.dropdown-toggle');
-      var dropdownOptions = document.querySelectorAll('.dropdown-menu .dropdown-item');
-      var selectDestination = document.querySelector('#destination');
-  
-      dropdownOptions.forEach(function(option) {
-        option.addEventListener('click', function(event) {
-          event.preventDefault();
-          var value = this.getAttribute('data-value');
-          var text = this.textContent.trim();
-          
-          selectDestination.value = value;
-          dropdownToggle.textContent = text;
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdownToggle = document.querySelector('.dropdown-toggle');
+        var dropdownOptions = document.querySelectorAll('.dropdown-menu .dropdown-item');
+        var selectDestination = document.querySelector('#destination');
+
+        dropdownOptions.forEach(function (option) {
+            option.addEventListener('click', function (event) {
+                event.preventDefault();
+                var value = this.getAttribute('data-value');
+                var text = this.textContent.trim();
+
+                selectDestination.value = value;
+                dropdownToggle.textContent = text;
+            });
         });
-      });
     });
-  </script>
-  
-  
-  
+</script>
+
+
+
 </html>
