@@ -3114,4 +3114,143 @@ body {
   font-weight: 500;
 }
 
+.calendar.my-calender {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: #f3f6fd;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  top: auto;
+  border-radius: 6px;
+}
+.calendar.my-calender #calendar {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 700px;
+}
+.calendar.my-calender .calendar-days {
+  margin: 0 10px;
+  gap: 64px;
+}
+.calendar.my-calender .calendar-day {
+  padding: 10px;
+  height: 80px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: #e9ecfd;
+  display: flex;
+  justify-content: end;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.calendar.my-calender .calendar-day.sunday {
+  background-color: #fff4f7;
+  color: var(--red-color);
+}
+.calendar.my-calender .calendar-day:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.calendar.my-calender .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.calendar.my-calender .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+}
+.calendar.my-calender .close {
+  color: #888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.calendar.my-calender .close:hover,
+.calendar.my-calender .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.calendar.my-calender form {
+  margin-top: 20px;
+}
+.calendar.my-calender label {
+  display: block;
+  margin-bottom: 5px;
+}
+.calendar.my-calender input[type=text] {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+.calendar.my-calender button[type=submit] {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.calendar.my-calender button[type=submit]:hover {
+  background-color: #45a049;
+}
+.calendar.my-calender .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 20px 20px 0 0;
+  background: #e9ecfd;
+  padding: 12px 7px;
+}
+.calendar.my-calender #prev-month,
+.calendar.my-calender #next-month {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.calendar.my-calender #current-month {
+  font-size: 24px;
+  font-weight: bold;
+}
+.calendar.my-calender #calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.calendar.my-calender .calendar-day:hover {
+  background-color: #f2f2f2;
+}
+.calendar.my-calender .has-event {
+  background-color: #E0C7E6;
+  border: 1px solid #6E0D88;
+  color: #6E0D88;
+}
+.calendar.my-calender .modal {
+  /* Modal styles */
+}
+.calendar.my-calender .calendar-day-name {
+  color: #2b2b2b;
+  font-weight: 500;
+}
+.calendar.my-calender .calendar-day-name.sunday {
+  color: var(--red-color);
+}
+
 /*# sourceMappingURL=style.css.map */

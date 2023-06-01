@@ -3270,22 +3270,22 @@ body {
   .modal-content {
     background-color: #e9ecfd;
   }
-  .modal-body{
+  .modal-body {
     padding-right: 24px;
     padding-left: 24px;
   }
-  .modal-footer{
+  .modal-footer {
     justify-content: center;
     border: none;
     margin-top: 20px;
     margin-bottom: 36px;
-  .confirm-btn{
-    background-color: var(--primary-purple-color);
-    font-weight: 500;
-    color: #fff;
-    padding: 3px 12px;
+    .confirm-btn {
+      background-color: var(--primary-purple-color);
+      font-weight: 500;
+      color: #fff;
+      padding: 3px 12px;
+    }
   }
-}
   .btn-close-custom {
     position: relative;
     right: 7px;
@@ -3297,27 +3297,185 @@ body {
       font-size: 1.5rem;
     }
   }
-  .update-permission-sub-head{
+  .update-permission-sub-head {
     color: #707070;
     padding-bottom: 15px;
     border-bottom: 1px solid #70707059;
     text-align: left;
   }
-  .update-permission-head{
+  .update-permission-head {
     color: var(--primary-purple-color);
     font-weight: 600;
     font-size: 20px;
     text-align: left;
     padding-top: 20px;
   }
-  .toggle-area-section{
-    .toggle-area{
+  .toggle-area-section {
+    .toggle-area {
       padding-top: 30px;
-    
+
       display: flex;
       justify-content: space-between;
-      .toffle-label-text{
+      .toffle-label-text {
         font-weight: 500;
+      }
+    }
+  }
+}
+.calendar {
+  &.my-calender {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: #f3f6fd;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    top: auto;
+    border-radius: 6px;
+
+    #calendar {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 700px;
+    }
+    .calendar-days {
+      margin: 0 10px;
+      gap: 64px;
+    }
+    .calendar-day {
+      // width: 14.28%;
+      padding: 10px;
+      height: 80px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      background-color: #e9ecfd;
+      display: flex;
+      justify-content: end;
+      border-radius: 2px;
+      cursor: pointer;
+      &.sunday {
+        background-color: #fff4f7;
+        color: var(--red-color);
+      }
+    }
+
+    .calendar-day:hover {
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .close {
+      color: #888;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-radius: 20px 20px 0 0;
+      background: #e9ecfd;
+      padding: 12px 7px;
+    }
+
+    #prev-month,
+    #next-month {
+      font-size: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #current-month {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    .calendar-day:hover {
+      background-color: #f2f2f2;
+    }
+
+    .has-event {
+      background-color: #E0C7E6;
+      border: 1px solid #6E0D88;
+      color: #6E0D88;
+    }
+
+    .modal {
+      /* Modal styles */
+    }
+    .calendar-day-name {
+      color: #2b2b2b;
+      font-weight: 500;
+      &.sunday {
+        color: var(--red-color);
       }
     }
   }
