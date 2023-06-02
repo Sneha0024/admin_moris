@@ -1094,6 +1094,18 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
+.myteam-modal .errormark {
+  color: red;
+}
+.myteam-modal .add-attachment {
+  color: var(--red-color);
+}
+.myteam-modal .add-attachment label {
+  cursor: pointer;
+}
+.myteam-modal .add-attachment i {
+  margin-right: 6px;
+}
 .myteam-modal .modal-dialog {
   min-width: 566px;
 }
@@ -3237,10 +3249,11 @@ body {
 .calendar.my-calender .calendar-day:hover {
   background-color: #f2f2f2;
 }
-.calendar.my-calender .has-event {
-  background-color: #E0C7E6;
-  border: 1px solid #6E0D88;
-  color: #6E0D88;
+.calendar.my-calender .has-event,
+.calendar.my-calender .selected {
+  background-color: #e0c7e6;
+  border: 1px solid #6e0d88;
+  color: #6e0d88;
 }
 .calendar.my-calender .modal {
   /* Modal styles */
@@ -3251,6 +3264,135 @@ body {
 }
 .calendar.my-calender .calendar-day-name.sunday {
   color: var(--red-color);
+}
+
+.my-calender-second-section .create-event-section-area {
+  background-color: #f3f6fd;
+  padding: 18px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+.my-calender-second-section .create-an-event-button {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 3px 6px;
+  margin: 14px auto;
+  display: block;
+}
+.my-calender-second-section .date-selected {
+  font-weight: 600;
+  color: var(--primary-purple-color);
+  text-align: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ccc;
+}
+.my-calender-second-section .event-cards-section {
+  padding-top: 14px;
+  border-top: 1px solid #ccc;
+  max-height: 540px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 13px;
+}
+.my-calender-second-section .event-cards-section::-webkit-scrollbar {
+  width: 8px;
+}
+.my-calender-second-section .event-cards-section::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+}
+.my-calender-second-section .event-cards-section::-webkit-scrollbar-thumb {
+  background-color: var(--primary-purple-color);
+  border-radius: 4px;
+}
+.my-calender-second-section .event-cards-section::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-purple-color);
+}
+.my-calender-second-section .event-cards-section::-webkit-scrollbar-thumb:active {
+  background-color: var(--primary-purple-color);
+}
+.my-calender-second-section .event-cards-section .evant-card {
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #707070;
+  margin-bottom: 20px;
+}
+.my-calender-second-section .event-cards-section .evant-card .meeting-event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 6px;
+  border-bottom: 1px solid #ccc;
+}
+.my-calender-second-section .event-cards-section .evant-card .meeting-event .meeting-event-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.my-calender-second-section .event-cards-section .evant-card .meeting-event .meeting-event-text .metting-location-dot {
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  margin-right: 7px;
+  display: inline-block;
+}
+.my-calender-second-section .event-cards-section .evant-card .meeting-event .meeting-event-text .metting-location-dot.yellow {
+  background-color: #fdec07;
+}
+.my-calender-second-section .event-cards-section .evant-card .meeting-event .meeting-event-text .metting-location-dot.green {
+  background-color: #34de24;
+}
+.my-calender-second-section .event-cards-section .evant-card .meeting-event .meeting-event-text .metting-location-dot.blue {
+  background-color: #36d1ff;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info {
+  padding: 12px 6px;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .time-info {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .time-info img {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .location-info {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .location-info img {
+  margin-right: 9px;
+  vertical-align: baseline;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .attachment-info {
+  display: flex;
+  font-weight: 500;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .attachment-info .attcahment-link {
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .attachment-info .copy-location-path {
+  font-weight: 500;
+  color: var(--red-color);
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-size: 14px;
+}
+.my-calender-second-section .event-cards-section .evant-card .event-info .attachment-info img {
+  margin-right: 5px;
+  vertical-align: baseline;
 }
 
 /*# sourceMappingURL=style.css.map */

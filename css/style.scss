@@ -1140,6 +1140,18 @@ body {
   transition: all 0.2s ease-in-out;
 }
 .myteam-modal {
+  .errormark{
+    color: red;
+  }
+  .add-attachment{
+    color: var(--red-color);
+    label{
+      cursor: pointer;
+    }
+    i{
+      margin-right: 6px;
+    }
+  }
   .modal-dialog {
     min-width: 566px;
   }
@@ -3462,10 +3474,11 @@ body {
       background-color: #f2f2f2;
     }
 
-    .has-event {
-      background-color: #E0C7E6;
-      border: 1px solid #6E0D88;
-      color: #6E0D88;
+    .has-event,
+    .selected {
+      background-color: #e0c7e6;
+      border: 1px solid #6e0d88;
+      color: #6e0d88;
     }
 
     .modal {
@@ -3476,6 +3489,136 @@ body {
       font-weight: 500;
       &.sunday {
         color: var(--red-color);
+      }
+    }
+  }
+}
+.my-calender-second-section {
+  .create-event-section-area {
+    background-color: #f3f6fd;
+    padding: 18px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+  }
+  .create-an-event-button {
+    background-color: var(--primary-purple-color);
+    color: #fff;
+    font-weight: 500;
+    padding: 3px 6px;
+    margin: 14px auto;
+    display: block;
+  }
+  .date-selected {
+    font-weight: 600;
+    color: var(--primary-purple-color);
+    text-align: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ccc;
+  }
+  .event-cards-section {
+    padding-top: 14px;
+    border-top: 1px solid #ccc;
+    max-height: 540px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 13px;
+    &::-webkit-scrollbar {
+          width: 8px;
+        }
+        &::-webkit-scrollbar-track {
+          background-color: $background-color_3;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $background-color_2;
+          border-radius: 4px;
+          &:hover {
+            background-color: $background-color_2;
+          }
+          &:active {
+            background-color: $background-color_2;
+          }
+        }
+    .evant-card {
+      border-radius: 6px;
+      background-color: #fff;
+      border: 1px solid #707070;
+      margin-bottom: 20px;
+      .meeting-event {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 6px;
+        border-bottom: 1px solid #ccc;
+        .meeting-event-text {
+          color: var(--primary-purple-color);
+          font-weight: 500;
+          .metting-location-dot {
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            margin-right: 7px;
+            display: inline-block;
+            &.yellow {
+              background-color: #fdec07;
+            }
+            &.green {
+              background-color: #34de24;
+            }
+            &.blue {
+              background-color: #36d1ff;
+            }
+          }
+        }
+      }
+      .event-info {
+        padding: 12px 6px;
+        .time-info {
+          display: block;
+          width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          font-weight: 500;
+          img {
+            margin-right: 5px;
+            vertical-align: middle;
+          }
+        }
+        .location-info {
+          display: block;
+          width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          font-weight: 500;
+          img {
+            margin-right: 9px;
+            vertical-align: baseline;
+          }
+        }
+        .attachment-info {
+          display: flex;
+          font-weight: 500;
+          .attcahment-link {
+            width: 80%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          .copy-location-path {
+            font-weight: 500;
+            color: var(--red-color);
+            text-transform: uppercase;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            font-size: 14px;
+          }
+          img {
+            margin-right: 5px;
+            vertical-align: baseline;
+          }
+        }
       }
     }
   }
