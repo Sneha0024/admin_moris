@@ -3528,4 +3528,45 @@ body {
   padding: 3px 10px;
 }
 
+.schedule-meetings-table thead {
+  background-color: #DFE3FA;
+}
+.schedule-meetings-table .event-info {
+  display: flex;
+  align-items: center;
+}
+.schedule-meetings-table .event-info .event-info-logo button {
+  border: none;
+  background-color: transparent;
+}
+.schedule-meetings-table .event-info .event-info-title .meeting-title {
+  color: var(--primary-purple-color);
+  font-weight: 600;
+}
+.schedule-meetings-table .event-info .event-info-title .event-time {
+  font-size: 14px;
+  font-weight: 500;
+}
+.schedule-meetings-table .event-info .event-info-title .event-time .event-time-range {
+  color: var(--red-color);
+  border-right: 1px solid var(--red-color);
+}
+.schedule-meetings-table .event-time-col .event-day-date {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  font-size: 14px;
+}
+.schedule-meetings-table .event-time-col .event-time-number {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 14px;
+  font-weight: 500;
+  display: block;
+}
+.schedule-meetings-table .event-time-col .change-slot {
+  color: var(--red-color);
+  font-weight: 500;
+}
+
 /*# sourceMappingURL=style.css.map */

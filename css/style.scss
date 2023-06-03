@@ -3759,3 +3759,51 @@ body {
     }
   }
 }
+.schedule-meetings-table{
+  thead{
+    background-color: #DFE3FA;
+  }
+  .event-info{
+    display: flex;
+    align-items: center;
+    .event-info-logo{
+      button{
+      border: none;
+      background-color: transparent;
+      }
+    }
+    .event-info-title{
+      .meeting-title{
+      color: var(--primary-purple-color);
+      font-weight: 600;
+      }
+      .event-time{
+        font-size: 14px;
+        font-weight: 500;
+      .event-time-range{
+        color: var(--red-color);
+        border-right: 1px solid var(--red-color);
+      }
+    }
+    }
+  }
+  .event-time-col{
+    .event-day-date{
+      color: var(--primary-purple-color);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .event-time-number{
+      background-color: var(--primary-purple-color);
+      color: #fff;
+      padding: 3px 6px;
+      border-radius: 14px;
+      font-weight: 500;
+      display: block;
+    }
+    .change-slot{
+      color: var(--red-color);
+      font-weight: 500;
+    }
+  }
+}
