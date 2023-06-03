@@ -191,14 +191,71 @@
     </ul>
   </div>
   <div class="container">
-    <div class="row g-1" style="margin: 50px 0;">
+    <div class="row" style="margin: 50px 0;">
 
-      <div class="col-12 col-md-9">
+      <div class="col-12 col-md-8">
         <div class="calendar my-calender">
           <div class="calendar-header">
             <div>
-              <h2 id="current-month" class="d-inline-block"></h2> <img src="images/my-cander-down-arrow.svg" alt=""
-                class="">
+              <h2 id="current-month" class="d-inline-block"></h2>
+              <button type="button" class="btn dropdown-toggle-split d-none" data-bs-toggle="dropdown"
+                aria-expanded="false"><img src="images/my-cander-down-arrow.svg" alt="" class="" /></button>
+              <div class="dropdown-menu p-3 px-1">
+                <li class="mt-1"><a class="dropdown-item" href="#"><i class="far fa-times-circle"></i>Cancel Meeting</a>
+                </li>
+                <li><a class="dropdown-item" href="#"><i class="far fa-calendar"></i>Reschedule
+                    Meeting</a></li>
+                <li><a class="dropdown-item" href="#"><i class="far fa-bell"></i>Set
+                    Reminder</a></li>
+                <li><a class="dropdown-item" href="#"><i class="far fa-user"></i>Invite Team</a>
+                </li>
+              </div>
+              <button type="button" class="btn dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="images/my-cander-down-arrow.svg" alt="" class="" />
+                <span class="visually-hidden">Toggle Dropdown</span>
+
+              </button>
+              <div class="dropdown-menu meeting-event-schedule">
+                <div class="meeting-event-header">
+                  <div class="event-invitations"><button class="invitation-accept"> &check; Yes</button><button
+                      class="invitation-maybe">? May be</button><button class="invitation-no">X No</button></div>
+                  <div class="event-actions"><button class="btn"><img src="images/meeting-event-schedule-edit-icon.svg"
+                        alt=""></button><button class="btn"><img src="images/meeting-event-schedule-eye-icon.svg"
+                        alt=""></button><button class="btn"><img src="images/meeting-event-schedule-cross-icon.svg"
+                        alt=""></button></div>
+                </div>
+                <div class="evant-card">
+                  <div class="meeting-event">
+                    <div class="meeting-event-text"><span class="metting-location-dot blue"></span>Meeting Event</div>
+                    <div class="meeting-info-actions">
+                    </div>
+                  </div>
+                  <div class="event-info">
+                    <span class="time-info"><img src="images/mycalender-create-event-time-icon.svg" alt="">12:30 PM -
+                      2:30
+                      PM</span>
+                    <span class="location-info"><img src="images/mycalender-create-event-location-icon.svg" alt="">Zoom
+                      Meeting</span>
+                    <span class="attachment-info"
+                      title="https://us06web.zoom.us/postattendee?mn=rQfeXZwSXUYrNH9OYRkhfuCgNmM3PvjxGI.FAFP4-FO78fs6sHQ"><img
+                        src="images/mycalender-create-event-attachment-icon.svg" alt=""> <span class="attcahment-link">
+                        https://us06web.zoom.us/postattendee?mn=rQfeXZwSXUYrNH9OYRkhfuCgNmM3PvjxGI.FAFP4-FO78fs6sHQ
+                      </span> <button class="btn copy-location-path">COPY</button></span>
+                  </div>
+                  <div class="attendes-section">
+                    <div class="attendes-head">Attendees</div>
+                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg" alt="">abc@gmail.com</div>
+                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg" alt="">abc@gmail.com</div>
+                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg" alt="">abc@gmail.com</div>
+                  </div>
+                  <div class="meeting-info">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamqis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conse quat. 
+                  </div>
+                  <div class="close-event-button">
+                    <button class="close-btn btn">Close</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div>
               <button id="prev-month"><img src="images/my-calder-left-arrow.svg" alt=""></button>
@@ -216,15 +273,15 @@
             <div class="calendar-day-name">Saturday</div>
           </div>
           <div id="calendar-grid"></div>
-                 </div>
-                  <!-- Simple Modal -->
-          <div id="event-modal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2>Event Details</h2>
-              <p>This is some dummy content.</p>
-            </div>
+        </div>
+        <!-- Simple Modal -->
+        <div id="event-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Event Details</h2>
+            <p>This is some dummy content.</p>
           </div>
+        </div>
 
         <!-- Modal -->
         <!-- <div id="modal" class="modal">
@@ -242,7 +299,7 @@
           <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content position-relative">
               <div class="modal-header">
-                <div class="date-selected" style="color: white;font-weight: 500;"></div>
+                <div class="date-selected-modal" style="color: white;font-weight: 500;"></div>
                 <h1 class="modal-title fs-5" id="exampleModalLabel">CREATE AN EVENT</h1>
 
               </div>
@@ -692,7 +749,7 @@
         </div>
 
       </div>
-      <div class="col-12 col-md-3 my-calender-second-section">
+      <div class="col-12 col-md-4 my-calender-second-section">
         <div id="scheduled-events"></div>
         <div id="create-event-section" style="display: none;">
           <div class="create-event-section-area">
@@ -849,7 +906,7 @@
     crossorigin="anonymous"></script>
 
   <!-- with no simple modal open -->
-  <!-- <script>
+  <script>
     // Get current date
     var currentDate = new Date();
 
@@ -915,6 +972,8 @@
               // Update the date in the create event section
               var dateSelected = document.querySelector('.date-selected');
               dateSelected.textContent = formatDate(clickedDate);
+              var dateSelectedmodal = document.querySelector('.date-selected-modal');
+              dateSelectedmodal.textContent = formatDate(clickedDate);
             });
 
             function formatDate(date) {
@@ -974,140 +1033,12 @@
     // Close modal when close button is clicked
     document.querySelector('.btn-close-custom').addEventListener('click', closeModal);
 
-  </script> -->
-
-
-
-
-
-  <script>
-    // Get current date
-    var currentDate = new Date();
-
-    // Event data
-    var events = {};
-
-    // Generate calendar
-    function generateCalendar(year, month) {
-      var calendarHeader = document.getElementById('current-month');
-      var calendarGrid = document.getElementById('calendar-grid');
-      calendarGrid.innerHTML = '';
-
-      // Set the current month and year
-      calendarHeader.textContent = new Date(year, month).toLocaleString('en-us', { month: 'long', year: 'numeric' });
-
-      // Get the first day of the month
-      var firstDay = new Date(year, month, 1);
-      var startingDay = firstDay.getDay();
-
-      // Get the number of days in the month
-      var monthLength = new Date(year, month + 1, 0).getDate();
-
-      // Create the calendar grid
-      var dayCount = 1;
-      for (var i = 0; i < 6; i++) {
-        for (var j = 0; j < 7; j++) {
-          if ((i === 0 && j < startingDay) || dayCount > monthLength) {
-            var day = document.createElement('div');
-            day.className = 'calendar-day empty';
-            calendarGrid.appendChild(day);
-          } else {
-            var day = document.createElement('div');
-            day.className = 'calendar-day';
-            day.textContent = dayCount;
-            if (j === 0) {
-              day.classList.add('sunday'); // Add "sunday" class to Sundays
-            }
-
-            day.addEventListener('click', function () {
-              if (this.classList.contains('empty')) {
-                // Open the modal for empty calendar day
-                var modal = document.getElementById('modal');
-                modal.style.display = 'block';
-              } else {
-                var modal = new bootstrap.Modal(document.getElementById('modal'));
-                modal.show();
-
-                var modalDate = document.getElementById('modal-date');
-                var clickedDate = new Date(year, month, this.textContent);
-                // modalDate.textContent = formatDate(clickedDate);
-
-                // Remove the class from the previously selected day
-                var previousSelectedDay = document.querySelector('.calendar-day.selected');
-                if (previousSelectedDay) {
-                  previousSelectedDay.classList.remove('selected');
-                }
-
-                // Add the class to the currently selected day
-                event.target.classList.add('selected');
-
-                // Toggle the display of the create event section
-                var createEventSection = document.getElementById('create-event-section');
-                createEventSection.style.display = createEventSection.style.display === 'block' ? 'block' : 'block';
-
-                // Update the date in the create event section
-                var dateSelected = document.querySelector('.date-selected');
-                dateSelected.textContent = formatDate(clickedDate);
-              }
-            });
-
-            function formatDate(date) {
-              var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-              return date.toLocaleDateString('en-US', options);
-            }
-
-            calendarGrid.appendChild(day);
-            dayCount++;
-          }
-        }
-      }
-    }
-
-    function closeModal() {
-      var modal = new bootstrap.Modal(document.getElementById('modal'));
-      modal.hide();
-    }
-
-    function updateScheduledEvents() {
-      var scheduledEvents = document.getElementById('scheduled-events');
-      scheduledEvents.innerHTML = '';
-
-      for (var date in events) {
-        var eventList = document.createElement('div');
-        eventList.className = 'event-list';
-
-        var eventDate = document.createElement('h3');
-        eventDate.textContent = formatDate(new Date(date));
-        eventList.appendChild(eventDate);
-
-        events[date].forEach(function (event) {
-          var eventName = document.createElement('p');
-          eventName.textContent = event;
-          eventList.appendChild(eventName);
-        });
-
-        scheduledEvents.appendChild(eventList);
-      }
-    }
-
-    // Generate calendar for the current month
-    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-
-    // Move to the previous month
-    document.getElementById('prev-month').addEventListener('click', function () {
-      currentDate.setMonth(currentDate.getMonth() - 1);
-      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-    });
-
-    // Move to the next month
-    document.getElementById('next-month').addEventListener('click', function () {
-      currentDate.setMonth(currentDate.getMonth() + 1);
-      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-    });
-
-    // Close modal when close button is clicked
-    document.querySelector('.close').addEventListener('click', closeModal);
   </script>
+
+
+
+
+
 
 
 

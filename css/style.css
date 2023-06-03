@@ -3314,14 +3314,14 @@ body {
 .my-calender-second-section .event-cards-section .evant-card {
   border-radius: 6px;
   background-color: #fff;
-  border: 1px solid #707070;
+  border: 1px solid rgba(112, 112, 112, 0.2784313725);
   margin-bottom: 20px;
 }
 .my-calender-second-section .event-cards-section .evant-card .meeting-event {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 6px;
+  padding: 0px 12px;
   border-bottom: 1px solid #ccc;
 }
 .my-calender-second-section .event-cards-section .evant-card .meeting-event .meeting-event-text {
@@ -3345,7 +3345,7 @@ body {
   background-color: #36d1ff;
 }
 .my-calender-second-section .event-cards-section .evant-card .event-info {
-  padding: 12px 6px;
+  padding: 12px 12px;
 }
 .my-calender-second-section .event-cards-section .evant-card .event-info .time-info {
   display: block;
@@ -3393,6 +3393,136 @@ body {
 .my-calender-second-section .event-cards-section .evant-card .event-info .attachment-info img {
   margin-right: 5px;
   vertical-align: baseline;
+}
+
+.meeting-event-schedule .meeting-event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 1px 12px;
+}
+.meeting-event-schedule .meeting-event-header .event-invitations .invitation-accept {
+  color: #34de24;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+}
+.meeting-event-schedule .meeting-event-header .event-invitations .invitation-maybe {
+  color: var(--primary-purple-color);
+  margin: 0 12px;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+}
+.meeting-event-schedule .meeting-event-header .event-invitations .invitation-no {
+  color: var(--red-color);
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+}
+.meeting-event-schedule .evant-card {
+  padding: 24px 16px;
+}
+.meeting-event-schedule .evant-card .meeting-event {
+  padding-bottom: 7px;
+}
+.meeting-event-schedule .evant-card .meeting-event-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+.meeting-event-schedule .evant-card .meeting-event-text .metting-location-dot {
+  height: 14px;
+  width: 14px;
+  margin-right: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.meeting-event-schedule .evant-card .meeting-event-text .metting-location-dot.yellow {
+  background-color: #fdec07;
+}
+.meeting-event-schedule .evant-card .meeting-event-text .metting-location-dot.green {
+  background-color: #34de24;
+}
+.meeting-event-schedule .evant-card .meeting-event-text .metting-location-dot.blue {
+  background-color: #36d1ff;
+}
+.meeting-event-schedule .evant-card .event-info {
+  font-weight: 500;
+}
+.meeting-event-schedule .evant-card .event-info .time-info {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.meeting-event-schedule .evant-card .event-info .time-info img {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.meeting-event-schedule .evant-card .event-info .location-info {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  margin: 7px 0;
+}
+.meeting-event-schedule .evant-card .event-info .location-info img {
+  margin-right: 9px;
+  vertical-align: baseline;
+}
+.meeting-event-schedule .evant-card .event-info .attachment-info {
+  display: flex;
+  font-weight: 500;
+}
+.meeting-event-schedule .evant-card .event-info .attachment-info .attcahment-link {
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.meeting-event-schedule .evant-card .event-info .attachment-info .copy-location-path {
+  font-weight: 500;
+  color: var(--red-color);
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-size: 14px;
+}
+.meeting-event-schedule .evant-card .event-info .attachment-info img {
+  margin-right: 5px;
+  vertical-align: baseline;
+}
+.meeting-event-schedule .evant-card .attendes-section .attendes-head {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  display: block;
+  margin: 16px 0;
+}
+.meeting-event-schedule .evant-card .attendes-section .attende-info {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.meeting-event-schedule .evant-card .meeting-info {
+  padding: 7px;
+  border: 1px solid #ccc;
+  margin: 15px 0;
+  color: var(--primary-purple-color);
+  font-weight: 50;
+}
+.meeting-event-schedule .evant-card .close-event-button {
+  text-align: center;
+}
+.meeting-event-schedule .evant-card .close-event-button .close-btn {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 3px 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
