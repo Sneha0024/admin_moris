@@ -3395,6 +3395,9 @@ body {
   vertical-align: baseline;
 }
 
+.meeting-event-schedule {
+  max-width: 446px;
+}
 .meeting-event-schedule .meeting-event-header {
   display: flex;
   justify-content: space-between;
