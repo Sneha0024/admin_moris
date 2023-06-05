@@ -3144,7 +3144,6 @@ body {
 }
 .calendar.my-calender .calendar-days {
   margin: 0 10px;
-  gap: 64px;
 }
 .calendar.my-calender .calendar-day {
   padding: 10px;
