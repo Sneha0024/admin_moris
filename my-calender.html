@@ -244,12 +244,17 @@
                   </div>
                   <div class="attendes-section">
                     <div class="attendes-head">Attendees</div>
-                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg" alt="">abc@gmail.com</div>
-                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg" alt="">abc@gmail.com</div>
-                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg" alt="">abc@gmail.com</div>
+                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg"
+                        alt="">abc@gmail.com</div>
+                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg"
+                        alt="">abc@gmail.com</div>
+                    <div class="attende-info"><img src="images/meeting-wvent-schedule-person-icon.svg"
+                        alt="">abc@gmail.com</div>
                   </div>
                   <div class="meeting-info">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamqis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conse quat. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem por incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniamqis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo conse quat.
                   </div>
                   <div class="close-event-button">
                     <button class="close-btn btn">Close</button>
@@ -403,12 +408,12 @@
                         <label for="destinationDropdown" class="form-label myteam-form-label">Destination <span
                             class="errormark">*</span></label>
                         <div class="dropdown">
-                          <button class="dropdown-toggle-destination" type="button" id="destinationDropdown" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                          <button class="dropdown-toggle-destination" type="button" id="destinationDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Destination
                           </button>
                           <div class="dropdown-menu-destination" aria-labelledby="destinationDropdown">
-                            <a class="dropdown-item-destination" href="#">
+                            <a class="dropdown-item-destination" href="#" value="In person Meeting">
                               <div> <img src="images/destination-person-meeting-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -417,8 +422,8 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item-destination" href="#">
-                              <div> <img src="images/destination-phone-call-icon.svg" alt="In Person Meeting">
+                            <a class="dropdown-item-destination" href="#" value="destination-phone-call">
+                              <div> <img src="images/destination-phone-call-icon.svg" alt="Phone Call">
                               </div>
                               <div>
                                 <span class="destination-name">Phone Call</span>
@@ -426,7 +431,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item-destination" href="#">
+                            <a class="dropdown-item-destination" href="#" value="destination-google-meet">
                               <div> <img src="images/destination-google-meet-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -435,7 +440,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item-destination" href="#">
+                            <a class="dropdown-item-destination" href="#" value="destination-zoom-meet">
                               <div> <img src="images/destination-zoom-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -444,7 +449,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item-destination" href="#">
+                            <a class="dropdown-item-destination" href="#" value="destination-microsoft-teams">
                               <div> <img src="images/destination-microsoft-teams-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -453,7 +458,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item-destination" href="#">
+                            <a class="dropdown-item-destination" href="#" value="destination-ask-invite">
                               <div> <img src="images/destination-ask-invite-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -469,7 +474,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" id="event-address-box">
                       <div class="mb-3">
                         <label for="event-address" class="myteam-form-label">Event Address <span
                             class="errormark">*</span></label>
@@ -477,14 +482,14 @@
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" id="event-city-box">
                       <div class="mb-3">
                         <label for="event-city" class="myteam-form-label">City <span class="errormark">*</span></label>
                         <input type="text" class="form-control" id="event-city" placeholder="Enter City">
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" id="event-state-box">
                       <div class="mb-3">
                         <label for="event-state" class="myteam-form-label">State <span
                             class="errormark">*</span></label>
@@ -492,7 +497,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" id="event-country-box">
                       <div class="mb-3">
                         <label for="event-country" class="myteam-form-label">Country <span
                             class="errormark">*</span></label>
@@ -697,11 +702,28 @@
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" id="event-zipcode-box">
                       <div class="mb-3">
                         <label for="event-zipcode" class="myteam-form-label">Zip Code <span
                             class="errormark">*</span></label>
                         <input type="text" class="form-control" id="event-zipcode" placeholder="Enter Zip Code">
+                      </div>
+
+                    </div>
+                    <div class="col-12" id="event-phone-number-box">
+                      <div class="mb-3">
+                        <label for="event-phone-number" class="myteam-form-label">Phone Number <span
+                            class="errormark">*</span></label>
+                        <input type="text" class="form-control" id="event-phone-number"
+                          placeholder="Enter Phone Number">
+                      </div>
+
+                    </div>
+                    <div class="col-12" id="event-link-box">
+                      <div class="mb-3">
+                        <label for="event-link" class="myteam-form-label">Event Link <span
+                            class="errormark">*</span></label>
+                        <input type="text" class="form-control" id="event-link" placeholder="Enter Event Link">
                       </div>
 
                     </div>
@@ -1042,8 +1064,8 @@
 
 
 
-  <!-- destination dropdown -->
-  <script>
+  <!-- destination dropdown on selection menu is not hidden -->
+ <!-- <script>
     document.addEventListener('click', function (event) {
       var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownMenu = document.querySelector('.dropdown-menu-destination');
@@ -1055,9 +1077,6 @@
       }
     });
 
-  </script>
-
-  <script>
     document.addEventListener('DOMContentLoaded', function () {
       var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
@@ -1066,46 +1085,171 @@
       dropdownOptions.forEach(function (option) {
         option.addEventListener('click', function (event) {
           event.preventDefault();
-          var value = this.getAttribute('data-value');
+          var value = this.getAttribute('value');
           var text = this.textContent.trim();
-
+          console.log(value, "destinationnnnnnnnnnn");
           selectDestination.value = value;
           dropdownToggle.textContent = text;
+
+          // Show/hide form inputs based on the selected destination
+          var eventAddress = document.getElementById('event-address-box');
+          var eventCity = document.getElementById('event-city-box');
+          var eventState = document.getElementById('event-state-box');
+          var eventCountry = document.getElementById('event-country-box');
+          var eventZipCode = document.getElementById('event-zipcode-box');
+          var eventPhoneNumber = document.getElementById('event-phone-number-box');
+          var eventLink = document.getElementById('event-link-box');
+
+          if (value === 'In person Meeting') {
+            eventAddress.style.display = 'block';
+            eventCity.style.display = 'block';
+            eventState.style.display = 'block';
+            eventCountry.style.display = 'block';
+            eventZipCode.style.display = 'block';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'none';
+          } else if (value === 'destination-phone-call') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'block';
+            eventLink.style.display = 'none';
+          } else if (value === 'destination-google-meet') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'block';
+          } else {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script> -->
+
+
+
+  <script>
+    document.addEventListener('click', function(event) {
+      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
+      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
+  
+      if (event.target === dropdownToggle) {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      } else if (!dropdownMenu.contains(event.target)) {
+        dropdownMenu.style.display = 'none';
+      }
+    });
+  
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
+      var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
+      var selectDestination = document.querySelector('#destinationDropdown');
+      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
+  
+      dropdownOptions.forEach(function(option) {
+        option.addEventListener('click', function(event) {
+          event.preventDefault();
+          var value = this.getAttribute('value');
+          var text = this.textContent.trim();
+          console.log(value, "destinationnnnnnnnnnn");
+          selectDestination.value = value;
+          dropdownToggle.textContent = text;
+  
+          // Show/hide form inputs based on the selected destination
+          var eventAddress = document.getElementById('event-address-box');
+          var eventCity = document.getElementById('event-city-box');
+          var eventState = document.getElementById('event-state-box');
+          var eventCountry = document.getElementById('event-country-box');
+          var eventZipCode = document.getElementById('event-zipcode-box');
+          var eventPhoneNumber = document.getElementById('event-phone-number-box');
+          var eventLink = document.getElementById('event-link-box');
+  
+          if (value === 'In person Meeting') {
+            eventAddress.style.display = 'block';
+            eventCity.style.display = 'block';
+            eventState.style.display = 'block';
+            eventCountry.style.display = 'block';
+            eventZipCode.style.display = 'block';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'none';
+          } else if (value === 'destination-phone-call') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'block';
+            eventLink.style.display = 'none';
+          } else if (value === 'destination-google-meet') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'block';
+          } else {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'none';
+          }
+  
+          dropdownMenu.style.display = 'none'; // Hide the dropdown menu
         });
       });
     });
   </script>
+  
+
+
+
   <!-- add attachment -->
   <script>
     const attachmentInput = document.getElementById("attachment");
     const preview = document.getElementById("preview");
-  
+
     attachmentInput.addEventListener("change", function () {
       // Remove existing preview elements
       while (preview.firstChild) {
         preview.firstChild.remove();
       }
-  
+
       const file = this.files[0];
-  
+
       // Display file name
       const fileName = document.createElement("p");
       fileName.textContent = "File name: " + file.name;
       preview.appendChild(fileName);
-  
+
       // Display file preview (if it's an image)
       if (file.type.startsWith("image/")) {
         const reader = new FileReader();
-  
+
         reader.addEventListener("load", function () {
           const image = document.createElement("img");
           image.src = reader.result;
           preview.appendChild(image);
         });
-  
+
         reader.readAsDataURL(file);
       }
-  
+
       // Add delete button
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "Remove Attachment";
@@ -1119,7 +1263,7 @@
       preview.appendChild(deleteButton);
     });
   </script>
-  
+
 </body>
 
 </html>
