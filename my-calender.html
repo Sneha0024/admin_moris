@@ -22,7 +22,7 @@
     display: block;
   }
 
-  .dropdown-toggle {
+  .dropdown-toggle-destination {
     background-color: white;
     border: 1px solid #ccc;
     padding: 8px 12px;
@@ -32,7 +32,7 @@
     text-align: inherit;
   }
 
-  .dropdown-toggle::after {
+  .dropdown-toggle-destination::after {
     display: inline-block;
     margin-left: 0.255em;
     position: absolute;
@@ -403,7 +403,7 @@
                         <label for="destinationDropdown" class="form-label myteam-form-label">Destination <span
                             class="errormark">*</span></label>
                         <div class="dropdown">
-                          <button class="dropdown-toggle" type="button" id="destinationDropdown" data-toggle="dropdown"
+                          <button class="dropdown-toggle-destination" type="button" id="destinationDropdown" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Select Destination
                           </button>
@@ -1045,7 +1045,7 @@
   <!-- destination dropdown -->
   <script>
     document.addEventListener('click', function (event) {
-      var dropdownToggle = document.querySelector('.dropdown-toggle');
+      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownMenu = document.querySelector('.dropdown-menu-destination');
 
       if (event.target === dropdownToggle) {
@@ -1059,9 +1059,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var dropdownToggle = document.querySelector('.dropdown-toggle');
+      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
-      var selectDestination = document.querySelector('#destination');
+      var selectDestination = document.querySelector('#destinationDropdown');
 
       dropdownOptions.forEach(function (option) {
         option.addEventListener('click', function (event) {
