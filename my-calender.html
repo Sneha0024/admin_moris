@@ -1079,30 +1079,47 @@
   <script>
     const attachmentInput = document.getElementById("attachment");
     const preview = document.getElementById("preview");
-
+  
     attachmentInput.addEventListener("change", function () {
+      // Remove existing preview elements
+      while (preview.firstChild) {
+        preview.firstChild.remove();
+      }
+  
       const file = this.files[0];
-
+  
       // Display file name
       const fileName = document.createElement("p");
       fileName.textContent = "File name: " + file.name;
       preview.appendChild(fileName);
-
+  
       // Display file preview (if it's an image)
       if (file.type.startsWith("image/")) {
         const reader = new FileReader();
-
+  
         reader.addEventListener("load", function () {
           const image = document.createElement("img");
           image.src = reader.result;
           preview.appendChild(image);
         });
-
+  
         reader.readAsDataURL(file);
       }
+  
+      // Add delete button
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Remove Attachment";
+      deleteButton.addEventListener("click", function () {
+        // Remove file and preview elements
+        attachmentInput.value = "";
+        while (preview.firstChild) {
+          preview.firstChild.remove();
+        }
+      });
+      preview.appendChild(deleteButton);
     });
-
   </script>
+  
 </body>
 
 </html>

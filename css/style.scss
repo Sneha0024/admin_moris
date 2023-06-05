@@ -1152,6 +1152,19 @@ body {
       margin-right: 6px;
     }
   }
+  #preview{
+    button{
+      background-color: var(--primary-purple-color);
+      color: #fff;
+      font-weight: 500;
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 10px;
+    }
+    img{
+      width: 90%;
+    }
+  }
   .modal-dialog {
     min-width: 566px;
   }

@@ -1106,6 +1106,17 @@ body {
 .myteam-modal .add-attachment i {
   margin-right: 6px;
 }
+.myteam-modal #preview button {
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-bottom: 10px;
+}
+.myteam-modal #preview img {
+  width: 90%;
+}
 .myteam-modal .modal-dialog {
   min-width: 566px;
 }
