@@ -46,7 +46,7 @@
     border-left: 0.3em solid transparent;
   }
 
-  .dropdown-menu {
+  .dropdown-menu-destination {
     position: absolute;
     top: 100%;
     left: 0;
@@ -58,7 +58,7 @@
     width: 100%;
   }
 
-  .dropdown-menu a {
+  .dropdown-menu-destination a {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -67,19 +67,19 @@
     color: #333;
   }
 
-  .dropdown-menu a .destination-name {
+  .dropdown-menu-destination a .destination-name {
     font-weight: 500;
     display: block;
     line-height: 11px;
   }
 
-  .dropdown-menu a .destination-sub-info {
+  .dropdown-menu-destination a .destination-sub-info {
     font-weight: 400;
     color: #000000;
     font-size: 14px;
   }
 
-  .dropdown-menu a img {
+  .dropdown-menu-destination a img {
     width: 24px;
     height: 24px;
     margin-right: 9px;
@@ -90,7 +90,7 @@
     /* background-color: #f5f5f5; */
   }
 
-  .dropdown-menu a:hover .subtext {
+  .dropdown-menu-destination a:hover .subtext {
     color: #777;
   }
 </style>
@@ -407,8 +407,8 @@
                             aria-haspopup="true" aria-expanded="false">
                             Select Destination
                           </button>
-                          <div class="dropdown-menu" aria-labelledby="destinationDropdown">
-                            <a class="dropdown-item" href="#">
+                          <div class="dropdown-menu-destination" aria-labelledby="destinationDropdown">
+                            <a class="dropdown-item-destination" href="#">
                               <div> <img src="images/destination-person-meeting-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -417,7 +417,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item-destination" href="#">
                               <div> <img src="images/destination-phone-call-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -426,7 +426,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item-destination" href="#">
                               <div> <img src="images/destination-google-meet-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -435,7 +435,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item-destination" href="#">
                               <div> <img src="images/destination-zoom-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -444,7 +444,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item-destination" href="#">
                               <div> <img src="images/destination-microsoft-teams-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -453,7 +453,7 @@
 
                               </div>
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item-destination" href="#">
                               <div> <img src="images/destination-ask-invite-icon.svg" alt="In Person Meeting">
                               </div>
                               <div>
@@ -1046,7 +1046,7 @@
   <script>
     document.addEventListener('click', function (event) {
       var dropdownToggle = document.querySelector('.dropdown-toggle');
-      var dropdownMenu = document.querySelector('.dropdown-menu');
+      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
 
       if (event.target === dropdownToggle) {
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
@@ -1060,7 +1060,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var dropdownToggle = document.querySelector('.dropdown-toggle');
-      var dropdownOptions = document.querySelectorAll('.dropdown-menu .dropdown-item');
+      var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
       var selectDestination = document.querySelector('#destination');
 
       dropdownOptions.forEach(function (option) {
