@@ -2586,6 +2586,47 @@ body {
 .account-container.security .device-sign-in-section .device-sections-img-area .device-sign-desc {
   font-weight: 500;
 }
+.account-container.sessions .account-page-heading {
+  font-weight: 600;
+  margin-top: 30px;
+}
+.account-container.sessions .account-content .active-sessions-section {
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+.account-container.sessions .account-content .active-sessions-heading {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 1px;
+}
+.account-container.sessions .account-content .active-sessions-sub-heading {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  display: block;
+}
+.account-container.sessions .account-content .laptop-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.account-container.sessions .account-content .laptop-info .laptop-name-info .laptop-name {
+  font-weight: 500;
+}
+.account-container.sessions .account-content .laptop-info .laptop-name-info .laptop-last-login {
+  color: var(--primary-purple-color);
+}
+.account-container.sessions .account-content .active-authtokens-section {
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+}
+.account-container.sessions .account-content .active-authtokens-section .auth-tokens {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .account-container.compliance {
   margin-right: 50px;
 }
@@ -3539,7 +3580,7 @@ body {
 }
 
 .schedule-meetings-table thead {
-  background-color: #DFE3FA;
+  background-color: #dfe3fa;
 }
 .schedule-meetings-table .event-info {
   display: flex;

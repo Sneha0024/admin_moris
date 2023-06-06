@@ -1,3 +1,4 @@
+// sass css/style.scss css/style.css
 $color_1: #ffffff;
 $color_2: #fdec07;
 $color_3: #1a1818;
@@ -1152,8 +1153,8 @@ body {
       margin-right: 6px;
     }
   }
-  #preview{
-    button{
+  #preview {
+    button {
       background-color: var(--primary-purple-color);
       color: #fff;
       font-weight: 500;
@@ -1161,7 +1162,7 @@ body {
       padding: 3px 8px;
       margin-bottom: 10px;
     }
-    img{
+    img {
       width: 90%;
     }
   }
@@ -2745,6 +2746,53 @@ body {
       }
     }
   }
+  &.sessions {
+    .account-page-heading {
+      font-weight: 600;
+      margin-top: 30px;
+    }
+    .account-content {
+      .active-sessions-section {
+        border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+        padding-bottom: 16px;
+        margin-bottom: 18px;
+      }
+      .active-sessions-heading {
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 1px;
+      }
+      .active-sessions-sub-heading {
+        color: var(--primary-purple-color);
+        font-weight: 500;
+        display: block;
+      }
+      .laptop-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .laptop-name-info {
+          .laptop-name {
+            font-weight: 500;
+          }
+          .laptop-last-login {
+            color: var(--primary-purple-color);
+          }
+        }
+      }
+      .active-authtokens-section {
+        border-bottom: 0.5px solid rgba(128, 128, 128, 0.4117647059);
+        padding-bottom: 16px;
+        margin-bottom: 30px;
+        .auth-tokens {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
   &.compliance {
     margin-right: 50px;
     .sub-text {
@@ -3668,7 +3716,7 @@ body {
   }
   .evant-card {
     padding: 24px 16px;
-    .meeting-event{
+    .meeting-event {
       padding-bottom: 7px;
     }
     .meeting-event-text {
@@ -3749,21 +3797,21 @@ body {
         display: block;
         margin: 16px 0;
       }
-      .attende-info{
+      .attende-info {
         margin-bottom: 6px;
         font-weight: 500;
       }
     }
-    .meeting-info{
+    .meeting-info {
       padding: 7px;
       border: 1px solid #ccc;
       margin: 15px 0;
       color: var(--primary-purple-color);
       font-weight: 50;
     }
-    .close-event-button{
+    .close-event-button {
       text-align: center;
-      .close-btn{
+      .close-btn {
         background-color: var(--primary-purple-color);
         color: #fff;
         font-weight: 500;
@@ -3772,41 +3820,41 @@ body {
     }
   }
 }
-.schedule-meetings-table{
-  thead{
-    background-color: #DFE3FA;
+.schedule-meetings-table {
+  thead {
+    background-color: #dfe3fa;
   }
-  .event-info{
+  .event-info {
     display: flex;
     align-items: center;
-    .event-info-logo{
-      button{
-      border: none;
-      background-color: transparent;
+    .event-info-logo {
+      button {
+        border: none;
+        background-color: transparent;
       }
     }
-    .event-info-title{
-      .meeting-title{
-      color: var(--primary-purple-color);
-      font-weight: 600;
+    .event-info-title {
+      .meeting-title {
+        color: var(--primary-purple-color);
+        font-weight: 600;
       }
-      .event-time{
+      .event-time {
         font-size: 14px;
         font-weight: 500;
-      .event-time-range{
-        color: var(--red-color);
-        border-right: 1px solid var(--red-color);
+        .event-time-range {
+          color: var(--red-color);
+          border-right: 1px solid var(--red-color);
+        }
       }
     }
-    }
   }
-  .event-time-col{
-    .event-day-date{
+  .event-time-col {
+    .event-day-date {
       color: var(--primary-purple-color);
       font-weight: 500;
       font-size: 14px;
     }
-    .event-time-number{
+    .event-time-number {
       background-color: var(--primary-purple-color);
       color: #fff;
       padding: 3px 6px;
@@ -3814,7 +3862,7 @@ body {
       font-weight: 500;
       display: block;
     }
-    .change-slot{
+    .change-slot {
       color: var(--red-color);
       font-weight: 500;
     }
