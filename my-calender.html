@@ -15,6 +15,35 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Add this to the head section of your HTML document -->
   <link href="https://fonts.googleapis.com/css?family=Avenir:400,600,700,800" rel="stylesheet">
+  <style>
+    .attendees-container {
+      border: 1px solid #ccc;
+      padding: 5px;
+      min-height: 40px;
+    }
+
+    .attendees-container .email-value {
+      display: inline-block;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .valid {
+      border: 2px solid blue;
+    }
+
+    .invalid {
+      border: 2px solid red;
+    }
+  </style>
 </head>
 <style>
   .dropdown {
@@ -474,7 +503,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12" id="event-address-box">
+                    <div class="col-12" id="event-address-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-address" class="myteam-form-label">Event Address <span
                             class="errormark">*</span></label>
@@ -482,14 +511,14 @@
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6" id="event-city-box">
+                    <div class="col-12 col-md-6" id="event-city-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-city" class="myteam-form-label">City <span class="errormark">*</span></label>
                         <input type="text" class="form-control" id="event-city" placeholder="Enter City">
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6" id="event-state-box">
+                    <div class="col-12 col-md-6" id="event-state-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-state" class="myteam-form-label">State <span
                             class="errormark">*</span></label>
@@ -497,7 +526,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6" id="event-country-box">
+                    <div class="col-12 col-md-6" id="event-country-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-country" class="myteam-form-label">Country <span
                             class="errormark">*</span></label>
@@ -702,7 +731,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12 col-md-6" id="event-zipcode-box">
+                    <div class="col-12 col-md-6" id="event-zipcode-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-zipcode" class="myteam-form-label">Zip Code <span
                             class="errormark">*</span></label>
@@ -710,7 +739,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12" id="event-phone-number-box">
+                    <div class="col-12" id="event-phone-number-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-phone-number" class="myteam-form-label">Phone Number <span
                             class="errormark">*</span></label>
@@ -719,7 +748,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12" id="event-link-box">
+                    <div class="col-12" id="event-link-box" style="display: none;">
                       <div class="mb-3">
                         <label for="event-link" class="myteam-form-label">Event Link <span
                             class="errormark">*</span></label>
@@ -732,18 +761,35 @@
                         <label for="event-type" class="myteam-form-label">Event Type <span
                             class="errormark">*</span></label>
                         <select class="form-select" aria-label="Default select example" id="event-type">
-                          <option selected>Team</option>
-                          <option value="1">Individual</option>
+                          <option selected>Select Type</option>
+                          <option value="Individual">Individual</option>
+                          <option value="Team">Team</option>
                         </select>
 
                       </div>
 
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" id="attendees-info-box" style="display: none;">
                       <div class="mb-3">
-                        <label for="event-attendees" class="myteam-form-label">Attendees <span
+                        <label for="event-attendees" class="myteam-form-label">Attendees <span class="errormark">*</span></label>
+                        <textarea class="form-control" id="event-attendees" placeholder="Enter Attendees"></textarea>
+                        <div id="attendees-error" class="error-message"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-6" id="full-name-info-box" style="display: none;">
+                      <div class="mb-3">
+                        <label for="event-full-name" class="myteam-form-label">Full Name <span
                             class="errormark">*</span></label>
-                        <input type="text" class="form-control" id="event-attendees" placeholder="Enter Attendees">
+                        <input type="text" class="form-control" id="event-full-name" placeholder="Enter Full Name">
+                      </div>
+
+                    </div>
+                    <div class="col-12 col-md-6" id="email-info-box" style="display: none;">
+                      <div class="mb-3">
+                        <label for="event-email-address" class="myteam-form-label">Enter Email Address<span
+                            class="errormark">*</span></label>
+                        <input type="text" class="form-control" id="event-email-address" placeholder="Enter Email">
                       </div>
 
                     </div>
@@ -1064,8 +1110,8 @@
 
 
 
-  <!-- destination dropdown on selection menu is not hidden -->
- <!-- <script>
+  <!-- destination dropdown -->
+  <script>
     document.addEventListener('click', function (event) {
       var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownMenu = document.querySelector('.dropdown-menu-destination');
@@ -1081,6 +1127,7 @@
       var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
       var selectDestination = document.querySelector('#destinationDropdown');
+      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
 
       dropdownOptions.forEach(function (option) {
         option.addEventListener('click', function (event) {
@@ -1124,75 +1171,7 @@
             eventZipCode.style.display = 'none';
             eventPhoneNumber.style.display = 'none';
             eventLink.style.display = 'block';
-          } else {
-            eventAddress.style.display = 'none';
-            eventCity.style.display = 'none';
-            eventState.style.display = 'none';
-            eventCountry.style.display = 'none';
-            eventZipCode.style.display = 'none';
-            eventPhoneNumber.style.display = 'none';
-            eventLink.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script> -->
-
-
-
-  <script>
-    document.addEventListener('click', function(event) {
-      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
-      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
-  
-      if (event.target === dropdownToggle) {
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-      } else if (!dropdownMenu.contains(event.target)) {
-        dropdownMenu.style.display = 'none';
-      }
-    });
-  
-    document.addEventListener('DOMContentLoaded', function() {
-      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
-      var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
-      var selectDestination = document.querySelector('#destinationDropdown');
-      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
-  
-      dropdownOptions.forEach(function(option) {
-        option.addEventListener('click', function(event) {
-          event.preventDefault();
-          var value = this.getAttribute('value');
-          var text = this.textContent.trim();
-          console.log(value, "destinationnnnnnnnnnn");
-          selectDestination.value = value;
-          dropdownToggle.textContent = text;
-  
-          // Show/hide form inputs based on the selected destination
-          var eventAddress = document.getElementById('event-address-box');
-          var eventCity = document.getElementById('event-city-box');
-          var eventState = document.getElementById('event-state-box');
-          var eventCountry = document.getElementById('event-country-box');
-          var eventZipCode = document.getElementById('event-zipcode-box');
-          var eventPhoneNumber = document.getElementById('event-phone-number-box');
-          var eventLink = document.getElementById('event-link-box');
-  
-          if (value === 'In person Meeting') {
-            eventAddress.style.display = 'block';
-            eventCity.style.display = 'block';
-            eventState.style.display = 'block';
-            eventCountry.style.display = 'block';
-            eventZipCode.style.display = 'block';
-            eventPhoneNumber.style.display = 'none';
-            eventLink.style.display = 'none';
-          } else if (value === 'destination-phone-call') {
-            eventAddress.style.display = 'none';
-            eventCity.style.display = 'none';
-            eventState.style.display = 'none';
-            eventCountry.style.display = 'none';
-            eventZipCode.style.display = 'none';
-            eventPhoneNumber.style.display = 'block';
-            eventLink.style.display = 'none';
-          } else if (value === 'destination-google-meet') {
+          } else if (value === 'destination-zoom-meet') {
             eventAddress.style.display = 'none';
             eventCity.style.display = 'none';
             eventState.style.display = 'none';
@@ -1200,7 +1179,16 @@
             eventZipCode.style.display = 'none';
             eventPhoneNumber.style.display = 'none';
             eventLink.style.display = 'block';
-          } else {
+          } else if (value === 'destination-microsoft-teams') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'block';
+          }
+          else {
             eventAddress.style.display = 'none';
             eventCity.style.display = 'none';
             eventState.style.display = 'none';
@@ -1209,13 +1197,193 @@
             eventPhoneNumber.style.display = 'none';
             eventLink.style.display = 'none';
           }
-  
+
           dropdownMenu.style.display = 'none'; // Hide the dropdown menu
         });
       });
     });
   </script>
-  
+
+  <!-- event typt dropdown -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var eventTypeSelect = document.getElementById('event-type');
+      var attendeesInfoBox = document.getElementById('attendees-info-box');
+      var fullNameInfoBox = document.getElementById('full-name-info-box');
+      var emailInfoBox = document.getElementById('email-info-box');
+
+      eventTypeSelect.addEventListener('change', function () {
+        var selectedValue = this.value;
+
+        if (selectedValue === 'Individual') {
+          attendeesInfoBox.style.display = 'none';
+          fullNameInfoBox.style.display = 'block';
+          emailInfoBox.style.display = 'block';
+        } else if (selectedValue === 'Team') {
+          attendeesInfoBox.style.display = 'block';
+          fullNameInfoBox.style.display = 'none';
+          emailInfoBox.style.display = 'none';
+        } else {
+          attendeesInfoBox.style.display = 'none';
+          fullNameInfoBox.style.display = 'none';
+          emailInfoBox.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+  <!-- attenddes email sepration -->
+  <!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  var attendeesContainer = document.getElementById('attendees-container');
+  var attendeesError = document.getElementById('attendees-error');
+
+  attendeesContainer.addEventListener('input', function() {
+    var emails = this.textContent.split(',');
+    var validEmails = [];
+    var invalidEmails = [];
+
+    emails.forEach(function(email) {
+      email = email.trim();
+      if (validateEmail(email)) {
+        validEmails.push(email);
+      } else {
+        invalidEmails.push(email);
+      }
+    });
+
+    // Update the container with valid email values
+    var validEmailHTML = validEmails.map(function(email) {
+      return '<div class="email-value valid">' + email + '</div>';
+    }).join('');
+
+    attendeesContainer.innerHTML = validEmailHTML;
+
+    // Update the container with invalid email values
+    invalidEmails.forEach(function(email) {
+      var invalidEmailElement = document.createElement('div');
+      invalidEmailElement.classList.add('email-value', 'invalid');
+      invalidEmailElement.textContent = email;
+      attendeesContainer.appendChild(invalidEmailElement);
+    });
+
+    // Display error message if there are invalid emails
+    attendeesError.textContent = invalidEmails.length > 0 ? 'Invalid email(s)' : '';
+  });
+});
+
+function validateEmail(email) {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+ </script> -->
+
+<!-- working but border not added on email -->
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  var attendeesTextarea = document.getElementById('event-attendees');
+  var attendeesError = document.getElementById('attendees-error');
+
+  attendeesTextarea.addEventListener('input', function () {
+    var emails = attendeesTextarea.value.split(/[,;\n]/).map(function (email) {
+      return email.trim();
+    });
+
+    attendeesError.textContent = ''; // Clear any previous error message
+
+    emails.forEach(function (email) {
+      if (email !== '') {
+        if (validateEmail(email)) {
+          applyBorder(email, 'blue');
+        } else {
+          attendeesError.textContent = 'Invalid email: ' + email;
+        }
+      }
+    });
+  });
+
+  function validateEmail(email) {
+    // Email validation logic (regex or other methods)
+    // You can replace this with your preferred email validation code
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function applyBorder(email, color) {
+    var emailElements = document.querySelectorAll('.email-item');
+
+    emailElements.forEach(function (element) {
+      if (element.textContent.trim() === email) {
+        element.style.border = '1px solid ' + color;
+      }
+    });
+  }
+});
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- added for blue border but not working -->
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  var attendeesTextarea = document.getElementById('event-attendees');
+  var attendeesContainer = document.getElementById('attendees-container');
+  var attendeesError = document.getElementById('attendees-error');
+
+  attendeesTextarea.addEventListener('input', function () {
+    var emails = attendeesTextarea.value.split(/[,;\n]/).map(function (email) {
+      return email.trim();
+    });
+
+    attendeesError.textContent = ''; // Clear any previous error message
+    attendeesContainer.innerHTML = ''; // Clear any previous email values
+
+    emails.forEach(function (email) {
+      if (email !== '') {
+        if (validateEmail(email)) {
+          addEmailElement(email);
+        } else {
+          attendeesError.textContent = 'Invalid email: ' + email;
+        }
+      }
+    });
+  });
+
+  function validateEmail(email) {
+    // Email validation logic (regex or other methods)
+    // You can replace this with your preferred email validation code
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function addEmailElement(email) {
+    var emailElement = document.createElement('span');
+    emailElement.textContent = email;
+    emailElement.className = 'email-item';
+    emailElement.style.border = '1px solid blue';
+
+    attendeesContainer.appendChild(emailElement);
+  }
+});
+
+</script> -->
+
+
+
+
+
+
+
+
 
 
 
