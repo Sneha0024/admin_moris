@@ -3821,6 +3821,15 @@ body {
   }
 }
 .schedule-meetings-table {
+  td,
+  th {
+    white-space: nowrap;
+  }
+  tbody {
+    tr {
+      border-bottom: 1px solid #80808078;
+    }
+  }
   thead {
     background-color: #dfe3fa;
   }
@@ -3849,22 +3858,135 @@ body {
     }
   }
   .event-time-col {
+    text-align: center;
     .event-day-date {
       color: var(--primary-purple-color);
       font-weight: 500;
       font-size: 14px;
+      text-align: center;
+      display: block;
     }
     .event-time-number {
       background-color: var(--primary-purple-color);
       color: #fff;
       padding: 3px 6px;
       border-radius: 14px;
-      font-weight: 500;
+      font-weight: 600;
       display: block;
+      text-align: center;
+      max-width: 108px;
+      margin: auto;
     }
     .change-slot {
       color: var(--red-color);
       font-weight: 500;
     }
   }
+  .client-info {
+    display: flex;
+    align-items: center;
+    .client-info-title {
+      .client-name {
+        font-weight: 600;
+        display: block;
+      }
+      .client-designation {
+        font-weight: 500;
+        font-size: 14px;
+        display: block;
+        color: gray;
+      }
+      .client-location {
+        font-weight: 400;
+        font-size: 13px;
+        display: block;
+      }
+    }
+    .client-info-logo {
+      button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin-right: 6px;
+      }
+    }
+  }
+  .comapny-info {
+    .company-name {
+      color: var(--primary-purple-color);
+      font-weight: 500;
+      display: block;
+    }
+    .company-employees {
+      font-size: 13px;
+      color: grey;
+      display: block;
+    }
+    .company-linkedin {
+      display: block;
+    }
+  }
+  .contact-details {
+    .contact-email {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .contact-phone {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+  .enquiry-summary {
+    text-align: center;
+    .view-attende-btn {
+      background-color: var(--red-color);
+      color: #fff;
+      font-weight: 500;
+      text-transform: uppercase;
+      border-radius: 22px;
+      font-size: 14px;
+    }
+  }
+  .meeting-status {
+    .mssting-status-text {
+      font-weight: 600;
+      color: var(--primary-purple-color);
+      display: block;
+      text-align: center;
+    }
+    .change-status {
+      color: var(--red-color);
+      font-weight: 600;
+      display: block;
+      text-align: center;
+    }
+    .meeting-status-icon {
+      display: block;
+      text-align: center;
+    }
+  }
+  .assign-team {
+    text-align: center;
+    .assign-tem-btn {
+      font-weight: 500;
+    }
+  }
+  .form-check-checbox {
+    vertical-align: middle;
+  }
+}
+.scheduled-meetings-main-heading{
+  color: var(--primary-purple-color);
+  font-weight: 600;
+  margin: 30px 125px;
+}
+.web-scheduled-meetings{
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--primary-purple-color);
+  display: inline-block;
+    margin: 0 125px;
 }

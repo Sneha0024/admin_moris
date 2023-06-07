@@ -3579,6 +3579,13 @@ body {
   padding: 3px 10px;
 }
 
+.schedule-meetings-table td,
+.schedule-meetings-table th {
+  white-space: nowrap;
+}
+.schedule-meetings-table tbody tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4705882353);
+}
 .schedule-meetings-table thead {
   background-color: #dfe3fa;
 }
@@ -3602,22 +3609,129 @@ body {
   color: var(--red-color);
   border-right: 1px solid var(--red-color);
 }
+.schedule-meetings-table .event-time-col {
+  text-align: center;
+}
 .schedule-meetings-table .event-time-col .event-day-date {
   color: var(--primary-purple-color);
   font-weight: 500;
   font-size: 14px;
+  text-align: center;
+  display: block;
 }
 .schedule-meetings-table .event-time-col .event-time-number {
   background-color: var(--primary-purple-color);
   color: #fff;
   padding: 3px 6px;
   border-radius: 14px;
-  font-weight: 500;
+  font-weight: 600;
   display: block;
+  text-align: center;
+  max-width: 108px;
+  margin: auto;
 }
 .schedule-meetings-table .event-time-col .change-slot {
   color: var(--red-color);
   font-weight: 500;
+}
+.schedule-meetings-table .client-info {
+  display: flex;
+  align-items: center;
+}
+.schedule-meetings-table .client-info .client-info-title .client-name {
+  font-weight: 600;
+  display: block;
+}
+.schedule-meetings-table .client-info .client-info-title .client-designation {
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+  color: gray;
+}
+.schedule-meetings-table .client-info .client-info-title .client-location {
+  font-weight: 400;
+  font-size: 13px;
+  display: block;
+}
+.schedule-meetings-table .client-info .client-info-logo button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 6px;
+}
+.schedule-meetings-table .comapny-info .company-name {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  display: block;
+}
+.schedule-meetings-table .comapny-info .company-employees {
+  font-size: 13px;
+  color: grey;
+  display: block;
+}
+.schedule-meetings-table .comapny-info .company-linkedin {
+  display: block;
+}
+.schedule-meetings-table .contact-details .contact-email {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+}
+.schedule-meetings-table .contact-details .contact-phone {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+}
+.schedule-meetings-table .enquiry-summary {
+  text-align: center;
+}
+.schedule-meetings-table .enquiry-summary .view-attende-btn {
+  background-color: var(--red-color);
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 22px;
+  font-size: 14px;
+}
+.schedule-meetings-table .meeting-status .mssting-status-text {
+  font-weight: 600;
+  color: var(--primary-purple-color);
+  display: block;
+  text-align: center;
+}
+.schedule-meetings-table .meeting-status .change-status {
+  color: var(--red-color);
+  font-weight: 600;
+  display: block;
+  text-align: center;
+}
+.schedule-meetings-table .meeting-status .meeting-status-icon {
+  display: block;
+  text-align: center;
+}
+.schedule-meetings-table .assign-team {
+  text-align: center;
+}
+.schedule-meetings-table .assign-team .assign-tem-btn {
+  font-weight: 500;
+}
+.schedule-meetings-table .form-check-checbox {
+  vertical-align: middle;
+}
+
+.scheduled-meetings-main-heading {
+  color: var(--primary-purple-color);
+  font-weight: 600;
+  margin: 30px 125px;
+}
+
+.web-scheduled-meetings {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  padding-bottom: 3px;
+  border-bottom: 2px solid var(--primary-purple-color);
+  display: inline-block;
+  margin: 0 125px;
 }
 
 /*# sourceMappingURL=style.css.map */
