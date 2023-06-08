@@ -3582,6 +3582,7 @@ body {
 .schedule-meetings-table td,
 .schedule-meetings-table th {
   white-space: nowrap;
+  vertical-align: middle;
 }
 .schedule-meetings-table tbody tr {
   border-bottom: 1px solid rgba(128, 128, 128, 0.4705882353);
@@ -3597,17 +3598,28 @@ body {
   border: none;
   background-color: transparent;
 }
+.schedule-meetings-table .event-info .event-info-title .share-link {
+  color: var(--primary-purple-color);
+  font-weight: 400;
+  margin-left: 6px;
+}
 .schedule-meetings-table .event-info .event-info-title .meeting-title {
   color: var(--primary-purple-color);
   font-weight: 600;
+  display: block;
 }
 .schedule-meetings-table .event-info .event-info-title .event-time {
   font-size: 14px;
   font-weight: 500;
+  display: block;
+  padding-right: 2px;
+  margin-right: 6px;
 }
 .schedule-meetings-table .event-info .event-info-title .event-time .event-time-range {
   color: var(--red-color);
   border-right: 1px solid var(--red-color);
+  margin-right: 5px;
+  padding-right: 2px;
 }
 .schedule-meetings-table .event-time-col {
   text-align: center;
@@ -3698,16 +3710,24 @@ body {
   color: var(--primary-purple-color);
   display: block;
   text-align: center;
+  font-size: 14px;
+}
+.schedule-meetings-table .meeting-status .mssting-status-text.attend {
+  color: #25A044;
 }
 .schedule-meetings-table .meeting-status .change-status {
   color: var(--red-color);
   font-weight: 600;
   display: block;
   text-align: center;
+  font-size: 14px;
 }
 .schedule-meetings-table .meeting-status .meeting-status-icon {
   display: block;
   text-align: center;
+}
+.schedule-meetings-table .meeting-status .meeting-status-icon img {
+  width: 29px;
 }
 .schedule-meetings-table .assign-team {
   text-align: center;
@@ -3717,6 +3737,67 @@ body {
 }
 .schedule-meetings-table .form-check-checbox {
   vertical-align: middle;
+}
+.schedule-meetings-table .form-check-checbox .form-check {
+  margin-bottom: 13px;
+}
+.schedule-meetings-table .event-destination {
+  text-align: center;
+}
+.schedule-meetings-table .event-destination .destination-day-time {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  display: block;
+}
+.schedule-meetings-table .event-destination .hours-left {
+  color: var(--red-color);
+  font-weight: 500;
+  display: block;
+}
+.schedule-meetings-table .attendes-section {
+  display: flex;
+  align-items: center;
+}
+.schedule-meetings-table .attendes-section .attendes-info .attendes-designation {
+  display: block;
+  color: var(--primary-purple-color);
+  font-size: 14px;
+}
+.schedule-meetings-table .attendes-section .attendes-info .attendes-name {
+  font-weight: 500;
+  display: block;
+}
+.schedule-meetings-table .attendes-section .attendes-img {
+  margin-right: 6px;
+}
+.schedule-meetings-table .attendes-group-section {
+  text-align: center;
+}
+.schedule-meetings-table .attendes-group-section .view-attende-btn {
+  color: var(--red-color);
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+}
+.schedule-meetings-table .attendes-group-section .attende-group-info {
+  display: block;
+}
+.schedule-meetings-table .event-reminder-setion {
+  text-align: center;
+}
+.schedule-meetings-table .event-reminder-setion .send-reminder-text {
+  color: var(--red-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  font-size: 14px;
+}
+.schedule-meetings-table .event-reminder-setion .reminder-icon img {
+  width: 40px;
+}
+.schedule-meetings-table .schedule-meetings-action button {
+  padding: 1px 9px 1px 0;
 }
 
 .scheduled-meetings-main-heading {
