@@ -580,10 +580,11 @@ body {
   margin-bottom: 30px;
   .calender-form {
     position: relative;
-    top: 63px;
+    // top: 63px;
     input[type="time"] {
       &::-webkit-calendar-picker-indicator {
         background: none;
+        pointer-events: none;
       }
     }
     .without_ampm {
@@ -599,12 +600,13 @@ body {
         -ms-appearance: none;
         appearance: none;
         margin: -10px;
+        pointer-events: none;
       }
     }
     .calender-form-drop-down {
       position: absolute;
       top: 24px;
-      left: 50px;
+      left: 122px;
       background-color: $background-color_6;
       border: none;
       padding: 3px 20px 0;
