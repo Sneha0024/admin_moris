@@ -562,7 +562,7 @@ body {
 .calender-section .calender-form .calender-form-drop-down {
   position: absolute;
   top: 24px;
-  left: 122px;
+  right: 3px;
   background-color: transparent;
   border: none;
   padding: 3px 20px 0;
