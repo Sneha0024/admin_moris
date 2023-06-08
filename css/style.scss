@@ -1298,6 +1298,33 @@ body {
       }
     }
   }
+  .attendde-info-modal{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px dotted #80808082;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  .attendee-name-designation {
+    display: flex;
+    align-items: center;
+    .name-info-text {
+      display: block;
+    }
+    .designation-info-text {
+      color: var(--primary-purple-color);
+      font-weight: 500;
+    }
+  }
+  .attendee-date-modal{
+    color:var(--red-color);
+  }
+  .border-section{
+    border-right: 2px solid #80808082;
+    padding-right: 41px;
+    margin-right: -30px;
+  }
+}
 }
 #hour {
   position: absolute;
@@ -3841,10 +3868,11 @@ body {
       button {
         border: none;
         background-color: transparent;
+        width: 82px;
       }
     }
     .event-info-title {
-      .share-link{
+      .share-link {
         color: var(--primary-purple-color);
         font-weight: 400;
         margin-left: 6px;
@@ -3865,6 +3893,11 @@ body {
           border-right: 1px solid var(--red-color);
           margin-right: 5px;
           padding-right: 2px;
+        }
+        .event-individual-team {
+          color: var(--red-color);
+          font-weight: 500;
+          text-transform: uppercase;
         }
       }
     }
@@ -3968,8 +4001,11 @@ body {
       display: block;
       text-align: center;
       font-size: 14px;
-      &.attend{
-        color: #25A044;
+      &.attend {
+        color: #25a044;
+      }
+      &.canceled {
+        color: var(--red-color);
       }
     }
     .change-status {
@@ -3982,7 +4018,7 @@ body {
     .meeting-status-icon {
       display: block;
       text-align: center;
-      img{
+      img {
         width: 29px;
       }
     }
@@ -4030,17 +4066,17 @@ body {
       margin-right: 6px;
     }
   }
-  .attendes-group-section{
+  .attendes-group-section {
     text-align: center;
-    .view-attende-btn{
+    .view-attende-btn {
       color: var(--red-color);
       font-weight: 500;
       border: none;
       background-color: transparent;
       font-size: 14px;
     }
-    .attende-group-info{
-      display:block;
+    .attende-group-info {
+      display: block;
     }
   }
   .event-reminder-setion {
@@ -4052,14 +4088,14 @@ body {
       display: block;
       font-size: 14px;
     }
-    .reminder-icon{
-      img{
+    .reminder-icon {
+      img {
         width: 40px;
       }
     }
   }
-  .schedule-meetings-action{
-    button{
+  .schedule-meetings-action {
+    button {
       padding: 1px 9px 1px 0;
     }
   }
@@ -4076,4 +4112,15 @@ body {
   border-bottom: 2px solid var(--primary-purple-color);
   display: inline-block;
   margin: 0 125px;
+}
+.popover-header {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  padding-bottom: 6px;
+}
+.popover-body {
+  padding-top: 0;
+  font-weight: 500;
 }

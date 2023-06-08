@@ -1235,6 +1235,33 @@ body {
 .myteam-modal .modal-body::-webkit-scrollbar-thumb:active {
   background-color: var(--primary-purple-color);
 }
+.myteam-modal .attendde-info-modal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px dotted rgba(128, 128, 128, 0.5098039216);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+.myteam-modal .attendde-info-modal .attendee-name-designation {
+  display: flex;
+  align-items: center;
+}
+.myteam-modal .attendde-info-modal .attendee-name-designation .name-info-text {
+  display: block;
+}
+.myteam-modal .attendde-info-modal .attendee-name-designation .designation-info-text {
+  color: var(--primary-purple-color);
+  font-weight: 500;
+}
+.myteam-modal .attendde-info-modal .attendee-date-modal {
+  color: var(--red-color);
+}
+.myteam-modal .attendde-info-modal .border-section {
+  border-right: 2px solid rgba(128, 128, 128, 0.5098039216);
+  padding-right: 41px;
+  margin-right: -30px;
+}
 
 #hour {
   position: absolute;
@@ -3597,6 +3624,7 @@ body {
 .schedule-meetings-table .event-info .event-info-logo button {
   border: none;
   background-color: transparent;
+  width: 82px;
 }
 .schedule-meetings-table .event-info .event-info-title .share-link {
   color: var(--primary-purple-color);
@@ -3620,6 +3648,11 @@ body {
   border-right: 1px solid var(--red-color);
   margin-right: 5px;
   padding-right: 2px;
+}
+.schedule-meetings-table .event-info .event-info-title .event-time .event-individual-team {
+  color: var(--red-color);
+  font-weight: 500;
+  text-transform: uppercase;
 }
 .schedule-meetings-table .event-time-col {
   text-align: center;
@@ -3713,7 +3746,10 @@ body {
   font-size: 14px;
 }
 .schedule-meetings-table .meeting-status .mssting-status-text.attend {
-  color: #25A044;
+  color: #25a044;
+}
+.schedule-meetings-table .meeting-status .mssting-status-text.canceled {
+  color: var(--red-color);
 }
 .schedule-meetings-table .meeting-status .change-status {
   color: var(--red-color);
@@ -3813,6 +3849,19 @@ body {
   border-bottom: 2px solid var(--primary-purple-color);
   display: inline-block;
   margin: 0 125px;
+}
+
+.popover-header {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-purple-color);
+  font-weight: 500;
+  padding-bottom: 6px;
+}
+
+.popover-body {
+  padding-top: 0;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
