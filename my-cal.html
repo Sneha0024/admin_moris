@@ -353,6 +353,7 @@
                           <label for="timezone-offset" class="myteam-form-label">Your Time Zone <span
                               class="errormark">*</span></label>
                           <select name="timezone_offset" id="timezone-offset" class="form-select" required>
+                            <option selected>Please select your time zone</option>
                             <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
                             <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
                             <option value="-10:00">(GMT -10:00) Hawaii</option>
@@ -408,23 +409,12 @@
                           <div class="col-5 position-relative">
                             <input type="time" class="form-control" id="event-time-form"
                               onchange="displayTimeWithAMPM(this)">
-                            <!-- <select class="form-select form-select-lg mb-3 calender-form-drop-down"
-                                    aria-label=".form-select-lg example">
-                                    <option selected>am</option>
-                                    <option value="1">pm</option>
-                                </select> -->
 
                           </div>
                           <span class="mx-3">to</span>
                           <div class="col-5 position-relative">
                             <input type="time" class="form-control" id="event-time-to"
                               onchange="displayTimeWithAMPMtwo(this)">
-                            <!-- <select class="form-select form-select-lg mb-3 calender-form-drop-down"
-                          aria-label=".form-select-lg example">
-                          <option selected>am</option>
-                          <option value="1">pm</option>
-                      </select> -->
-
                           </div>
 
                         </div>
@@ -1085,27 +1075,30 @@
         var eventDescription = document.getElementById('event-description').value;
 
         // Step 5: Create a new event <div> and append it to the selected date
-        createEvent(eventTitle, eventDescription, selectedDate);
+        // createEvent(eventTitle, eventDescription, selectedDate);
 
         // Close the modal
         closeModal();
 
         // Clear the form fields
-        createEventForm.reset();
+        // createEventForm.reset();
 
         // Display prompt message
-        alert('Event created successfully!');
+        // alert('Event created successfully!');
       });
     }
 
     // Step 6: Assign a unique class name to the new event <div>
 
     function createEvent(eventTitle, eventDescription, selectedDate) {
+
       var calendarDay = document.querySelector('.calendar-day.selected');
       var eventCount = calendarDay.querySelectorAll('.event').length;
 
       var newEventDiv = document.createElement('div');
       newEventDiv.className = 'event has-event-' + (eventCount + 1);
+
+
 
       var eventTitleElement = document.createElement('h4');
       eventTitleElement.textContent = eventTitle;
@@ -1116,6 +1109,9 @@
       newEventDiv.appendChild(eventDescriptionElement);
 
 
+
+
+
       // Add "View Event" button and event details display functionality
       var viewButton = document.createElement('button');
       viewButton.textContent = 'View Event';
@@ -1123,10 +1119,11 @@
         displayEventDetails(eventTitle, eventDescription, selectedDate);
       });
       newEventDiv.appendChild(viewButton);
-     
-     
-      // calendarDay.appendChild(newEventDiv);
-      calendarDay.parentElement.appendChild(newEventDiv);
+
+      // calendarDay.parentElement.appendChild(newEventDiv);
+      calendarDay.appendChild(newEventDiv);
+
+
 
 
       var formattedDate = formatDate(new Date(calendarDay.getAttribute('data-date')));
@@ -1154,11 +1151,6 @@
     }
 
 
-
-
-
-
-    
     function closeModal() {
       var eventDetailsDiv = document.getElementById('event-details');
       eventDetailsDiv.style.display = 'none';
@@ -1224,50 +1216,10 @@
       });
     });
 
-    // Additional code you provided
-    document.getElementById('create-event-form').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent form submission
-
-      // Get the form values
-      var title = document.getElementById('event-title').value;
-      var description = document.getElementById('event-description').value;
-      var timezone = document.getElementById('timezone-offset').value;
-      var startTime = document.getElementById('event-time-form').value;
-      var endTime = document.getElementById('event-time-to').value;
-      // var destination = document.getElementById("destination").value;
-
-      // Perform form validation
-      if (title === '' || description === '' || timezone === '') {
-        // Show an alert message if any field is empty
-        alert('Please fill in all the required fields.');
-        return;
-      }
-
-      // Create an event object
-      var event = {
-        title: title,
-        description: description,
-        timezone: timezone,
-        startTime: startTime,
-        endTime: endTime,
-        destination: destination
-      };
-
-      // Store the event object or do something with it
-      console.log(event, 'eventtttttttttttttt');
-
-      // Close the modal and clear the form
-      // closeModal();
-      document.getElementById('create-event-form').reset();
-
-      // Display a success message
-      alert('Event created successfully555555555!');
-    });
-  </script>
 
 
-  <!-- destination dropdown -->
-  <script>
+
+
     document.addEventListener('click', function (event) {
       var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
       var dropdownMenu = document.querySelector('.dropdown-menu-destination');
@@ -1288,10 +1240,10 @@
       dropdownOptions.forEach(function (option) {
         option.addEventListener('click', function (event) {
           event.preventDefault();
-          var value = this.getAttribute('data-value');
+          var valueDestination = this.getAttribute('data-value');
           var text = this.textContent.trim();
-          console.log(value, "destinationnnnnnnnnnn");
-          selectDestination.value = value;
+          console.log(valueDestination, "destinationnnnnnnnnnn");
+          selectDestination.value = valueDestination;
           dropdownToggle.textContent = text;
 
           // Show/hide form inputs based on the selected destination
@@ -1303,7 +1255,7 @@
           var eventPhoneNumber = document.getElementById('event-phone-number-box');
           var eventLink = document.getElementById('event-link-box');
 
-          if (value === 'In person Meeting') {
+          if (valueDestination === 'In person Meeting') {
             eventAddress.style.display = 'block';
             eventCity.style.display = 'block';
             eventState.style.display = 'block';
@@ -1311,7 +1263,7 @@
             eventZipCode.style.display = 'block';
             eventPhoneNumber.style.display = 'none';
             eventLink.style.display = 'none';
-          } else if (value === 'destination-phone-call') {
+          } else if (valueDestination === 'destination-phone-call') {
             eventAddress.style.display = 'none';
             eventCity.style.display = 'none';
             eventState.style.display = 'none';
@@ -1319,7 +1271,7 @@
             eventZipCode.style.display = 'none';
             eventPhoneNumber.style.display = 'block';
             eventLink.style.display = 'none';
-          } else if (value === 'destination-google-meet') {
+          } else if (valueDestination === 'destination-google-meet') {
             eventAddress.style.display = 'none';
             eventCity.style.display = 'none';
             eventState.style.display = 'none';
@@ -1327,7 +1279,7 @@
             eventZipCode.style.display = 'none';
             eventPhoneNumber.style.display = 'none';
             eventLink.style.display = 'block';
-          } else if (value === 'destination-zoom-meet') {
+          } else if (valueDestination === 'destination-zoom-meet') {
             eventAddress.style.display = 'none';
             eventCity.style.display = 'none';
             eventState.style.display = 'none';
@@ -1335,7 +1287,7 @@
             eventZipCode.style.display = 'none';
             eventPhoneNumber.style.display = 'none';
             eventLink.style.display = 'block';
-          } else if (value === 'destination-microsoft-teams') {
+          } else if (valueDestination === 'destination-microsoft-teams') {
             eventAddress.style.display = 'none';
             eventCity.style.display = 'none';
             eventState.style.display = 'none';
@@ -1358,7 +1310,230 @@
         });
       });
     });
+  
+
+
+
+
+
+
+
+    
+    document.getElementById('create-event-form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the form values
+      var title = document.getElementById('event-title').value;
+      var description = document.getElementById('event-description').value;
+      var timezone = document.getElementById('timezone-offset').value;
+      var startTime = document.getElementById('event-time-form').value;
+      var endTime = document.getElementById('event-time-to').value;
+      var destination = document.getElementById('destinationDropdown').value;
+      var eventType = document.getElementById('event-type').value;
+
+      // Perform form validation
+      if (
+        title === '' ||
+        description === '' ||
+        timezone === '' ||
+        startTime === '' ||
+        endTime === '' ||
+        destination === 'Select Destination'
+      ) {
+        // Show an alert message if any mandatory field is empty
+        alert('Please fill in all the required fields.');
+        return;
+      }
+
+      // Add more validation checks if needed
+      if (destination === 'In person Meeting') {
+        var address = document.getElementById('event-address').value;
+        var city = document.getElementById('event-city').value;
+        var state = document.getElementById('event-state').value;
+        var country = document.getElementById('event-country').value;
+        var zipcode = document.getElementById('event-zipcode').value;
+
+        if (address === '' || city === '' || state === '' || country === '' || zipcode === '') {
+          alert('Please fill in all the mandatory fields for In person Meeting.');
+          return;
+        }
+      } else if (destination === 'destination-phone-call') {
+        var phoneNumber = document.getElementById('event-phone-number').value;
+
+        if (phoneNumber === '') {
+          alert('Please enter the mandatory Phone Number for destination-phone-call.');
+          return;
+        }
+      } else if (destination === 'destination-google-meet' || destination === 'destination-zoom-meet' || destination === 'destination-microsoft-teams') {
+        var eventLink = document.getElementById('event-link').value;
+
+        if (eventLink === '') {
+          alert('Please enter the mandatory Event Link for ' + destination + '.');
+          return;
+        }
+      }
+
+      if (eventType === 'Individual') {
+        var fullName = document.getElementById('event-full-name').value;
+        var emailAddress = document.getElementById('event-email-address').value;
+        var attendees = document.getElementById('event-attendees').value;
+
+        if (fullName === '' || emailAddress === '' || attendees === '') {
+          alert('Please fill in all the mandatory fields for Individual.');
+          return;
+        }
+      } else if (eventType === 'Team') {
+        var attendees = document.getElementById('event-attendees').value;
+
+        if (attendees === '') {
+          alert('Please enter the mandatory Attendees for Team.');
+          return;
+        }
+      }
+      // Create an event object
+      var event = {
+        title: title,
+        description: description,
+        timezone: timezone,
+        startTime: startTime,
+        endTime: endTime,
+        destination: destination
+      };
+
+      // Store the event object or do something with it
+      console.log(event, 'eventtttttttttttttt');
+
+      // Close the modal and clear the form
+      // closeModal();
+      // document.getElementById('create-event-form').reset();
+
+      // Display a success message
+      // alert('Event created successfully!');
+
+
+
+
+       // Step 5: Create a new event <div> and append it to the selected date
+  createEvent(eventTitle, eventDescription, selectedDate);
+
+// Close the modal
+closeModal();
+
+// Clear the form fields
+this.reset();
+
+// Display prompt message
+alert('Event created successfully!');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
   </script>
+
+
+  <!-- destination dropdown added in create form validations-->
+  <!-- <script>
+    document.addEventListener('click', function (event) {
+      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
+      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
+
+      if (event.target === dropdownToggle) {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      } else if (!dropdownMenu.contains(event.target)) {
+        dropdownMenu.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownToggle = document.querySelector('.dropdown-toggle-destination');
+      var dropdownOptions = document.querySelectorAll('.dropdown-menu-destination .dropdown-item-destination');
+      var selectDestination = document.querySelector('#destinationDropdown');
+      var dropdownMenu = document.querySelector('.dropdown-menu-destination');
+
+      dropdownOptions.forEach(function (option) {
+        option.addEventListener('click', function (event) {
+          event.preventDefault();
+          var valueDestination = this.getAttribute('data-value');
+          var text = this.textContent.trim();
+          console.log(valueDestination, "destinationnnnnnnnnnn");
+          selectDestination.value = valueDestination;
+          dropdownToggle.textContent = text;
+
+          // Show/hide form inputs based on the selected destination
+          var eventAddress = document.getElementById('event-address-box');
+          var eventCity = document.getElementById('event-city-box');
+          var eventState = document.getElementById('event-state-box');
+          var eventCountry = document.getElementById('event-country-box');
+          var eventZipCode = document.getElementById('event-zipcode-box');
+          var eventPhoneNumber = document.getElementById('event-phone-number-box');
+          var eventLink = document.getElementById('event-link-box');
+
+          if (valueDestination === 'In person Meeting') {
+            eventAddress.style.display = 'block';
+            eventCity.style.display = 'block';
+            eventState.style.display = 'block';
+            eventCountry.style.display = 'block';
+            eventZipCode.style.display = 'block';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'none';
+          } else if (valueDestination === 'destination-phone-call') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'block';
+            eventLink.style.display = 'none';
+          } else if (valueDestination === 'destination-google-meet') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'block';
+          } else if (valueDestination === 'destination-zoom-meet') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'block';
+          } else if (valueDestination === 'destination-microsoft-teams') {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'block';
+          }
+          else {
+            eventAddress.style.display = 'none';
+            eventCity.style.display = 'none';
+            eventState.style.display = 'none';
+            eventCountry.style.display = 'none';
+            eventZipCode.style.display = 'none';
+            eventPhoneNumber.style.display = 'none';
+            eventLink.style.display = 'none';
+          }
+
+          dropdownMenu.style.display = 'none'; // Hide the dropdown menu
+        });
+      });
+    });
+  </script> -->
 
   <!-- event typt dropdown -->
   <script>
