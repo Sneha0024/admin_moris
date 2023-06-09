@@ -404,12 +404,24 @@
                       <label for="event-time" class="myteam-form-label">Time <span class="errormark">*</span></label>
 
                       <div class="mb-3 d-flex">
-                        <div class="col-5">
-                          <input type="time" class="form-control" id="event-time-form"  required>
+                        <div class="col-5 position-relative">
+                          <input type="time" class="form-control without_ampm" id="event-time-form"  required>
+                          <select class="form-select form-select-lg mb-3 calender-form-drop-down"
+                                    aria-label=".form-select-lg example">
+                                    <option selected>am</option>
+                                    <option value="1">pm</option>
+                                </select>
+                                
                         </div>
                         <span class="mx-3">to</span>
-                        <div class="col-5">
-                          <input type="time" class="form-control" id="event-time-to"  required>
+                        <div class="col-5 position-relative">
+                          <input type="time" class="form-control without_ampm" id="event-time-to"  required>
+                          <select class="form-select form-select-lg mb-3 calender-form-drop-down"
+                          aria-label=".form-select-lg example">
+                          <option selected>am</option>
+                          <option value="1">pm</option>
+                      </select>
+
                         </div>
 
                       </div>
@@ -1425,6 +1437,52 @@
       preview.appendChild(deleteButton);
     });
   </script>
+
+
+
+<!-- 12 hour format -->
+<script>
+  // Function to handle the conversion to 12-hour format
+  function formatTimeTo12Hour(timeInput, amPmSelect) {
+    var timeValue = timeInput.value;
+    var hours = parseInt(timeValue.substr(0, 2));
+    var minutes = timeValue.substr(3, 2);
+    var period = amPmSelect.value;
+    
+    // Convert to 12-hour format
+    if (period === "PM" && hours !== 12) {
+      hours += 12;
+    } else if (period === "AM" && hours === 12) {
+      hours = 0;
+    }
+    
+    // Update the time input value with the formatted time
+    timeInput.value = String(hours).padStart(2, '0') + ':' + minutes;
+  }
+
+  // Event listeners for time inputs and AM/PM dropdowns
+  var timeInputForm = document.getElementById("event-time-form");
+  var amPmSelectForm = document.getElementById("am-pm-form");
+
+  var timeInputTo = document.getElementById("event-time-to");
+  var amPmSelectTo = document.getElementById("am-pm-to");
+
+  timeInputForm.addEventListener("input", function() {
+    formatTimeTo12Hour(timeInputForm, amPmSelectForm);
+  });
+
+  timeInputTo.addEventListener("input", function() {
+    formatTimeTo12Hour(timeInputTo, amPmSelectTo);
+  });
+
+  amPmSelectForm.addEventListener("change", function() {
+    formatTimeTo12Hour(timeInputForm, amPmSelectForm);
+  });
+
+  amPmSelectTo.addEventListener("change", function() {
+    formatTimeTo12Hour(timeInputTo, amPmSelectTo);
+  });
+</script>
 
 </body>
 
