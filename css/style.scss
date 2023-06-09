@@ -1327,46 +1327,46 @@ body {
       margin-right: -30px;
     }
   }
-  #create-event-form {
-    input[type="time"] {
-      &::-webkit-calendar-picker-indicator {
-        background: none;
-        pointer-events: none;
-      }
-    }
-    .without_ampm {
-      &::-webkit-datetime-edit-ampm-field {
-        display: none;
-      }
-    }
-    input[type="time"] {
-      &::-webkit-clear-button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        -ms-appearance: none;
-        appearance: none;
-        margin: -10px;
-        pointer-events: none;
-      }
-    }
-    .calender-form-drop-down {
-      position: absolute;
-      top: 2px;
-      right: 3px;
-      background-color: $background-color_6;
-      border: none;
-      padding: 3px 20px 0;
-      width: 84px;
-    }
-    .calender-form-drop-down.form-select {
-      &:focus {
-        border-color: $border-color_2;
-        outline: 0;
-        box-shadow: none;
-      }
-    }
-  }
+  // #create-event-form {
+  //   input[type="time"] {
+  //     &::-webkit-calendar-picker-indicator {
+  //       background: none;
+  //       pointer-events: none;
+  //     }
+  //   }
+  //   .without_ampm {
+  //     &::-webkit-datetime-edit-ampm-field {
+  //       display: none;
+  //     }
+  //   }
+  //   input[type="time"] {
+  //     &::-webkit-clear-button {
+  //       -webkit-appearance: none;
+  //       -moz-appearance: none;
+  //       -o-appearance: none;
+  //       -ms-appearance: none;
+  //       appearance: none;
+  //       margin: -10px;
+  //       pointer-events: none;
+  //     }
+  //   }
+  //   .calender-form-drop-down {
+  //     position: absolute;
+  //     top: 2px;
+  //     right: 3px;
+  //     background-color: $background-color_6;
+  //     border: none;
+  //     padding: 3px 20px 0;
+  //     width: 84px;
+  //   }
+  //   .calender-form-drop-down.form-select {
+  //     &:focus {
+  //       border-color: $border-color_2;
+  //       outline: 0;
+  //       box-shadow: none;
+  //     }
+  //   }
+  // }
 }
 #hour {
   position: absolute;

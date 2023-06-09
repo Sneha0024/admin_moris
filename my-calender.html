@@ -405,22 +405,22 @@
 
                       <div class="mb-3 d-flex">
                         <div class="col-5 position-relative">
-                          <input type="time" class="form-control without_ampm" id="event-time-form"  required>
-                          <select class="form-select form-select-lg mb-3 calender-form-drop-down"
+                          <input type="time" class="form-control" id="event-time-form" min="01:00" max="12:59">
+                          <!-- <select class="form-select form-select-lg mb-3 calender-form-drop-down"
                                     aria-label=".form-select-lg example">
                                     <option selected>am</option>
                                     <option value="1">pm</option>
-                                </select>
+                                </select> -->
                                 
                         </div>
                         <span class="mx-3">to</span>
                         <div class="col-5 position-relative">
-                          <input type="time" class="form-control without_ampm" id="event-time-to"  required>
-                          <select class="form-select form-select-lg mb-3 calender-form-drop-down"
+                          <input type="time" class="form-control" id="event-time-to" min="01:00" max="12:59">
+                          <!-- <select class="form-select form-select-lg mb-3 calender-form-drop-down"
                           aria-label=".form-select-lg example">
                           <option selected>am</option>
                           <option value="1">pm</option>
-                      </select>
+                      </select> -->
 
                         </div>
 
@@ -1175,10 +1175,10 @@
       var timezone = document.getElementById("timezone-offset").value;
       var startTime = document.getElementById("event-time-form").value;
       var endTime = document.getElementById("event-time-to").value;
-      var destination = document.getElementById("destination").value;
+      // var destination = document.getElementById("destination").value;
   
       // Perform form validation
-      if (title === "" || description === "" || timezone === "" || startTime === "" || endTime === "") {
+      if (title === "" || description === "" || timezone === "" ) {
         // Show an alert message if any field is empty
         alert("Please fill in all the required fields.");
         return;
@@ -1441,7 +1441,7 @@
 
 
 <!-- 12 hour format -->
-<script>
+<!-- <script>
   // Function to handle the conversion to 12-hour format
   function formatTimeTo12Hour(timeInput, amPmSelect) {
     var timeValue = timeInput.value;
@@ -1482,8 +1482,7 @@
   amPmSelectTo.addEventListener("change", function() {
     formatTimeTo12Hour(timeInputTo, amPmSelectTo);
   });
-</script>
-
+</script> -->
 </body>
 
 </html>
