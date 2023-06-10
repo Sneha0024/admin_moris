@@ -381,7 +381,7 @@
                             <div class="btns">
                                 <button class="previous-button btn cancel-btn"> <a href="create_an_event.html"
                                         class="text-decoration-none" style="color: var(--primary-purple-color);">
-                                        Back</a></button>
+                                        Cancel</a></button>
                                 <button class="next-button btn save-btn" onclick="validateStep1(event)">Save &amp;
                                     Next</button>
                             </div>
@@ -434,25 +434,21 @@
                                                         <div class="mb-3">
                                                             <label for="questionfield" class="form-label">Enter
                                                                 Question</label>
-
                                                             <textarea class="form-control" id="questionfield"
-                                                                rows="3"></textarea>
+                                                                rows="3" minlength="5"></textarea>
+                                                            <div id="question-error"></div>
                                                             <div class="d-flex justify-content-between">
-
                                                                 <div class="form-check mt-2">
                                                                     <input class="form-check-input" type="checkbox"
                                                                         value="" id="questionchecked">
                                                                     <label class="form-check-label"
-                                                                        for="questionchecked">
-                                                                        Required
-                                                                    </label>
+                                                                        for="questionchecked">Required</label>
                                                                 </div>
                                                                 <div class="form-check form-switch mt-2">
                                                                     <input class="form-check-input" type="checkbox"
                                                                         role="switch" id="add-question-switch">
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -469,17 +465,17 @@
                                                                 <option value="5">Phone Number</option>
                                                             </select>
                                                         </div>
-
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn apply-question-btn">Apply</button>
-                                            <button type="button" class="btn cancel-question-btn">Cancel</button>
+                                            <button type="submit" class="btn apply-question-btn" id="apply-button"
+                                                >Apply</button>
+                                            <button type="button" class="btn cancel-question-btn"
+                                                data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -546,7 +542,8 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn apply-question-btn">Apply</button>
-                                            <button type="button" class="btn cancel-question-btn">Cancel</button>
+                                            <button type="button" class="btn cancel-question-btn"
+                                                data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -840,6 +837,8 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 </body>
 <script>
@@ -891,6 +890,18 @@
     }
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- question checked not work -->
 <script>
@@ -1068,15 +1079,15 @@
 
 
         var deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button");
-    var trashIcon = document.createElement("i");
-    trashIcon.classList.add("fa-solid", "fa-trash");
-    deleteButton.appendChild(trashIcon);
-    deleteButton.addEventListener("click", function () {
-        deleteQuestion(questionId);
-    });
-    questionElement.appendChild(deleteButton);
-   
+        deleteButton.classList.add("delete-button");
+        var trashIcon = document.createElement("i");
+        trashIcon.classList.add("fa-solid", "fa-trash");
+        deleteButton.appendChild(trashIcon);
+        deleteButton.addEventListener("click", function () {
+            deleteQuestion(questionId);
+        });
+        questionElement.appendChild(deleteButton);
+
     }
 
     function deleteQuestion(questionId) {
@@ -1084,7 +1095,17 @@
         if (questionElement) {
             questionElement.remove();
         }
+
+
+
+
+
+
+
+
+
     }
+
 
     // Function to open the Edit Question Modal with the selected question's values
     // function openEditQuestionModal(questionId) {
@@ -1157,6 +1178,13 @@
     });
 
 </script>
+
+
+
+
+
+
+
 
 <script>
     function validateStep2(event) {
@@ -1352,10 +1380,15 @@
             option.addEventListener('click', function (event) {
                 event.preventDefault();
                 var value = this.getAttribute('data-value');
-                var text = this.textContent.trim();
+                // var text = this.textContent.trim();
+                var text = this.querySelector('.destination-name').textContent.trim(); // Get only the text from destination-name
 
                 selectDestination.value = value;
                 dropdownToggle.textContent = text;
+
+
+                var dropdownMenu = document.querySelector('.dropdown-menu');
+                dropdownMenu.style.display = 'none'; // Hide the dropdown menu
             });
         });
     });
