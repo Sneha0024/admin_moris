@@ -379,7 +379,7 @@
                                 <div id="LinkUrl-error" class="error-message"></div>
                             </div>
                             <div class="btns">
-                                <button class="previous-button btn cancel-btn">Cancel</button>
+                                <button class="previous-button btn cancel-btn"> <a href="create_an_event.html" class="text-decoration-none" style="color: var(--primary-purple-color);"> Back</a></button>
                                 <button class="next-button btn save-btn" onclick="validateStep1(event)">Save &amp;
                                     Next</button>
                             </div>
@@ -398,7 +398,7 @@
                             <div id="questionContainer"></div>
 
                             <div class="btns">
-                                <button class="previous-button cancel-btn btn" onclick="goToStep1()">Cancel</button>
+                                <button class="previous-button cancel-btn btn" onclick="goToStep1(event)">Back</button>
                                 <button class="next-button save-btn btn" onclick="validateStep2(event)">Save &
                                     Next</button>
 
@@ -435,20 +435,24 @@
 
                                                             <textarea class="form-control" id="questionfield"
                                                                 rows="3"></textarea>
-                                                            <div class="form-check mt-2">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    id="questionchecked">
-                                                                <label class="form-check-label" for="questionchecked">
-                                                                    Required
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check form-switch mt-2">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    role="switch" id="add-question-switch">
-                                                            </div>
+                                                                <div class="d-flex justify-content-between">
+
+                                                                    <div class="form-check mt-2">
+                                                                        <input class="form-check-input" type="checkbox" value=""
+                                                                            id="questionchecked">
+                                                                        <label class="form-check-label" for="questionchecked">
+                                                                            Required
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check form-switch mt-2">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            role="switch" id="add-question-switch">
+                                                                    </div>
+                                                                </div>
+                                                            
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-md-8 d-none">
+                                                    <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="answertype" class="form-label">Answer
                                                                 Type</label>
@@ -516,7 +520,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-md-8 d-none">
+                                                    <div class="col-12">
                                                         <div class="mb-3">
                                                             <label for="answertype" class="form-label">Answer
                                                                 Type</label>
@@ -618,7 +622,7 @@
                                 <div id="eventname-error-step3" class="error-message"></div>
                             </div>
                             <div class="btns">
-                                <button class="previous-button btn cancel-btn">Cancel</button>
+                                <button class="previous-button btn cancel-btn" onclick="goToStep2(event)">Back</button>
                                 <button class="next-button save-btn btn" onclick="return validateForm3()">Save &
                                     Next</button>
 
@@ -759,7 +763,7 @@
                                 </div>
                             </div>
                             <div class="btns">
-                                <button class="previous-button cancel-btn btn"> Cancel</button>
+                                <button class="previous-button cancel-btn btn" onclick="goToStep3(event)">Back</button>
                                 <button class="next-button save-btn btn" onclick="validateStep4(event)">Save &
                                     Next</button>
 
@@ -812,7 +816,7 @@
                                 </div>
                             </div>
                             <div class="btns">
-                                <button class="previous-button cancel-btn btn"> Cancel</button>
+                                <button class="previous-button cancel-btn btn" onclick="goToStep4(event)">Back</button>
                                 <button class="next-button save-btn btn">Save &
                                     Next</button>
 
@@ -1322,9 +1326,37 @@
     });
 </script>
 <script>
-    function goToStep1() {
-        const step1Element = document.getElementById('step-1');
-        step1Element.scrollIntoView({ behavior: 'smooth' });
+    function goToStep1(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("step-2").classList.remove("active");
+        document.getElementById("step-1").classList.add("active");
+        document.getElementById("step-no-2").classList.remove("active");
+        document.getElementById("step-no-1").classList.add("active");
+
+    }
+    function goToStep2(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("step-3").classList.remove("active");
+        document.getElementById("step-2").classList.add("active");
+        document.getElementById("step-no-3").classList.remove("active");
+        document.getElementById("step-no-2").classList.add("active");
+
+    }
+    function goToStep3(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("step-4").classList.remove("active");
+        document.getElementById("step-3").classList.add("active");
+        document.getElementById("step-no-4").classList.remove("active");
+        document.getElementById("step-no-3").classList.add("active");
+
+    }
+    function goToStep4(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("step-5").classList.remove("active");
+        document.getElementById("step-4").classList.add("active");
+        document.getElementById("step-no-5").classList.remove("active");
+        document.getElementById("step-no-4").classList.add("active");
+
     }
 </script>
 
