@@ -3329,6 +3329,16 @@ body {
             top: 0;
             right: 0;
           }
+          .delete-button {
+            position: absolute;
+            right: -51px;
+            bottom: 3px;
+            border: none;
+            background-color: transparent;
+            color: var(--primary-purple-color);
+            font-size: 22px;
+          
+          }
         }
       }
       #step-4 {

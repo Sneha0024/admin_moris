@@ -3089,6 +3089,15 @@ body {
   top: 0;
   right: 0;
 }
+.create-event-one-on-one-section .step-section-content .step-content #questionContainer .question .delete-button {
+  position: absolute;
+  right: -51px;
+  bottom: 3px;
+  border: none;
+  background-color: transparent;
+  color: var(--primary-purple-color);
+  font-size: 22px;
+}
 .create-event-one-on-one-section .step-section-content .step-content #step-4 .tab-header {
   display: flex;
 }

@@ -379,7 +379,9 @@
                                 <div id="LinkUrl-error" class="error-message"></div>
                             </div>
                             <div class="btns">
-                                <button class="previous-button btn cancel-btn"> <a href="create_an_event.html" class="text-decoration-none" style="color: var(--primary-purple-color);"> Back</a></button>
+                                <button class="previous-button btn cancel-btn"> <a href="create_an_event.html"
+                                        class="text-decoration-none" style="color: var(--primary-purple-color);">
+                                        Back</a></button>
                                 <button class="next-button btn save-btn" onclick="validateStep1(event)">Save &amp;
                                     Next</button>
                             </div>
@@ -435,21 +437,22 @@
 
                                                             <textarea class="form-control" id="questionfield"
                                                                 rows="3"></textarea>
-                                                                <div class="d-flex justify-content-between">
+                                                            <div class="d-flex justify-content-between">
 
-                                                                    <div class="form-check mt-2">
-                                                                        <input class="form-check-input" type="checkbox" value=""
-                                                                            id="questionchecked">
-                                                                        <label class="form-check-label" for="questionchecked">
-                                                                            Required
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="form-check form-switch mt-2">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            role="switch" id="add-question-switch">
-                                                                    </div>
+                                                                <div class="form-check mt-2">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="" id="questionchecked">
+                                                                    <label class="form-check-label"
+                                                                        for="questionchecked">
+                                                                        Required
+                                                                    </label>
                                                                 </div>
-                                                            
+                                                                <div class="form-check form-switch mt-2">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        role="switch" id="add-question-switch">
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -1005,10 +1008,10 @@
             answerInput.type = "text";
         } else if (answerType === "2") {
             answerInput = document.createElement("input");
-            answerInput.type = "radio";
+            answerInput.type = "text";
         } else if (answerType === "3") {
             answerInput = document.createElement("input");
-            answerInput.type = "checkbox";
+            answerInput.type = "text";
         } else if (answerType === "4") {
             answerInput = document.createElement("select");
             // Add options to the select element
@@ -1048,8 +1051,40 @@
         var addQuestionModal = document.getElementById("addQuestionModal");
         var bootstrapModal = bootstrap.Modal.getInstance(addQuestionModal);
         bootstrapModal.hide();
+
+
+
+
+
+        // Add the delete button to the question element
+        // var deleteButton = document.createElement("button");
+        // deleteButton.classList.add("delete-button");
+        // deleteButton.textContent = "Delete";
+        // deleteButton.addEventListener("click", function () {
+        //     deleteQuestion(questionId);
+        // });
+        // questionElement.appendChild(deleteButton);
+
+
+
+        var deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    var trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa-solid", "fa-trash");
+    deleteButton.appendChild(trashIcon);
+    deleteButton.addEventListener("click", function () {
+        deleteQuestion(questionId);
+    });
+    questionElement.appendChild(deleteButton);
+   
     }
 
+    function deleteQuestion(questionId) {
+        var questionElement = document.getElementById(questionId);
+        if (questionElement) {
+            questionElement.remove();
+        }
+    }
 
     // Function to open the Edit Question Modal with the selected question's values
     // function openEditQuestionModal(questionId) {
