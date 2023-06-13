@@ -456,14 +456,45 @@
                                                             <label for="answertype" class="form-label">Answer
                                                                 Type</label>
                                                             <select class="form-select" aria-label="answertype"
-                                                                id="answertype">
+                                                                id="answertype" onchange="toggleOptionsSections()">
                                                                 <option selected value="One line">One Line</option>
-                                                                <option value="1">Multiple Lines</option>
-                                                                <option value="2">Radio Buttons</option>
-                                                                <option value="3">Checkboxes</option>
-                                                                <option value="4">Dropdown</option>
-                                                                <option value="5">Phone Number</option>
+                                                                <option value="Multiple_lines">Multiple Lines</option>
+                                                                <option value="Radio_Button">Radio Buttons</option>
+                                                                <option value="Checkboxes">Checkboxes</option>
+                                                                <option value="Phone">Phone Number</option>
                                                             </select>
+                                                        </div>
+                                                    </div>
+                                                    <div id="radio-button-options-section" class="mb-3">
+                                                        <h6>Radio Button Options:</h6>
+                                                        <div class="option-buttons">
+                                                            <div class="option-area" id="editRadioOptionsSection">
+                                                                <input type="text" class="form-control new-option-field"
+                                                                    placeholder="Option">
+                                                                <button type="button"
+                                                                    class="btn btn-danger remove-option-button"
+                                                                    onclick="removeOption(this)">Remove</button>
+                                                            </div>
+                                                            <button class="btn btn-primary add-option-button"
+                                                                onclick="addOption('editRadioOptionsSection')">Add
+                                                                Option</button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="checkbox-button-options-section" class="mb-3">
+                                                        <h6>Checkbox Options:</h6>
+                                                        <div class="option-buttons" id="editCheckboxOptionsSection">
+                                                            <input type="text" class="form-control new-option-field"
+                                                                placeholder="Option">
+                                                            <button type="button"
+                                                                class="btn btn-success add-option-button"
+                                                                onclick="addOption('editCheckboxOptionsSection')">Add
+                                                                Option</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div id="textarea-section" style="display: none;">
+                                                            <textarea cols="30" rows="10"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -524,18 +555,45 @@
                                                             <label for="answertype" class="form-label">Answer
                                                                 Type</label>
                                                             <select class="form-select" aria-label="answertype"
-                                                                id="answertype">
+                                                                id="answertype" onchange="toggleOptionsSections()">
                                                                 <option selected value="One line">One Line</option>
-                                                                <option value="1">Multiple Lines</option>
-                                                                <option value="2">Radio Buttons</option>
-                                                                <option value="3">Checkboxes</option>
-                                                                <option value="4">Dropdown</option>
-                                                                <option value="5">Phone Number</option>
+                                                                <option value="Multiple_lines">Multiple Lines</option>
+                                                                <option value="Radio_Button">Radio Buttons</option>
+                                                                <option value="Checkboxes">Checkboxes</option>
+                                                                <option value="Phone">Phone Number</option>
                                                             </select>
                                                         </div>
 
                                                     </div>
-
+                                                    <div id="radio-button-options-section" class="mb-3">
+                                                        <h6>Radio Button Options:</h6>
+                                                        <div class="option-buttons" id="editRadioOptionsSection">
+                                                            <div class="option-area">
+                                                                <input type="text" class="form-control new-option-field"
+                                                                    placeholder="Option">
+                                                                <button type="button"
+                                                                    class="btn btn-danger remove-option-button"
+                                                                    onclick="removeOption(this)">Remove</button>
+                                                            </div>
+                                                            <button class="btn btn-primary add-option-button"
+                                                                onclick="addOption('editRadioOptionsSection')">Add
+                                                                Option</button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="checkbox-button-options-section" class="mb-3">
+                                                        <h6>Checkbox Options:</h6>
+                                                        <div class="option-buttons">
+                                                            <input type="text" class="form-control new-option-field"
+                                                                placeholder="Option">
+                                                            <button class="btn btn-primary add-option-button">Add
+                                                                Option</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div id="textarea-section" style="display: none;">
+                                                            <textarea cols="30" rows="10"></textarea>
+                                                        </div>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -904,7 +962,7 @@
 
 
 <!-- question checked not work -->
-<script>
+<!-- <script>
     // Counter to generate unique question IDs
     var questionCounter = 1;
     function applyQuestion() {
@@ -1155,12 +1213,490 @@
         bootstrapModal.hide();
     });
 
+</script> -->
+<!-- -------------------------------------------------- -->
+
+
+<script>
+    // Counter to generate unique question IDs
+    var questionCounter = 1;
+    function toggleOptionsSections() {
+        console.log("toggleeeeeeeeeeeeeeeeeeeeeee")
+        var answerType = document.getElementById("answertype").value;
+        var radioOptionsSection = document.getElementById("radio-button-options-section");
+        var checkboxOptionsSection = document.getElementById("checkbox-button-options-section");
+        console.log(answerType, "answertypeee")
+        if (answerType === "Radio_Button") {
+            radioOptionsSection.style.display = "block";
+            checkboxOptionsSection.style.display = "none";
+        } else if (answerType === "Checkboxes") {
+            radioOptionsSection.style.display = "none";
+            checkboxOptionsSection.style.display = "block";
+        } else {
+            radioOptionsSection.style.display = "none";
+            checkboxOptionsSection.style.display = "none";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    function applyQuestion() {
+        var question = document.getElementById("questionfield").value;
+        var answerType = document.getElementById("answertype").value;
+        var questionId = "question_" + questionCounter;
+        var required = document.getElementById("questionchecked").checked;
+
+        // Check if the question field is empty
+        if (question === "") {
+            // Display an error message or perform appropriate action
+            alert("Enter Question to apply");
+            return;
+        }
+
+        // Create the question element
+        var questionElement = document.createElement("div");
+        questionElement.classList.add("question");
+        questionElement.id = questionId;
+        questionElement.setAttribute("data-required", required);
+
+        // Add the question text
+        var questionText = document.createElement("div");
+        questionText.classList.add("question-text");
+        questionText.textContent = question;
+
+        // Add the "*" sign if the checkbox is checked
+        if (required) {
+            var requiredSign = document.createElement("span");
+            requiredSign.classList.add("required-sign");
+            requiredSign.textContent = "*";
+            questionText.appendChild(requiredSign);
+        }
+
+        questionElement.appendChild(questionText);
+
+        // Add the answer input based on the answer type
+        var answerInput;
+        if (answerType === "One line") {
+            answerInput = document.createElement("input");
+            answerInput.type = "text";
+        } else if (answerType === "Multiple_lines") {
+            answerInput = document.createElement("textarea");
+            answerInput.rows = "3";
+        } else if (answerType === "Radio_Button") {
+
+            answerInput = document.createElement("div");
+        answerInput.classList.add("radio-button-options", "answer-input");
+
+        // Add the radio options
+        var radioOptionsSection = document.getElementById("radio-button-options-section");
+        var optionElements = radioOptionsSection.getElementsByClassName("new-option-field");
+
+        for (var i = 0; i < optionElements.length; i++) {
+            var optionText = optionElements[i].value.trim();
+            if (optionText !== "") {
+                var radioOption = document.createElement("div");
+                radioOption.classList.add("radio-option");
+
+                var radioInput = document.createElement("input");
+                radioInput.type = "radio";
+                radioInput.name = questionId + "_radio";
+                radioInput.value = optionText;
+
+                var radioLabel = document.createElement("label");
+                radioLabel.textContent = optionText;
+
+                radioOption.appendChild(radioInput);
+                radioOption.appendChild(radioLabel);
+
+                answerInput.appendChild(radioOption);
+            }
+        }
+
+        // Clear the option fields
+        radioOptionsSection.innerHTML = "";
+
+        
+        } else if (answerType === "Checkboxes") {
+            answerInput = document.createElement("div");
+            answerInput.classList.add("checkbox-button-options");
+        }
+
+        // Add the answer input to the question element
+        if (answerInput) {
+            answerInput.classList.add("answer-input");
+            questionElement.appendChild(answerInput);
+        }
+
+        // Add the edit button to the question element
+        var editButton = document.createElement("button");
+        editButton.classList.add("edit-button");
+        editButton.textContent = "Edit";
+        editButton.addEventListener("click", function () {
+            openEditQuestionModal(questionId);
+        });
+        questionElement.appendChild(editButton);
+
+
+
+
+
+
+        // Append the question element to the question container
+        var questionContainer = document.getElementById("questionContainer");
+        questionContainer.appendChild(questionElement);
+
+        // Increment the question counter
+        questionCounter++;
+
+        // Reset the form fields
+        document.getElementById("questionfield").value = "";
+        document.getElementById("answertype").selectedIndex = 0;
+
+        // Close the Add Question Modal
+        var addQuestionModal = document.getElementById("addQuestionModal");
+        var bootstrapModal = bootstrap.Modal.getInstance(addQuestionModal);
+        bootstrapModal.hide();
+
+
+
+
+
+
+
+
+
+
+        function removeOption(button) {
+            var optionDiv = button.parentNode;
+            optionDiv.remove();
+        }
+
+
+
+
+
+
+
+
+
+        var addOptionButton = questionElement.getElementsByClassName("add-option-button")[0];
+        var removeOptionButtons = questionElement.getElementsByClassName("remove-option-button");
+
+
+        // function addOption(sectionId) {
+        //     var optionsSection = document.getElementById(sectionId);
+        //     var optionText = optionsSection.querySelector(".new-option-field").value.trim();
+
+        //     // Check if the option field is empty
+        //     if (optionText === "") {
+        //         // Display an alert message
+        //         alert("Option field cannot be empty");
+        //         return;
+        //     }
+
+        //     var optionDiv = document.createElement("div");
+        //     optionDiv.classList.add("option");
+        //     optionDiv.textContent = optionText;
+
+        //     var removeButton = document.createElement("button");
+        //     removeButton.classList.add("remove-option-button");
+        //     removeButton.textContent = "Remove";
+        //     removeButton.onclick = function () {
+        //         removeOption(this);
+        //     };
+
+        //     optionDiv.appendChild(removeButton);
+        //     optionsSection.parentNode.previousElementSibling.appendChild(optionDiv);
+
+        //     // Clear the option field
+        //     optionsSection.querySelector(".new-option-field").value = "";
+        // }
+
+
+
+
+
+
+
+        function addOption(button) {
+  var optionField = button.previousSibling;
+  var optionText = optionField.value.trim();
+
+  // Check if the option field is empty
+  if (optionText === "") {
+    // Display an alert message
+    alert("Option field cannot be empty");
+    return;
+  }
+
+  var optionDiv = document.createElement("div");
+  optionDiv.classList.add("option");
+
+  var radioInput = document.createElement("input");
+  radioInput.type = "radio";
+  radioInput.name = button.parentNode.parentNode.id + "_radio";
+  radioInput.value = optionText;
+
+  var radioLabel = document.createElement("label");
+  radioLabel.textContent = optionText;
+
+  optionDiv.appendChild(radioInput);
+  optionDiv.appendChild(radioLabel);
+
+  button.parentNode.parentNode.appendChild(optionDiv);
+
+  // Clear the option field
+  optionField.value = "";
+}
+
+    }
+
+    function deleteQuestion(questionId) {
+        var questionElement = document.getElementById(questionId);
+        if (questionElement) {
+            questionElement.remove();
+        }
+    }
+
+    function openEditQuestionModal(questionId) {
+        var questionElement = document.getElementById(questionId);
+        var questionText = questionElement.querySelector(".question-text").textContent;
+        var isRequired = questionElement.getAttribute("data-required") === "true";
+
+        // Set the question text in the Edit Question Modal
+        var editQuestionModal = document.getElementById("editQuestionModal");
+        var editQuestionField = editQuestionModal.querySelector("#questionfield");
+        editQuestionField.value = questionText;
+
+        // Check the checkbox if the question is required
+        var editQuestionChecked = editQuestionModal.querySelector("#questionchecked");
+        editQuestionChecked.checked = isRequired;
+
+        // Add the "*" sign if the checkbox is checked
+        var editQuestionLabelText = editQuestionModal.querySelector(".form-check-label");
+        if (isRequired) {
+            var requiredSign = document.createElement("span");
+            requiredSign.classList.add("required-sign");
+            requiredSign.textContent = "*";
+            editQuestionLabelText.appendChild(requiredSign);
+        }
+
+        // Store the questionId in a data attribute of the modal
+        editQuestionModal.dataset.questionId = questionId;
+
+        // Open the Edit Question Modal
+        var bootstrapModal = new bootstrap.Modal(editQuestionModal); // Create a new Bootstrap Modal instance
+        bootstrapModal.show();
+    }
+
+
+
+
+
+
+
+
+
+
+    function removeOption(button) {
+        var optionDiv = button.parentNode;
+        optionDiv.remove();
+    }
+
+    // Event listener for the Apply button in the Add Question Modal
+    document.querySelector("#addQuestionModal .apply-question-btn").addEventListener("click", function () {
+        applyQuestion();
+    });
+
+    // Event listener for the Apply button in the Edit Question Modal
+    document.querySelector("#editQuestionModal .apply-question-btn").addEventListener("click", function () {
+        applyEditedQuestion();
+    });
+
+    // Event listener for the Hide event of the Edit Question Modal
+    document.querySelector("#editQuestionModal").addEventListener("hide.bs.modal", function (event) {
+        var editQuestionModal = event.target;
+        var questionText = editQuestionModal.querySelector("#questionfield").value.trim();
+
+        // Check if the question field is empty
+        if (questionText === "") {
+            // Display an alert message
+            alert("Question field cannot be empty");
+            // Prevent the modal from closing
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    });
+
+    // Event listener for the Add Option button in the Edit Question Modal (Radio Button)
+    document.querySelector("#editRadioOptionsSection .add-option-button").addEventListener("click", function () {
+        addOption("editRadioOptionsSection");
+    });
+
+    // Event listener for the Add Option button in the Edit Question Modal (Checkboxes)
+    document.querySelector("#editCheckboxOptionsSection .add-option-button").addEventListener("click", function () {
+        addOption("editCheckboxOptionsSection");
+    });
+
+    function addOption(sectionId) {
+        var optionsSection = document.getElementById(sectionId);
+        var optionText = optionsSection.querySelector(".new-option-field").value.trim();
+
+        // Check if the option field is empty
+        if (optionText === "") {
+            // Display an alert message
+            alert("Option field cannot be empty");
+            return;
+        }
+
+        var optionDiv = document.createElement("div");
+        optionDiv.classList.add("option");
+        optionDiv.textContent = optionText;
+
+        var removeButton = document.createElement("button");
+        removeButton.classList.add("remove-option-button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = function () {
+            removeOption(this);
+        };
+
+        optionDiv.appendChild(removeButton);
+        optionsSection.parentNode.previousElementSibling.appendChild(optionDiv);
+
+
+        // Clear the option field
+        optionsSection.querySelector(".new-option-field").value = "";
+    }
+
+    // function applyEditedQuestion() {
+    //     var editQuestionModal = document.getElementById("editQuestionModal");
+    //     var questionId = editQuestionModal.dataset.questionId;
+    //     var questionElement = document.getElementById(questionId);
+
+    //     // Get the updated question text
+    //     var updatedQuestionText = editQuestionModal.querySelector("#questionfield").value.trim();
+    //     var questionTextElement = questionElement.querySelector(".question-text");
+    //     questionTextElement.textContent = updatedQuestionText;
+
+    //     // Get the updated required status
+    //     var updatedRequiredStatus = editQuestionModal.querySelector("#questionchecked").checked;
+    //     questionElement.setAttribute("data-required", updatedRequiredStatus);
+
+    //     // Update the "*" sign based on the required status
+    //     var requiredSign = questionTextElement.querySelector(".required-sign");
+    //     if (updatedRequiredStatus && !requiredSign) {
+    //         requiredSign = document.createElement("span");
+    //         requiredSign.classList.add("required-sign");
+    //         requiredSign.textContent = "*";
+    //         questionTextElement.appendChild(requiredSign);
+    //     } else if (!updatedRequiredStatus && requiredSign) {
+    //         requiredSign.remove();
+    //     }
+
+    //     // Update the answer options if the question type is radio or checkbox
+    //     var answerInput = questionElement.querySelector(".answer-input");
+    //     var optionElements = answerInput.getElementsByClassName("option");
+    //     for (var i = optionElements.length - 1; i >= 0; i--) {
+    //         optionElements[i].remove();
+    //     }
+
+    //     var optionsSection;
+    //     if (answerInput.classList.contains("radio-button-options")) {
+    //         optionsSection = editQuestionModal.querySelector("#editRadioOptionsSection");
+    //     } else if (answerInput.classList.contains("checkbox-button-options")) {
+    //         optionsSection = editQuestionModal.querySelector("#editCheckboxOptionsSection");
+    //     }
+
+    //     var editOptionElements = optionsSection.getElementsByClassName("option");
+    //     for (var j = 0; j < editOptionElements.length; j++) {
+    //         var optionText = editOptionElements[j].textContent;
+    //         var optionDiv = document.createElement("div");
+    //         optionDiv.classList.add("option");
+    //         optionDiv.textContent = optionText;
+
+    //         var removeButton = document.createElement("button");
+    //         removeButton.classList.add("remove-option-button");
+    //         removeButton.textContent = "Remove";
+    //         removeButton.onclick = function () {
+    //             removeOption(this);
+    //         };
+
+    //         optionDiv.appendChild(removeButton);
+    //         answerInput.appendChild(optionDiv);
+    //     }
+
+    //     // Close the Edit Question Modal
+    //     var bootstrapModal = bootstrap.Modal.getInstance(editQuestionModal);
+    //     bootstrapModal.hide();
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function applyEditedQuestion() {
+        var editQuestionModal = document.getElementById("editQuestionModal");
+        var questionId = editQuestionModal.dataset.questionId;
+        var questionElement = document.getElementById(questionId);
+        var questionText = editQuestionModal.querySelector("#questionfield").value.trim();
+
+        // Check if the question field is empty
+        if (questionText === '') {
+            // Display an alert message
+            alert("Question field cannot be empty");
+            return;
+        }
+
+        // Update the question text
+        questionElement.querySelector(".question-text").textContent = questionText;
+
+        // Close the Edit Question Modal
+        var bootstrapModal = bootstrap.Modal.getInstance(editQuestionModal);
+        bootstrapModal.hide();
+    }
+
 </script>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -------------------------------------------- -->
 
 
 

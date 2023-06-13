@@ -824,7 +824,7 @@
         <!-- create event modal ends -->
       </div>
       <div class="col-12 col-md-4 my-calender-second-section">
-        <div id="scheduled-events"></div>
+        <div id="scheduled-events" style="display: none;"></div>
         <div id="create-event-section" style="display: none;">
           <div class="create-event-section-area">
             <div class="date-selected"></div>
@@ -986,6 +986,10 @@
         <div class="modal-body">
           <p id="event-modal-description"></p>
           <p id="event-modal-date"></p>
+          <p id="event-modal-city"></p>
+          <p id="event-modal-address"></p>
+          <p id="event-modal-destination"></p>
+          <p id="event-modal-time"></p>
         </div>
       </div>
     </div>
@@ -1031,12 +1035,17 @@
           } else {
             var day = document.createElement('div');
             day.className = 'calendar-day';
-            day.textContent = dayCount;
+            // day.textContent = dayCount;
+
+            var date = document.createElement('div');
+            date.className = 'calendar-date';
+            date.textContent = dayCount;
+
             if (j === 0) {
               day.classList.add('sunday'); // Add "sunday" class to Sundays
             }
 
-            day.addEventListener('click', function (event) {
+            date.addEventListener('click', function (event) {
               var modal = new bootstrap.Modal(document.getElementById('modal'));
               modal.show();
 
@@ -1066,7 +1075,7 @@
               // Store the selected date
               selectedDate = clickedDate;
             });
-
+            day.appendChild(date);
             calendarGrid.appendChild(day);
             dayCount++;
           }
@@ -1083,7 +1092,12 @@
         // Retrieve the event details from the form
         var eventTitle = document.getElementById('event-title').value;
         var eventDescription = document.getElementById('event-description').value;
-
+        var timezoneOffset = document.getElementById('timezone-offset').value;
+        var eventTimeFrom = document.getElementById('event-time-form').value;
+        var eventTimeTo = document.getElementById('event-time-to').value;
+        // var destination = document.getElementById('destinationDropdownMenu').value;
+        var eventAddress = document.getElementById('event-address').value;
+        var eventCity = document.getElementById('event-city').value;
         // Step 5: Create a new event <div> and append it to the selected date
         createEvent(eventTitle, eventDescription, selectedDate);
 
@@ -1098,16 +1112,28 @@
       });
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     // Step 6: Assign a unique class name to the new event <div>
 
     function createEvent(eventTitle, eventDescription, selectedDate) {
-      var calendarDay = document.querySelector('.calendar-day.selected');
+      var calendarDay = document.querySelector('.calendar-date.selected');
       var eventCount = calendarDay.querySelectorAll('.event').length;
 
       var newEventDiv = document.createElement('div');
       newEventDiv.className = 'event has-event-' + (eventCount + 1);
 
-      var eventTitleElement = document.createElement('h4');
+      var eventTitleElement = document.createElement('h6');
       eventTitleElement.textContent = eventTitle;
       newEventDiv.appendChild(eventTitleElement);
 
@@ -1118,13 +1144,13 @@
 
       // Add "View Event" button and event details display functionality
       var viewButton = document.createElement('button');
-      viewButton.textContent = 'View Event';
+      viewButton.textContent = '';
       viewButton.addEventListener('click', function () {
         displayEventDetails(eventTitle, eventDescription, selectedDate);
       });
       newEventDiv.appendChild(viewButton);
-     
-     
+
+
       // calendarDay.appendChild(newEventDiv);
       calendarDay.parentElement.appendChild(newEventDiv);
 
@@ -1143,14 +1169,45 @@
       var modal = new bootstrap.Modal(document.getElementById('event-modal'));
       modal.show();
 
-      var modalTitle = document.getElementById('event-modal-title');
-      modalTitle.textContent = eventTitle;
+      // var modalTitle = document.getElementById('event-modal-title');
+      // modalTitle.textContent = eventTitle;
+
+      // var modalDescription = document.getElementById('event-modal-description');
+      // modalDescription.textContent = eventDescription;
+
+      // var modalDate = document.getElementById('event-modal-date');
+      // modalDate.textContent = formatDate(selectedDate);
+
+
+
+          var modalTitle = document.getElementById('event-modal-title');
+      modalTitle.textContent = 'Event title: ' + eventTitle;
 
       var modalDescription = document.getElementById('event-modal-description');
-      modalDescription.textContent = eventDescription;
+      modalDescription.textContent = 'Description: ' + eventDescription;
 
       var modalDate = document.getElementById('event-modal-date');
-      modalDate.textContent = formatDate(selectedDate);
+      modalDate.textContent = 'Date: ' + formatDate(selectedDate);
+
+      var modalTime = document.getElementById('event-modal-time');
+      var eventTimeFrom = document.getElementById('event-time-form').value;
+      var eventTimeTo = document.getElementById('event-time-to').value;
+      modalTime.textContent = 'Time: ' + eventTimeFrom + ' to ' + eventTimeTo;
+
+      var modalDestination = document.getElementById('event-modal-destination');
+      var destinationDropdownMenu = document.getElementById('destinationDropdownMenu');
+      var selectedDestination = destinationDropdownMenu.querySelector('.dropdown-item-destination.active');
+      var destinationName = selectedDestination.querySelector('.destination-name').textContent;
+      modalDestination.textContent = 'Destination: ' + destinationName;
+
+      var modalAddress = document.getElementById('event-modal-address');
+      var eventAddress = document.getElementById('event-address').value;
+      modalAddress.textContent = 'Address: ' + eventAddress;
+
+      var modalCity = document.getElementById('event-modal-city');
+      var eventCity = document.getElementById('event-city').value;
+      modalCity.textContent = 'City: ' + eventCity;
+
     }
 
 
@@ -1158,7 +1215,7 @@
 
 
 
-    
+
     function closeModal() {
       var eventDetailsDiv = document.getElementById('event-details');
       eventDetailsDiv.style.display = 'none';
@@ -1225,7 +1282,7 @@
     });
 
     // Additional code you provided
-    document.getElementById('create-event-form').addEventListener('submit', function (event) {
+    document.getElementById('create-event-form-old').addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent form submission
 
       // Get the form values
@@ -1264,6 +1321,247 @@
       alert('Event created successfully555555555!');
     });
   </script>
+
+
+
+
+
+
+  <!--  -->
+
+
+
+
+  <!-- <script>
+    // Get current date
+    var currentDate = new Date();
+
+    // Event data
+    var events = {};
+
+    // Generate calendar
+    function generateCalendar(year, month) {
+      var calendarHeader = document.getElementById('current-month');
+      var calendarGrid = document.getElementById('calendar-grid');
+      calendarGrid.innerHTML = '';
+
+      // Set the current month and year
+      calendarHeader.textContent = new Date(year, month).toLocaleString('en-us', { month: 'long', year: 'numeric' });
+
+      // Get the first day of the month
+      var firstDay = new Date(year, month, 1);
+      var startingDay = firstDay.getDay();
+
+      // Get the number of days in the month
+      var monthLength = new Date(year, month + 1, 0).getDate();
+
+      // Create the calendar grid
+      var dayCount = 1;
+      for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 7; j++) {
+          if ((i === 0 && j < startingDay) || dayCount > monthLength) {
+            var day = document.createElement('div');
+            day.className = 'calendar-day empty';
+            calendarGrid.appendChild(day);
+          } else {
+            var day = document.createElement('div');
+            day.className = 'calendar-day';
+
+            var date = document.createElement('div');
+            date.className = 'calendar-date';
+            date.textContent = dayCount;
+
+            if (j === 0) {
+              date.classList.add('sunday'); // Add "sunday" class to Sundays
+            }
+
+            date.addEventListener('click', function (event) {
+              showModal(event.target);
+            });
+
+            day.appendChild(date);
+            calendarGrid.appendChild(day);
+            dayCount++;
+          }
+        }
+      }
+    }
+
+    function showModal(calendarDate) {
+      var selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), parseInt(calendarDate.textContent));
+      var calendarDay = calendarDate.parentNode;
+
+      var modal = new bootstrap.Modal(document.getElementById('modal'));
+      modal.show();
+
+      var modalDate = document.getElementById('modal-date');
+      modalDate.textContent = formatDate(selectedDate);
+
+      // Remove the class from the previously selected day
+      var previousSelectedDay = document.querySelector('.calendar-day.selected');
+      if (previousSelectedDay) {
+        previousSelectedDay.classList.remove('selected');
+      }
+
+      // Add the class to the currently selected day
+      calendarDay.classList.add('selected');
+
+      // Toggle the display of the create event section
+      var createEventSection = document.getElementById('create-event-section');
+      createEventSection.style.display = 'block';
+
+      // Update the date in the create event section
+      var dateSelected = document.querySelector('.date-selected');
+      dateSelected.textContent = formatDate(selectedDate);
+    }
+
+    function createEvent(eventTitle, eventDescription, selectedDate) {
+      var calendarDay = document.querySelector('.calendar-day.selected');
+      var eventCount = calendarDay.querySelectorAll('.event').length;
+
+      var newEventDiv = document.createElement('div');
+      newEventDiv.className = 'event has-event-' + (eventCount + 1);
+
+      var eventTitleElement = document.createElement('h4');
+      eventTitleElement.textContent = eventTitle;
+      newEventDiv.appendChild(eventTitleElement);
+
+      var eventDescriptionElement = document.createElement('p');
+      eventDescriptionElement.textContent = eventDescription;
+      newEventDiv.appendChild(eventDescriptionElement);
+
+      // Add "View Event" button and event details display functionality
+      var viewButton = document.createElement('button');
+      viewButton.textContent = 'View Event';
+      viewButton.addEventListener('click', function () {
+        displayEventDetails(eventTitle, eventDescription, selectedDate);
+      });
+      newEventDiv.appendChild(viewButton);
+
+      calendarDay.parentElement.appendChild(newEventDiv);
+
+      var formattedDate = formatDate(new Date(calendarDay.getAttribute('data-date')));
+      if (!events[formattedDate]) {
+        events[formattedDate] = [];
+      }
+      events[formattedDate].push(eventTitle);
+
+      updateScheduledEvents();
+      closeModal();
+    }
+
+    function displayEventDetails(eventTitle, eventDescription, selectedDate) {
+      var modal = new bootstrap.Modal(document.getElementById('event-modal'));
+      modal.show();
+
+      var modalTitle = document.getElementById('event-modal-title');
+      modalTitle.textContent = eventTitle;
+
+      var modalDescription = document.getElementById('event-modal-description');
+      modalDescription.textContent = eventDescription;
+
+      var modalDate = document.getElementById('event-modal-date');
+      modalDate.textContent = formatDate(selectedDate);
+    }
+
+    function closeModal() {
+      var eventDetailsDiv = document.getElementById('event-details');
+      eventDetailsDiv.style.display = 'none';
+    }
+
+    function updateScheduledEvents() {
+      var scheduledEvents = document.getElementById('scheduled-events');
+      scheduledEvents.innerHTML = '';
+
+      for (var date in events) {
+        var eventList = document.createElement('div');
+        eventList.className = 'event-list';
+
+        var eventDate = document.createElement('h3');
+        eventDate.textContent = formatDate(new Date(date));
+        eventList.appendChild(eventDate);
+
+        events[date].forEach(function (event) {
+          var eventName = document.createElement('p');
+          eventName.textContent = event;
+          eventList.appendChild(eventName);
+        });
+
+        scheduledEvents.appendChild(eventList);
+      }
+    }
+
+    function formatDate(date) {
+      var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+    }
+
+    // Generate calendar for the current month
+    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+
+    // Move to the previous month
+    document.getElementById('prev-month').addEventListener('click', function () {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
+
+    // Move to the next month
+    document.getElementById('next-month').addEventListener('click', function () {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
+
+    // Close modal when close button is clicked
+    document.querySelector('.btn-close-custom').addEventListener('click', closeModal);
+
+    // Show modal and handle event creation
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarDates = document.getElementsByClassName('calendar-date');
+      for (var i = 0; i < calendarDates.length; i++) {
+        calendarDates[i].addEventListener('click', function () {
+          showModal(this);
+        });
+      }
+
+      var createEventButton = document.getElementById('create-event-button');
+      createEventButton.addEventListener('click', function () {
+        showModal(null);
+      });
+
+      var createEventForm = document.getElementById('create-event-form');
+      createEventForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Retrieve the event details from the form
+        var eventTitle = document.getElementById('event-title').value;
+        var eventDescription = document.getElementById('event-description').value;
+
+        createEvent(eventTitle, eventDescription, currentDate);
+      });
+    });
+
+  </script> -->
+  <!--  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <!-- destination dropdown -->

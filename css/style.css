@@ -1263,7 +1263,6 @@ body {
   padding-right: 41px;
   margin-right: -30px;
 }
-
 #hour {
   position: absolute;
   background: #fdec07;
@@ -3241,13 +3240,30 @@ body {
   border: 1px solid #ccc;
   background-color: #e9ecfd;
   display: flex;
-  justify-content: end;
   border-radius: 2px;
   cursor: pointer;
 }
 .calendar.my-calender .calendar-day.sunday {
   background-color: #fff4f7;
   color: var(--red-color);
+}
+.calendar.my-calender .calendar-day .event h6 {
+  display: none;
+}
+.calendar.my-calender .calendar-day .event p {
+  display: none;
+}
+.calendar.my-calender .calendar-day .event button {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: var(--primary-purple-color);
+  border: none;
+  padding: 1px;
+  margin-left: 6px;
+}
+.calendar.my-calender .calendar-day .event:first-child {
+  display: inline-block;
 }
 .calendar.my-calender .calendar-day:hover {
   background-color: #f2f2f2;
@@ -3339,8 +3355,6 @@ body {
 }
 .calendar.my-calender .has-event,
 .calendar.my-calender .selected {
-  background-color: #e0c7e6;
-  border: 1px solid #6e0d88;
   color: #6e0d88;
 }
 .calendar.my-calender .modal {
